@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
@@ -112,7 +113,7 @@ public class _TalkBox extends Application {
     public VBox addButtonPanelAndLabel(ScrollPane scrollpane) {
     	
     	 VBox section1 = new VBox(10);
-         section1.getChildren().addAll(this.headerLabel(),scrollpane,this.addLaunchButton(40, 40));
+         section1.getChildren().addAll(Menu().getMenu(),this.headerLabel(),scrollpane,this.addLaunchButton(40, 40));
          return section1;
          
     	
@@ -139,7 +140,11 @@ public class _TalkBox extends Application {
 	}
 	
 
-    
+	public TopMenu Menu(){
+		TopMenu menu = new TopMenu();
+		return menu;
+		
+	}
  
 
 }
