@@ -89,7 +89,7 @@ public class _TalkBox extends Application {
 	
 	public void AddProfileBox(RootView root, ButtonPanel panel) {
 		VBox section2 = new VBox();
-		section2.getChildren().addAll(this.Profiles(),new TextField("Enter Profile"),this.AudioSample(panel).getList());
+		section2.getChildren().addAll(new Label("Profiles"),this.Profiles(),new TextField("Enter Profile"),new Label("Audio"),this.AudioSample(panel).getList());
 		root.addChildView(section2);
 	}
 
@@ -104,8 +104,6 @@ public class _TalkBox extends Application {
    
 
     public Label headerLabel() {
-    	
-    	
     	Label talkBoxLabel = new Label(Names.TITLE);
     	talkBoxLabel.setStyle("-fx-font-family: TRON; -fx-font-size: 20;");
     	return talkBoxLabel;
