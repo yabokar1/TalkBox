@@ -137,7 +137,6 @@ public class _TalkBox extends Application {
 		   
 		   scrollpane.setMinSize(800, 300);
 		   scrollpane.setMaxSize(800, 300);
-		  
 		   return scrollpane;
 	}
 	
