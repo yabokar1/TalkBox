@@ -84,7 +84,11 @@ public class AudioSampleList extends Observable {
 	
 	
 	
-	
+	public ListView<String> getList() {
+		attachListener();
+		return this.privateListView;
+	}
+
 	
 	
 	public VBox getView() {

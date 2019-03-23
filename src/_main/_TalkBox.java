@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -34,7 +35,7 @@ public class _TalkBox extends Application {
         
         ButtonPanel observer = initializeButtonPanel(root);  // extends GridPane
         
-        initializeAudioSampleList(root, observer);
+       AddProfileBox(root,observer);
         
         
        
@@ -70,7 +71,7 @@ public class _TalkBox extends Application {
     
     
 	
-	private void initializeAudioSampleList(RootView root, ButtonPanel panel) {
+	private AudioSampleList AudioSample(ButtonPanel panel) {
 
 	    AudioSampleList sampleList = new AudioSampleList();
 	    
@@ -78,11 +79,20 @@ public class _TalkBox extends Application {
 	    
 	    sampleList.loadFromDisk();
 	    
-	    root.setSpacing(100);
-	    
-	    root.addChildView(sampleList.getView());
+	    return sampleList;
 	    }
-    
+	
+	private ProfileList Profiles() {
+		ProfileList Profiles = new ProfileList();
+		return Profiles;
+	}
+	
+	public void AddProfileBox(RootView root, ButtonPanel panel) {
+		VBox section2 = new VBox();
+		section2.getChildren().addAll(this.Profiles(),new TextField("Enter Profile"),this.AudioSample(panel).getList());
+		root.addChildView(section2);
+	}
+
 	
 	public Button addLaunchButton(int width, int length) {
 		
@@ -129,12 +139,9 @@ public class _TalkBox extends Application {
 		   scrollpane.setMaxSize(800, 300);
 		  
 		   return scrollpane;
-		   
-		
-		
 	}
+	
 
-    
     
  
 
