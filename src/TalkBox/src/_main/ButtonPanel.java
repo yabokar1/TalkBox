@@ -44,11 +44,17 @@ public class ButtonPanel extends GridPane implements Observer{
 		public void addButton(String name) {
 			
 		   Button button = new Button(name);
+		  
 		   button.setMinSize(BTN_WIDTH, BTN_HEIGHT);
+		   
 		   button.setMaxSize(BTN_WIDTH, BTN_HEIGHT);
+		   
 		   this.setHgrow(button, Priority.ALWAYS);
+		   
 		   this.setHgrow(button, Priority.ALWAYS);
+		   
 		   this.setVgap(20);
+		   
 		   button.setPadding(new Insets(10,10,10,10));
 
 		   attachClickListener(name, button);
@@ -73,17 +79,30 @@ public class ButtonPanel extends GridPane implements Observer{
 				private AudioClipWav clip = null;
 	            @Override
 	            public void handle(MouseEvent event) {
-	                MouseButton button = event.getButton();
+	               
+	            	MouseButton button = event.getButton();
+	               
 	                if(button==MouseButton.PRIMARY) {
-						clip = new AudioClipWav(name);
+						
+	                	clip = new AudioClipWav(name);
+						
 						clip.play();
-	                }else if(button==MouseButton.SECONDARY){
+	                }
+	                
+	                else if(button==MouseButton.SECONDARY){
+	                
 	                ImportFiles image = new ImportFiles();
+	                
 	                image.open("Images/");
+	                
 	                Image pic = new Image(image.file.toURI().toString());
+	                
 	                ImageView iv = new ImageView(pic);
+	                
 	                iv.fitWidthProperty().bind(b.widthProperty());
+	                
 	                iv.fitHeightProperty().bind(b.heightProperty());
+	                
 	                b.setGraphic(iv);
 	                }
 	            }
