@@ -93,7 +93,6 @@ public class _TalkBox extends Application {
 		section2.getChildren().addAll(new Label("Profiles"),this.Profiles(),new TextField("Enter Profile"),new Label("Audio"),this.AudioSample(panel).getList(),addRecordArea());
 		root.addChildView(section2);
 	}
-
 	
 	public Button addLaunchButton(int width, int length) {
 		
