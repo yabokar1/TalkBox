@@ -50,8 +50,7 @@ public class ButtonPanel extends GridPane implements Observer{
 		   this.setHgrow(button, Priority.ALWAYS);
 		   this.setVgap(20);
 		   button.setPadding(new Insets(10,10,10,10));
-		   
-		   
+
 		   attachClickListener(name, button);
 
 		   this.add(button, currentCol, currentRow);

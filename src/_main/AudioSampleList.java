@@ -48,18 +48,11 @@ public class AudioSampleList extends Observable {
     	
 	}
 	
-	
-	
-	
-	
-	
+
 	
 	public void notifyButtonPanel(String audioSampleName) {
 		
-
-		
 		setChanged();
-		
 		notifyObservers(audioSampleName);
 		
 	}
@@ -92,7 +85,6 @@ public class AudioSampleList extends Observable {
 	
 	
 	public VBox getView() {
-		
 		attachListener();
 		VBox listview = new VBox(this.privateListView);
 		return new VBox(this.privateListView);
