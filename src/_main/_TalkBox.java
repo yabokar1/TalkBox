@@ -90,7 +90,7 @@ public class _TalkBox extends Application {
 	
 	public void AddProfileBox(RootView root, ButtonPanel panel) {
 		VBox section2 = new VBox();
-		section2.getChildren().addAll(new Label("Profiles"),this.Profiles(),new TextField("Enter Profile"),new Label("Audio"),this.AudioSample(panel).getList());
+		section2.getChildren().addAll(new Label("Profiles"),this.Profiles(),new TextField("Enter Profile"),new Label("Audio"),this.AudioSample(panel).getList(),addRecordArea());
 		root.addChildView(section2);
 	}
 
@@ -110,14 +110,26 @@ public class _TalkBox extends Application {
     	return talkBoxLabel;
     }
     
+    public VBox FileandStart() {
+    	VBox v = new VBox();
+    	Button start = new Button("Start");
+    	start.setMinSize(50, 25);
+    	v.getChildren().addAll(start,new TextField("Enter Filename"));
+    	return v;
+    }
+    public HBox addRecordArea() {
+    	HBox RecordingArea = new HBox();
+    	Button Record = new Button("Record");
+    	Record.setMinSize(75, 75);
+    	RecordingArea.getChildren().addAll(Record,FileandStart());
+    	return RecordingArea;
+    }
+    
     public VBox addButtonPanelAndLabel(ScrollPane scrollpane) {
     	
     	 VBox section1 = new VBox(10);
          section1.getChildren().addAll(Menu().getMenu(),this.headerLabel(),scrollpane,this.addLaunchButton(40, 40));
          return section1;
-         
-    	
-    	
     }
     
 	public ScrollPane addScrollPane(ButtonPanel buttonpanel) {
