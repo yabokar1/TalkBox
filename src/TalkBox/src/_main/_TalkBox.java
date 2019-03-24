@@ -75,8 +75,11 @@ public class _TalkBox extends Application {
 	private AudioSampleList AudioSample(ButtonPanel panel) {
 
 	    AudioSampleList sampleList = new AudioSampleList();
+	    ProfileList profile = new ProfileList();
 	    
-	    sampleList.addObserver(panel);
+	    sampleList.addObserver(panel);  //This is for the observer of the buttonPanel
+	    
+	    sampleList.addObserver(profile);
 	    
 	    sampleList.loadFromDisk();
 	    
@@ -90,7 +93,7 @@ public class _TalkBox extends Application {
 	
 	public void AddProfileBox(RootView root, ButtonPanel panel) {
 		VBox section2 = new VBox();
-		section2.getChildren().addAll(new Label("Profiles"),this.Profiles(),new TextField("Enter Profile"),new Label("Audio"),this.AudioSample(panel).getList(),addRecordArea());
+		section2.getChildren().addAll(new Label("Profiles"),this.Profiles(),this.enterProfileTextField(),new Label("Audio"),this.AudioSample(panel).getList(),addRecordArea());
 		root.addChildView(section2);
 	}
 	

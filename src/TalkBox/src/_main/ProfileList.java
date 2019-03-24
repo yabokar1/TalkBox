@@ -33,11 +33,17 @@ public class ProfileList extends TreeView implements Observer  {
 	
 
 	public void addProfileItem(String e) {
+	
 	TreeItem<String> newItem = new TreeItem<String>(e);
+	
 	newItem.setExpanded(true);
+	
 	this.root.getChildren().add(newItem);
+	
 	this.Tree.setRoot(this.root);
-	System.out.println(this.root.getChildren().get(0));
+	
+	System.out.println(newItem.getValue());
+	
 	}
 	
 	
