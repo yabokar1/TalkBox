@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TreeView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -51,11 +52,15 @@ public class _TalkBox extends Application {
 
     
     
-
+/*
+ * 
+ * initializeButtonPanel method is used initialize buttonpanel 
+ * 
+ * */
     
 
 
-	private ButtonPanel initializeButtonPanel(RootView root) {
+	private ButtonPanel initializeButtonPanel(RootView root) {  
 
 
         ButtonPanel  buttonPanel = new ButtonPanel();
@@ -76,12 +81,22 @@ public class _TalkBox extends Application {
 
 	    AudioSampleList sampleList = new AudioSampleList();
 	    
-	    sampleList.addObserver(panel);
+	    ProfileList profile = new ProfileList();
+	    
+	    
+	     sampleList.addObserver(panel);
+	     sampleList.addObserver(profile);
+	     
+	    
 	    
 	    sampleList.loadFromDisk();
 	    
 	    return sampleList;
 	    }
+	
+	
+	
+
 	
 	private ProfileList Profiles() {
 		ProfileList Profiles = new ProfileList();
@@ -90,10 +105,26 @@ public class _TalkBox extends Application {
 	
 	public void AddProfileBox(RootView root, ButtonPanel panel) {
 		VBox section2 = new VBox();
-		section2.getChildren().addAll(new Label("Profiles"),this.Profiles(),new TextField("Enter Profile"),new Label("Audio"),this.AudioSample(panel).getList());
+		ProfileList profile = new ProfileList();
+	
+		section2.getChildren().addAll(new Label("Profiles"),profile,this.enterProfileTextField(),new Label("Audio"),this.AudioSample(panel).getList()); //Trainwreck Fix that
 		root.addChildView(section2);
 	}
 
+	
+	public TextField enterProfileTextField() {
+		
+		TextField enterProfile = new TextField("Enter Profile");
+		enterProfile.setOnMouseClicked(e -> enterProfile.clear());
+		enterProfile.setOnAction(e -> {
+		ProfileList profile = new ProfileList();
+		profile.addProfileItem(enterProfile.getText());
+			
+				
+				   });
+		return enterProfile;
+	
+	}
 	
 	public Button addLaunchButton(int width, int length) {
 		
@@ -123,19 +154,14 @@ public class _TalkBox extends Application {
 	public ScrollPane addScrollPane(ButtonPanel buttonpanel) {
 		
 		   ScrollPane scrollpane = new ScrollPane();
-		  
 		   buttonpanel.setHgap(10);
-		   
 		   buttonpanel.setVgap(5);
-		   
 		   scrollpane.setContent(buttonpanel);
-		   
 		   scrollpane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER); // size of the scroll bar
-		   
 		   scrollpane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-		   
 		   scrollpane.setMinSize(800, 300);
 		   scrollpane.setMaxSize(800, 300);
+		  
 		   return scrollpane;
 	}
 	

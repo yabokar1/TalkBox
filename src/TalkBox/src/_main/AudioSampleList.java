@@ -61,7 +61,7 @@ public class AudioSampleList extends Observable {
 		setChanged();
 		
 		notifyObservers(audioSampleName);
-		
+		notifyObservers();
 	}
 	
 	
