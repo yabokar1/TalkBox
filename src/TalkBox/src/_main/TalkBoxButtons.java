@@ -1,8 +1,13 @@
 package _main;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -51,16 +56,23 @@ public class TalkBoxButtons {
     public VBox FileandStart() {
     	VBox v = new VBox();
     	Button start = new Button("Start");
-    	start.setMinSize(50, 25);
+    	start.setMinSize(Names.STARTBUTTON_WIDTH, Names.STARTBUTTON_HEIGHT);
     	v.getChildren().addAll(start,new TextField("Enter Filename"));
     	return v;
     }
     
     
-    public HBox addRecordArea() {
+    public HBox addRecordArea() throws FileNotFoundException {
     	HBox RecordingArea = new HBox();
-    	Button Record = new Button("Record");
-    	Record.setMinSize(75, 75);
+    	Button Record = new Button();
+    	
+    	Image image = new Image("/Image/recorderImage.png");
+    	ImageView imageView = new ImageView();
+    	imageView.setImage(image);
+    	imageView.setFitHeight(90);
+    	imageView.setFitWidth( 90);
+    	Record.setMinSize(Names.RECORDBUTTON_HEIGHT, Names.RECORDBUTTON_WIDTH);
+    	Record.setGraphic(imageView);
     	RecordingArea.getChildren().addAll(Record,FileandStart());
     	return RecordingArea;
     }

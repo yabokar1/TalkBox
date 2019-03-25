@@ -13,6 +13,14 @@ public class Names {
 	
 	public static final double LAUNCHBUTTON_HEIGHT = 40;
 	
+	public static final double STARTBUTTON_HEIGHT = 25;
+	
+	public static final double STARTBUTTON_WIDTH = 50;
+	
+	public static final double RECORDBUTTON_HEIGHT = 75;
+	
+	public static final double RECORDBUTTON_WIDTH =  75;
+	
 	
 	
 }

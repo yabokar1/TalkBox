@@ -1,5 +1,6 @@
 package _main;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -32,7 +33,7 @@ public class _TalkBox extends Application {
 		ButtonPanel observer = initializeButtonPanel(root); // extends GridPane
 
 		ProfileList observer2 = new ProfileList();
-		//observer2.addProfileItem("Fcuk");
+		
 
 		AddProfileBox(root, observer, observer2);
 
@@ -73,7 +74,7 @@ public class _TalkBox extends Application {
 		return Profiles;
 	}
 
-	public void AddProfileBox(RootView root, ButtonPanel panel, ProfileList profile) {
+	public void AddProfileBox(RootView root, ButtonPanel panel, ProfileList profile) throws FileNotFoundException {
 		VBox section2 = new VBox();
 		TalkBoxButtons buttons = new TalkBoxButtons();
 		profile.setProfileParameters();
