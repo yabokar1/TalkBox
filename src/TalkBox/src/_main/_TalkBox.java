@@ -21,9 +21,7 @@ public class _TalkBox extends Application {
        
 		launch(args);
     }
-    
-	
-	
+   
 	
     @Override
     public void start(Stage primaryStage) throws IOException {
