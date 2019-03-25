@@ -7,7 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 
-public class ProfileList  implements Observer     {
+public class ProfileList  implements Observer {
 
 	private TreeView<String> Tree;
 	private TreeItem<String> root;
@@ -26,8 +26,7 @@ public class ProfileList  implements Observer     {
 	
 	
     public TreeView<String> getTreeItem() {
-    	
-    	
+
     	return this.Tree;
     }
 

@@ -2,6 +2,7 @@ package _main;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -26,7 +27,6 @@ public class TalkBoxButtons {
 		return Launch;
 		
 	}
-	
 	
 	public TextField enterProfileTextField(ProfileList profile) {
 		
@@ -55,8 +55,7 @@ public class TalkBoxButtons {
     	v.getChildren().addAll(start,new TextField("Enter Filename"));
     	return v;
     }
-    
-    
+        
     public HBox addRecordArea() {
     	HBox RecordingArea = new HBox();
     	Button Record = new Button("Record");
