@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -31,7 +32,6 @@ public class TalkBoxButtons {
 		return Launch;
 		
 	}
-	
 	
 	public TextField enterProfileTextField(ProfileList profile) {
 		
@@ -60,9 +60,14 @@ public class TalkBoxButtons {
     	v.getChildren().addAll(start,new TextField("Enter Filename"));
     	return v;
     }
+
     
     
     public HBox addRecordArea() throws FileNotFoundException {
+
+        
+ 
+
     	HBox RecordingArea = new HBox();
     	Button Record = new Button();
     	

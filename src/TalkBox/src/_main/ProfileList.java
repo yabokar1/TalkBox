@@ -7,7 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 
-public class ProfileList  implements Observer     {
+public class ProfileList  implements Observer {
 
 	private TreeView<String> Tree;
 	private TreeItem<String> root;
@@ -16,7 +16,7 @@ public class ProfileList  implements Observer     {
 	
 	public ProfileList() {
 	this.root = new TreeItem<String>();
-	this.root.setExpanded(true);
+	this.root.setExpanded(false);
 	this.Tree = new TreeView<String>(this.root);
 	this.Tree.setShowRoot(false);
 		
@@ -26,8 +26,7 @@ public class ProfileList  implements Observer     {
 	
 	
     public TreeView<String> getTreeItem() {
-    	
-    	
+
     	return this.Tree;
     }
 
@@ -39,7 +38,7 @@ public class ProfileList  implements Observer     {
 	
 	TreeItem<String> newItem = new TreeItem<String>(e);
 	
-	newItem.setExpanded(true);
+	newItem.setExpanded(false);
 	
 	this.root.getChildren().add(newItem);
 	
@@ -54,9 +53,9 @@ public class ProfileList  implements Observer     {
 		
 		TreeItem<String> newItem = new TreeItem<String>(e);
 		
-		newItem.setExpanded(true);
+		newItem.setExpanded(false);
 		
-		this.root.getChildren().get(row).getChildren().add(newItem);
+		this.root.getChildren().get(this.row).getChildren().add(newItem);
 		
 		System.out.println(newItem.getValue());
 		
@@ -73,7 +72,7 @@ public class ProfileList  implements Observer     {
 
 				this.row = Tree.getRow(NewValue); // row is the position of the file name
 				this.profilename = NewValue.getValue(); // Gets the profile name of the clicked profile
-
+				System.out.println(this.profilename);
 			}
 
 		});
