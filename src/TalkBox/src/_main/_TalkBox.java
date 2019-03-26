@@ -39,6 +39,7 @@ public class _TalkBox extends Application {
         
         ButtonPanel observer = initializeButtonPanel(root);  // extends GridPane
         
+        
     	ProfileList observer2 = new ProfileList();
     	
     	AddProfileBox(root,observer,observer2);
