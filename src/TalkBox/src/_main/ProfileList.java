@@ -9,12 +9,18 @@ import javafx.scene.control.TreeView;
 
 public class ProfileList  implements Observer {
 
+	
 	private TreeView<String> Tree;
 	private TreeItem<String> root;
 	private int row;
 	private String profilename;
+	private int numofAudioSets;
+	private TreeItem<String> audioSet;
+	private TreeItem<String> audioFiles;
+	private int audioSetSize[];
 	
 	public ProfileList() {
+	
 	this.root = new TreeItem<String>();
 	this.root.setExpanded(false);
 	this.Tree = new TreeView<String>(this.root);
@@ -25,31 +31,44 @@ public class ProfileList  implements Observer {
 	
 	
 	
-    public TreeView<String> getTreeItem() {
+    public TreeView<String> getTree() {
 
     	return this.Tree;
     }
 
 	
-
+    public TreeItem<String> getRoot() {
+    	
+    	
+    	return this.root;
+    }
+    
+	public int getAudioSets() {
+		
+		return this.numofAudioSets;
+	}
 	
 
-	public void addProfileTitle(String e) {
+	
+	
+	public void setProfileTitle(String e) {
 	
 	TreeItem<String> newItem = new TreeItem<String>(e);
 	
 	newItem.setExpanded(false);
 	
 	this.root.getChildren().add(newItem);
+
 	
-	System.out.println(this.row);
-	
-	
-	
-	}
+	this.numofAudioSets++;
 	
 	
-	public void addProfileItem(String e) {
+}
+	
+	
+
+	
+	public void setProfileItem(String e) {
 		
 		TreeItem<String> newItem = new TreeItem<String>(e);
 		
@@ -57,7 +76,7 @@ public class ProfileList  implements Observer {
 		
 		this.root.getChildren().get(this.row).getChildren().add(newItem);
 		
-		System.out.println(newItem.getValue());
+		//System.out.println(newItem.getValue());
 		
 	}
 	
@@ -72,7 +91,7 @@ public class ProfileList  implements Observer {
 
 				this.row = Tree.getRow(NewValue); // row is the position of the file name
 				this.profilename = NewValue.getValue(); // Gets the profile name of the clicked profile
-				System.out.println(this.profilename);
+				System.out.println(this.row+"Yes");
 			}
 
 		});
@@ -91,7 +110,7 @@ public class ProfileList  implements Observer {
 		
 		String buttonName = (String) arg;
 		this.setProfileParameters();
-		this.addProfileItem(buttonName);
+		this.setProfileItem(buttonName);
 		
 		//System.out.println(buttonName);
 		

@@ -14,51 +14,43 @@ import java.nio.file.Path;
  * @author bil
  *
  */
-public class TalkBoxConfiguration implements Serializable
+public interface TalkBoxConfiguration extends Serializable
 {
-	private static final long serialVersionUID = 1L;
-	public int NumOfAudioButtons;
-	public int NumOfAudioSets;
-	public int NumOfButtons;
-	public Path PathToAudioFiles;
-	public String[][] AudioName;
-	public String[] Profiles;
-	public String path;
+	//private static final long serialVersionUID = 1L;
+	//public int NumOfAudioButtons;
+	//public int NumOfAudioSets;
+	//public int NumOfButtons;
+	//public Path PathToAudioFiles;
+	//public String[][] AudioName;
+	//public String[] Profiles;
+	//public String path;
 
 	/**
      * Returns the number of physical buttons that when pressed will play an audio file.
      * 
      * @return int A positive integer
      */
-    public int getNumberOfAudioButtons() {
-    	return NumOfAudioButtons;
-    }
+    public int getNumberOfAudioButtons();
     
     /**
      * Returns the number of sets of audio files that this configuration supports.
      * 
      * @return int A positive integer
      */
-    public int getNumberOfAudioSets() {
-    	return NumOfAudioSets;
-    }
+    public int getNumberOfAudioSets();
     
     /**
      * Returns the total number of buttons in this TalkBox. 
      * 
      * @return int A positive integer
      */
-    public int getTotalNumberOfButtons() {
-    	return NumOfButtons;
-    }
+    public int getTotalNumberOfButtons();
     
     /**
      * Returns a Path relative to this configuration object where all audio files can be found
      * @return Path A Path object that identifies the directory that contains the audio files
      */
-    public Path getRelativePathToAudioFiles() {
-    	return PathToAudioFiles;
-    }
+    public Path getRelativePathToAudioFiles();
     
     /**
      * Returns a 2-dimensional array of Strings that contains the names of all audio files.
@@ -67,22 +59,16 @@ public class TalkBoxConfiguration implements Serializable
      * and {@link #getNumberOfAudioSets() getNumberOfAudioSets}
      * @return A 2-dimensional array of Strings
      */
-    public String[][] getAudioFileNames(){
-    	return AudioName;
-    }
+    public String[][] getAudioFileNames();
     
     /*
      * Returns an array of Strings that contains all the profile names
      */
-    public String[] getProfile() {
-		return Profiles;
-    }
+    public String[] getProfile();
     
     /*
      * Returns the path to the audio files in a String
      */
-    public String path() {
-    	return path;
-    }
+    public String path();
 }
 

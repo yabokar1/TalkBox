@@ -20,6 +20,10 @@ import javafx.stage.Stage;
 public class _TalkBox extends Application {
    
 	
+	private Button TalkBoxLaunchButton;
+	
+	
+	
 	
 	public static void main(String[] args) {
        
@@ -40,10 +44,12 @@ public class _TalkBox extends Application {
         ButtonPanel observer = initializeButtonPanel(root);  // extends GridPane
         
         
+        
     	ProfileList observer2 = new ProfileList();
     	
     	AddProfileBox(root,observer,observer2);
         
+    	
         Scene scene = new Scene(root, Names.SCENE_WIDTH, Names.SCENE_HEIGHT);
         
         primaryStage.setScene(scene);
@@ -99,7 +105,7 @@ public class _TalkBox extends Application {
 		VBox section2 = new VBox();
 		profile.setProfileParameters();
 		TalkBoxButtons button = new TalkBoxButtons();
-		section2.getChildren().addAll(new Label("Profiles"),profile.getTreeItem(),button.enterProfileTextField(profile),new Label("Audio"),this.AudioSample(panel,profile).getList(),button.addRecordArea());
+		section2.getChildren().addAll(new Label("Profiles"),profile.getTree(),button.enterProfileTextField(profile),new Label("Audio"),this.AudioSample(panel,profile).getList(),button.addRecordArea());
 		root.addChildView(section2);
 	}
 	
@@ -110,7 +116,7 @@ public class _TalkBox extends Application {
     	
     	 VBox section1 = new VBox(10);
     	 TalkBoxButtons button = new TalkBoxButtons();
-         section1.getChildren().addAll(button.Menu().getMenu(),button.headerLabel(),scrollpane,button.addLaunchButton());
+         section1.getChildren().addAll(button.Menu().getMenu(),button.headerLabel(),scrollpane,button.addLaunchButton(null));
          return section1;
     }
     

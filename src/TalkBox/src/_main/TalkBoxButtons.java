@@ -25,10 +25,15 @@ public class TalkBoxButtons {
 	
 	
 	
-	public Button addLaunchButton() {
-		
+	public Button addLaunchButton(ButtonPanel button) {
+		TalkBoxConfig  config = new TalkBoxConfig();
 		Button Launch = new Button("Launch Button");
 		Launch.setMinSize(Names.LAUNCHBUTTON_WIDTH, Names.LAUNCHBUTTON_HEIGHT);
+		Launch.setOnAction(e -> {
+		
+		System.out.println(config.getNumberOfAudioButtons());
+	
+		});
 		return Launch;
 		
 	}
@@ -39,7 +44,7 @@ public class TalkBoxButtons {
 		enterProfile.setOnMouseClicked(e -> enterProfile.clear());
 		enterProfile.setOnAction(e -> {
 		
-		profile.addProfileTitle(enterProfile.getText());
+		profile.setProfileTitle(enterProfile.getText());
 		
 			
 		 });
@@ -70,7 +75,6 @@ public class TalkBoxButtons {
 
     	HBox RecordingArea = new HBox();
     	Button Record = new Button();
-    	
     	Image image = new Image("/Image/recorderImage.png");
     	ImageView imageView = new ImageView();
     	imageView.setImage(image);

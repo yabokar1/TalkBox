@@ -1,5 +1,6 @@
 package _main;
 
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -24,9 +25,12 @@ import javafx.scene.layout.Priority;
 public class ButtonPanel extends GridPane implements Observer{
 	
 	
-		int currentRow = 0;
+		private int currentRow = 0;
 		
-		int currentCol = 0;
+		private int currentCol = 0;
+		
+		private int numOfAudioButtons = 0;
+		
 		
 		
 		
@@ -36,7 +40,7 @@ public class ButtonPanel extends GridPane implements Observer{
 		private static final int BTN_HEIGHT = 90;
 		
 		private static final int MAX_COL = 6;
-		
+
 	
 		
 		
@@ -44,8 +48,8 @@ public class ButtonPanel extends GridPane implements Observer{
 		public void addButton(String name) {
 			
 		   Button button = new Button(name);
-		  
-		   button.setMinSize(BTN_WIDTH, BTN_HEIGHT);
+		   
+		    button.setMinSize(BTN_WIDTH, BTN_HEIGHT);
 		   
 		   button.setMaxSize(BTN_WIDTH, BTN_HEIGHT);
 		   
@@ -69,16 +73,26 @@ public class ButtonPanel extends GridPane implements Observer{
 			 
 			   currentRow++;
 		   }
+		   
+		   this.numOfAudioButtons++;
+		    
 			
 		}
 		
 		
+		public int getNumofButtonsArray() {
+			
+			
+			return this.numOfAudioButtons++;
+		}
+		
 
 		private void attachClickListener(String name, Button b) {
 			b.setOnMouseClicked(new EventHandler<MouseEvent>() {
-				private AudioClipWav clip = null;
+				
+			private AudioClipWav clip = null;
 	            @Override
-	            public void handle(MouseEvent event) {
+	        public void handle(MouseEvent event) {
 	               
 	            	MouseButton button = event.getButton();
 	               
