@@ -47,6 +47,8 @@ public class AudioSampleList extends Observable {
 
 	}
 
+
+	
 	public void attachListener() {
 
 		this.privateListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Object>() {
