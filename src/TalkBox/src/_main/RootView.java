@@ -6,8 +6,6 @@ import javafx.scene.layout.Priority;
 
 public class RootView extends HBox {
 
-
-	
 	public void addChildView(Node e) {
 		this.getChildren().add(e);
 	}

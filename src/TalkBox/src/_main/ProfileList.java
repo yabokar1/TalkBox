@@ -19,6 +19,7 @@ public class ProfileList implements Observer {
 	private ArrayList<TreeItem<String>> profileSet;
 	private ArrayList<ArrayList<TreeItem<String>>> profiles = new ArrayList<ArrayList<TreeItem<String>>>();
 	private int counter = 0;
+	private int max = 0;
 
 	public ProfileList() {
 
@@ -43,6 +44,23 @@ public class ProfileList implements Observer {
 
 		return this.numofAudioSets;
 	}
+	
+	public int LargestAudioSet() {
+		int length = this.root.getChildren().size();
+		System.out.println(length);
+		String [][] temp = new String[length][];
+		for(int i = 0; i < length; i++) {
+			int ctr = 0;
+			int numofAudio = this.root.getChildren().get(i).getChildren().size();
+			for(int j = 0; j < numofAudio; j++) {
+				ctr++;
+			}
+			if(ctr > max) {
+				max = ctr;
+			}
+		}	
+		return max;
+		}
 
 	public void setProfileTitle(String e) {
 
@@ -56,7 +74,7 @@ public class ProfileList implements Observer {
 		}
 
 		this.counter++;
-		System.out.println(this.counter);
+
 		TreeItem<String> newItem = new TreeItem<String>(e);
 
 		this.setProfileArray();
@@ -143,9 +161,15 @@ public class ProfileList implements Observer {
 	public void RemoveProfileItem(int i) {
 		root.getChildren().remove(i);
 	}
+	
+	
+	public String getProfileName(int i) {
+		//System.out.println(this.root.getChildren().get(i).getValue().toString());
+		return this.root.getChildren().get(i).getValue().toString();
+	}
+
 
 	@Override
-
 	public void update(Observable o, Object arg) {
 
 		String buttonName = (String) arg;

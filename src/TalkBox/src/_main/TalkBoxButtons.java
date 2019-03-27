@@ -33,11 +33,10 @@ public class TalkBoxButtons {
 			config.setNumberofAudioButtons(button);
 			config.setNumberofAudioSets(profile);
 			config.setProfileList(profile);
-	
+			config.getProfile();
+			config.getAudioFileNames();
 		//System.out.println(config.getNumberOfAudioButtons());
 		//System.out.println(config.getNumberOfAudioSets());
-		config.getAudioFileNames();
-	
 		});
 		return Launch;
 		

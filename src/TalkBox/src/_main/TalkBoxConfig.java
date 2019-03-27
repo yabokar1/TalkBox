@@ -5,11 +5,12 @@ import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Observable;
 
 import javafx.scene.control.TreeItem;
 
-public class TalkBoxConfig    {
+public class TalkBoxConfig {
 
 	public static final long serialVersionUID = 1L;
 	public int NumOfAudioButtons;
@@ -18,14 +19,10 @@ public class TalkBoxConfig    {
 	public Path PathToAudioFiles;
 	public String[][] AudioName;
 	public String[] Profiles;
-	public _main.ProfileList ProfileList;
+	public ProfileList ProfileList;
 	private ArrayList<TreeItem<String>> tbcprofileSet;
 	private ArrayList<ArrayList<TreeItem<String>>> tbcprofiles = new ArrayList<ArrayList<TreeItem<String>>>();
 	public String path;
-	
-	
-	
-	
 	
 	
 	
@@ -73,11 +70,9 @@ public class TalkBoxConfig    {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+		System.out.println(path.toString());
 		return this.PathToAudioFiles;
-	
-		
-		
+
 	}
 	
 	
@@ -88,36 +83,28 @@ public class TalkBoxConfig    {
 		
 	}
 
-	public void  getAudioFileNames() {
+	public String[][]  getAudioFileNames() {
+		int length = this.ProfileList.getRoot().getChildren().size();
+		int largest = this.ProfileList.LargestAudioSet();
 
-		
-		System.out.println(this.tbcprofiles.size());
-		
-		for(int i=0;i<=this.tbcprofiles.size()-1;i++) {
-			
-			 // System.out.println(this.tbcprofiles.get(i).toString());
-			
+		String [][] temp = new String[length][largest];
+		for(int i = 0; i < length; i++) {
+			int numofAudio = this.ProfileList.getRoot().getChildren().get(i).getChildren().size();
+			for(int j = 0; j < numofAudio; j++) {
+				temp[i][j] = this.ProfileList.getRoot().getChildren().get(i).getChildren().get(j).toString();
+			}
 		}
-		
-		
-		
-		
-		
-		
-		
-		
+		System.out.println(Arrays.deepToString(temp));
+		return temp;
 	}
 
 	public String[] getProfile() {
-		ProfileList profiles = new ProfileList();
-		int size = profiles.getAudioSets();
+		int size = this.ProfileList.getAudioSets();
 		String [] AudioProfiles = new String[size];
-		
 		for(int i=0; i<size; i++) {
-			
-			AudioProfiles[i] = profiles.getRoot().getChildren().get(i).getValue();
+			AudioProfiles[i] = this.ProfileList.getRoot().getChildren().get(i).getValue();
 		}
-	
+		System.out.println(Arrays.asList(AudioProfiles));
 		return AudioProfiles;
 	}
 
