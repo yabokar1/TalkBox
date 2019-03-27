@@ -15,7 +15,6 @@ public class ProfileList implements Observer {
 	private int row;
 	private String profilename;
 	private int numofAudioSets;
-	private int numofAudioFiles;
 	private ArrayList<TreeItem<String>> profileSet;
 	private ArrayList<ArrayList<TreeItem<String>>> profiles = new ArrayList<ArrayList<TreeItem<String>>>();
 	private int counter = 0;
@@ -47,8 +46,6 @@ public class ProfileList implements Observer {
 	
 	public int LargestAudioSet() {
 		int length = this.root.getChildren().size();
-		System.out.println(length);
-		String [][] temp = new String[length][];
 		for(int i = 0; i < length; i++) {
 			int ctr = 0;
 			int numofAudio = this.root.getChildren().get(i).getChildren().size();
@@ -117,18 +114,11 @@ public class ProfileList implements Observer {
 		int max = 0;
 		int temp = 0;
 		for (int i = 0; i <= this.profiles.size() - 1; i++) {
-
 			temp = this.profiles.get(i).size() - 1;
 			if (temp > max) {
-
-				max = this.profiles.get(i).size() - 1;
-				// System.out.println(max+"is the maximum");
+				max = this.profiles.get(i).size() - 1;	
 			}
-
 		}
-
-		//System.out.println(max + "is the maximum");
-
 	}
 
 	public void setProfileItem(String e) {
@@ -151,7 +141,6 @@ public class ProfileList implements Observer {
 
 				this.row = Tree.getRow(NewValue); // row is the position of the file name
 				this.profilename = NewValue.getValue(); // Gets the profile name of the clicked profile
-				// System.out.println(this.row+"Yes");
 			}
 
 		});
@@ -159,12 +148,11 @@ public class ProfileList implements Observer {
 	}
 
 	public void RemoveProfileItem(int i) {
-		root.getChildren().remove(i);
+		this.root.getChildren().remove(i);
 	}
 	
 	
 	public String getProfileName(int i) {
-		//System.out.println(this.root.getChildren().get(i).getValue().toString());
 		return this.root.getChildren().get(i).getValue().toString();
 	}
 

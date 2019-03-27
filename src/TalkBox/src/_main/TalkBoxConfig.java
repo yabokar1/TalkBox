@@ -20,8 +20,6 @@ public class TalkBoxConfig {
 	public String[][] AudioName;
 	public String[] Profiles;
 	public ProfileList ProfileList;
-	private ArrayList<TreeItem<String>> tbcprofileSet;
-	private ArrayList<ArrayList<TreeItem<String>>> tbcprofiles = new ArrayList<ArrayList<TreeItem<String>>>();
 	public String path;
 	
 	
@@ -64,13 +62,13 @@ public class TalkBoxConfig {
 
 	public Path getRelativePathToAudioFiles() {
 	
-		Path path = Paths.get("/TalkBox");
+		Path path = Paths.get("TalkBox/src");
 		try {
 		this.PathToAudioFiles = path.toRealPath(LinkOption.NOFOLLOW_LINKS);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println(path.toString());
+	//	System.out.println(path.toString());
 		return this.PathToAudioFiles;
 
 	}
@@ -79,14 +77,11 @@ public class TalkBoxConfig {
 	public void setProfileList(ProfileList profile) {
 		
 		this.ProfileList = profile;
-		this.tbcprofiles = this.ProfileList.getProfiles();
-		
 	}
 
 	public String[][]  getAudioFileNames() {
 		int length = this.ProfileList.getRoot().getChildren().size();
 		int largest = this.ProfileList.LargestAudioSet();
-
 		String [][] temp = new String[length][largest];
 		for(int i = 0; i < length; i++) {
 			int numofAudio = this.ProfileList.getRoot().getChildren().get(i).getChildren().size();
@@ -94,7 +89,6 @@ public class TalkBoxConfig {
 				temp[i][j] = this.ProfileList.getRoot().getChildren().get(i).getChildren().get(j).toString();
 			}
 		}
-		System.out.println(Arrays.deepToString(temp));
 		return temp;
 	}
 
@@ -104,18 +98,7 @@ public class TalkBoxConfig {
 		for(int i=0; i<size; i++) {
 			AudioProfiles[i] = this.ProfileList.getRoot().getChildren().get(i).getValue();
 		}
-		System.out.println(Arrays.asList(AudioProfiles));
 		return AudioProfiles;
 	}
-
-	public String path() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	
-
-	
-	
 
 }

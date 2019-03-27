@@ -1,20 +1,13 @@
 package _main;
 
-import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-import audio_players.AudioClip;
 import audio_players.AudioClipWav;
-import io.AudioFileIO;
 import io.ImportFiles;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;

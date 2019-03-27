@@ -1,23 +1,11 @@
 package _main;
 
-import java.io.File;
 import java.util.Observable;
 import java.util.Observer;
-
-import audio_players.AudioClipWav;
 import io.ImportFiles;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 
 public class TopMenu extends MenuBar implements Observer{
 
@@ -46,7 +34,7 @@ public class TopMenu extends MenuBar implements Observer{
 	private void ImportAudioListener() {
 		this.ImportAudio.setOnAction(e->{
 			ImportFiles ia = new ImportFiles();
-			ia.open("sound_samples/");	
+			ia.open("TalkBox/");	
 });};
 
 	private void ImportProfiles() {
