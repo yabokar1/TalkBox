@@ -1,5 +1,6 @@
 package _main;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
@@ -8,13 +9,14 @@ import javafx.scene.Node;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 
-public class ProfileList implements Observer {
+public class ProfileList implements Observer,Serializable {
 
+	public static final long serialVersionUID = 1L;
 	private TreeView<String> Tree;
 	private TreeItem<String> root;
 	private int row;
 	private String profilename;
-	private int numofAudioSets;
+	private int numofAudioSets = 0;
 	private ArrayList<TreeItem<String>> profileSet;
 	private ArrayList<ArrayList<TreeItem<String>>> profiles = new ArrayList<ArrayList<TreeItem<String>>>();
 	private int counter = 0;
@@ -104,7 +106,7 @@ public class ProfileList implements Observer {
 
 	}
 	
-	public  ArrayList<ArrayList<TreeItem<String>>>  getProfiles() {
+	public  ArrayList<ArrayList<TreeItem<String>>>  getProfile() {
 		
 		return this.profiles;
 	}
@@ -157,6 +159,28 @@ public class ProfileList implements Observer {
 	}
 
 
+	public String[][] getAudioFileNames() {
+		int length = this.root.getChildren().size();
+		int largest = LargestAudioSet();
+		String [][] temp = new String[length][largest];
+		for(int i = 0; i < length; i++) {
+			int numofAudio = this.getRoot().getChildren().get(i).getChildren().size();
+			for(int j = 0; j < numofAudio; j++) {
+				temp[i][j] = this.getRoot().getChildren().get(i).getChildren().get(j).toString();
+			}
+		}
+		return temp;
+	}
+	
+	public String[] getProfiles() {
+		int size = this.getAudioSets();
+		String [] AudioProfiles = new String[size];
+		for(int i=0; i<size; i++) {
+			AudioProfiles[i] = this.getRoot().getChildren().get(i).getValue();
+		}
+		return AudioProfiles;
+	}
+	
 	@Override
 	public void update(Observable o, Object arg) {
 

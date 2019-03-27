@@ -22,7 +22,7 @@ public static void Save(Serializable data, String s) throws Exception{
 	try {
 	File directory = new File(s);
 	directory.mkdir();
-	ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("bin/TalkBoxData/TalkBoxData.tbc"));
+	ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("TalkBox/TalkBoxData/TalkBoxData.tbc"));
 	os.writeObject(data);
 	os.close();
 	}

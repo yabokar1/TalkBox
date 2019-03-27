@@ -1,11 +1,9 @@
 package _main;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -30,14 +28,16 @@ public class TalkBoxButtons {
 		Button Launch = new Button("Launch Button");
 		Launch.setMinSize(Names.LAUNCHBUTTON_WIDTH, Names.LAUNCHBUTTON_HEIGHT);
 		Launch.setOnAction(e -> {
+			try {
 			config.setNumberofAudioButtons(button);
-			config.setNumberofAudioSets(profile);
-			config.setProfileList(profile);
-			config.getProfile();
-			config.getAudioFileNames();
+			config.Profiles = profile.getProfiles();
+			config.AudioName = profile.getAudioFileNames();
 			config.getRelativePathToAudioFiles();
-		//System.out.println(config.getNumberOfAudioButtons());
-		//System.out.println(config.getNumberOfAudioSets());
+				Serializer.Save(config, "TalkBox/TalkBoxData/");
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		});
 		return Launch;
 		
