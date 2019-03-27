@@ -74,8 +74,8 @@ public class ButtonPanel extends GridPane implements Observer{
 			   currentRow++;
 		   }
 		   
+		
 		   this.numOfAudioButtons++;
-		    
 			
 		}
 		
@@ -83,7 +83,7 @@ public class ButtonPanel extends GridPane implements Observer{
 		public int getNumofButtonsArray() {
 			
 			
-			return this.numOfAudioButtons++;
+			return this.numOfAudioButtons;
 		}
 		
 
@@ -130,6 +130,8 @@ public class ButtonPanel extends GridPane implements Observer{
 			String buttonName = (String) arg;
 	
 			addButton(buttonName);
+		
+			//System.out.println(this.numOfAudioButtons);
 			
 			
 		}

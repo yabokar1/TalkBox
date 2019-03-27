@@ -4,44 +4,65 @@ import java.io.IOException;
 import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Observable;
+
+import javafx.scene.control.TreeItem;
 
 public class TalkBoxConfig    {
 
-	private static final long serialVersionUID = 1L;
-	private int NumOfAudioButtons;
-	private int NumOfAudioSets;
-	private  int NumOfButtons;
-	private Path PathToAudioFiles;
-	private String[][] AudioName;
-	private String[] Profiles;
-	private String path;
+	public static final long serialVersionUID = 1L;
+	public int NumOfAudioButtons;
+	public int NumOfAudioSets;
+	public  int NumOfButtons;
+	public Path PathToAudioFiles;
+	public String[][] AudioName;
+	public String[] Profiles;
+	public _main.ProfileList ProfileList;
+	private ArrayList<TreeItem<String>> tbcprofileSet;
+	private ArrayList<ArrayList<TreeItem<String>>> tbcprofiles = new ArrayList<ArrayList<TreeItem<String>>>();
+	public String path;
 	
 	
 	
 	
 	
+	
+	
+	public void setNumberofAudioButtons(ButtonPanel audiobutton) {
+		
+		    this.NumOfAudioButtons = audiobutton.getNumofButtonsArray();
+		
+	}
 	
 	
 	public int getNumberOfAudioButtons() {
 	    
-		ButtonPanel audioButtonList = new ButtonPanel();
-		this.NumOfAudioButtons = audioButtonList.getNumofButtonsArray();
+		
 		return this.NumOfAudioButtons;
 	
 	}
+	
+	
+	
+	public void setNumberofAudioSets(ProfileList profiles) {
+		
+		this.NumOfAudioSets = profiles.getAudioSets();
+		
+	}
+	
 
 	public int getNumberOfAudioSets() {
 		
-		ProfileList audioset = new ProfileList();
-		this.NumOfAudioSets = audioset.getAudioSets();
+
 		return this.NumOfAudioSets;
+	
 	}
 
 	public int getTotalNumberOfButtons() {
 		
 		this.NumOfButtons= this.getNumberOfAudioButtons() + 3; // temporary
-		return  this.NumOfButtons;
+		return this.NumOfButtons;
  	}
 
 	public Path getRelativePathToAudioFiles() {
@@ -58,22 +79,33 @@ public class TalkBoxConfig    {
 		
 		
 	}
+	
+	
+	public void setProfileList(ProfileList profile) {
+		
+		this.ProfileList = profile;
+		this.tbcprofiles = this.ProfileList.getProfiles();
+		
+	}
 
-	public String[][] getAudioFileNames() {
+	public void  getAudioFileNames() {
 
-		ProfileList profiles = new ProfileList();
-		int size = profiles.getAudioSets();
-		this.AudioName = new String[size][];
-		for(int i = 0; i<size; i++) {
+		
+		System.out.println(this.tbcprofiles.size());
+		
+		for(int i=0;i<=this.tbcprofiles.size()-1;i++) {
 			
-			for(int j=0; i<profiles.getRoot().getChildren().get(i).getChildren().size() ; j++) {
+			 // System.out.println(this.tbcprofiles.get(i).toString());
 			
-				this.AudioName[i][j] = profiles.getRoot().getChildren().get(i).getChildren().get(j).getValue() ;
-					
-			}	
 		}
 		
-		return this.AudioName;
+		
+		
+		
+		
+		
+		
+		
 	}
 
 	public String[] getProfile() {
@@ -95,12 +127,8 @@ public class TalkBoxConfig    {
 	}
 	
 	
-	public void TalkBoxConfigController() {
-		
-		
-		System.out.println("Fcuk");
-		
-	}
+
+	
 	
 
 }

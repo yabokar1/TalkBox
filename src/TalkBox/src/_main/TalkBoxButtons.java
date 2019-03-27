@@ -25,13 +25,18 @@ public class TalkBoxButtons {
 	
 	
 	
-	public Button addLaunchButton(ButtonPanel button) {
+	public Button addLaunchButton(ButtonPanel button,ProfileList profile) {
 		TalkBoxConfig  config = new TalkBoxConfig();
 		Button Launch = new Button("Launch Button");
 		Launch.setMinSize(Names.LAUNCHBUTTON_WIDTH, Names.LAUNCHBUTTON_HEIGHT);
 		Launch.setOnAction(e -> {
-		
-		System.out.println(config.getNumberOfAudioButtons());
+			config.setNumberofAudioButtons(button);
+			config.setNumberofAudioSets(profile);
+			config.setProfileList(profile);
+	
+		//System.out.println(config.getNumberOfAudioButtons());
+		//System.out.println(config.getNumberOfAudioSets());
+		config.getAudioFileNames();
 	
 		});
 		return Launch;
@@ -43,7 +48,6 @@ public class TalkBoxButtons {
 		TextField enterProfile = new TextField("Enter Profile");
 		enterProfile.setOnMouseClicked(e -> enterProfile.clear());
 		enterProfile.setOnAction(e -> {
-		
 		profile.setProfileTitle(enterProfile.getText());
 		
 			

@@ -48,6 +48,8 @@ public class _TalkBox extends Application {
     	ProfileList observer2 = new ProfileList();
     	
     	AddProfileBox(root,observer,observer2);
+    	
+    	LaunchButton(observer2,observer,root);
         
     	
         Scene scene = new Scene(root, Names.SCENE_WIDTH, Names.SCENE_HEIGHT);
@@ -67,7 +69,7 @@ public class _TalkBox extends Application {
 
         ButtonPanel  buttonPanel = new ButtonPanel();
         
-        VBox first =  this.addButtonPanelAndLabel(this.addScrollPane(buttonPanel));
+        VBox first =  this.addButtonPanelAndLabel(this.addScrollPane(buttonPanel)); // Fix this
         
         root.getChildren().add(first);  
         
@@ -116,9 +118,19 @@ public class _TalkBox extends Application {
     	
     	 VBox section1 = new VBox(10);
     	 TalkBoxButtons button = new TalkBoxButtons();
-         section1.getChildren().addAll(button.Menu().getMenu(),button.headerLabel(),scrollpane,button.addLaunchButton(null));
+         section1.getChildren().addAll(button.Menu().getMenu(),button.headerLabel(),scrollpane);
          return section1;
     }
+	
+	
+	public void LaunchButton(ProfileList profile,ButtonPanel button,RootView root) {
+		
+		TalkBoxButtons launchButton = new TalkBoxButtons();
+		VBox section3 = new VBox();
+		section3.getChildren().add(launchButton.addLaunchButton(button,profile));
+		root.addChildView(section3);
+		
+	}
     
 	public ScrollPane addScrollPane(ButtonPanel buttonpanel) {
 		
