@@ -5,8 +5,10 @@ import java.io.FileNotFoundException;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TreeItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -104,8 +106,8 @@ public class TalkBoxButtons {
     	return RecordingArea;
     }
     
-	public TopMenu Menu(){
-		TopMenu menu = new TopMenu();
+	public TopMenu Menu(GridPane gp, TreeItem<String> Profile){
+		TopMenu menu = new TopMenu(gp,Profile);
 		return menu;
 		
 	}
