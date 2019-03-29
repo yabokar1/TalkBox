@@ -6,8 +6,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -20,6 +22,10 @@ public class _TalkBox extends Application {
 		
     }
    //
+	
+	
+	private VBox buttonPanel;
+	
 	
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -36,9 +42,12 @@ public class _TalkBox extends Application {
         
     	ProfileList observer2 = new ProfileList();
     	
-    	AddProfileBox(root,observer,observer2);
     	
     	LaunchButton(observer2,observer,root);
+    	
+    	AddProfileBox(root,observer,observer2);
+    	
+    	//LaunchButton(observer2,observer,root);
         
     	
         Scene scene = new Scene(root, Names.SCENE_WIDTH, Names.SCENE_HEIGHT);
@@ -105,19 +114,24 @@ public class _TalkBox extends Application {
 
 	public VBox addButtonPanelAndLabel(ScrollPane scrollpane) {
     	
-    	 VBox section1 = new VBox(10);
+    	 this.buttonPanel = new VBox(10);
     	 TalkBoxButtons button = new TalkBoxButtons();
-         section1.getChildren().addAll(button.Menu().getMenu(),button.headerLabel(),scrollpane);
-         return section1;
+         this.buttonPanel.getChildren().addAll(button.Menu().getMenu(),button.headerLabel(),scrollpane);
+         return this.buttonPanel;
     }
+	
+	
+	public VBox getButtonPanel() {
+		
+		return this.buttonPanel;
+	}
 	
 	
 	public void LaunchButton(ProfileList profile,ButtonPanel button,RootView root) {
 		
 		TalkBoxButtons launchButton = new TalkBoxButtons();
-		VBox section3 = new VBox();
-		section3.getChildren().add(launchButton.addLaunchButton(button,profile));
-		root.addChildView(section3);
+		this.getButtonPanel().getChildren().add(launchButton.addLaunchButton(button,profile));
+	
 		
 	}
     
