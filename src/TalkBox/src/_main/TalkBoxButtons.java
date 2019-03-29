@@ -47,13 +47,15 @@ public class TalkBoxButtons {
 		
 	}
 	
-	public TextField enterProfileTextField(ProfileList profile) {
+	public TextField enterProfileTextField(ProfileList profile,ButtonPanel panel) {
 		
 		TextField enterProfile = new TextField("Enter Profile");
 		enterProfile.setOnMouseClicked(e -> enterProfile.clear());
 		enterProfile.setOnAction(e -> {
 		profile.setProfileTitle(enterProfile.getText());
-		
+			panel.getChildren().clear();
+			panel.resetColumn();
+			panel.resetRow();
 			
 		 });
 		return enterProfile;
@@ -64,6 +66,7 @@ public class TalkBoxButtons {
 	public Button setProfile(ButtonPanel buttonpanel,ProfileList profile) {
 		Button setProfile = new Button("Set Profile");
 		setProfile.setOnAction(e->{
+		   profile.setProfileParameters();
 		   buttonpanel.resetRow();
 		   buttonpanel.resetColumn();
 		   profile.setProfileToPanel(buttonpanel);
@@ -106,7 +109,7 @@ public class TalkBoxButtons {
     	return RecordingArea;
     }
     
-	public TopMenu Menu(GridPane gp, TreeItem<String> Profile){
+	public TopMenu Menu(ButtonPanel gp, TreeItem<String> Profile){
 		TopMenu menu = new TopMenu(gp,Profile);
 		return menu;
 		

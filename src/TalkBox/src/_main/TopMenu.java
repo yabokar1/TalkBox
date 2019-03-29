@@ -17,7 +17,7 @@ public class TopMenu extends MenuBar implements Observer{
 	private MenuItem LoadProfile;
 	
 	
-	public TopMenu(GridPane gp, TreeItem<String> Profile) {
+	public TopMenu(ButtonPanel gp, TreeItem<String> Profile) {
 		mb = new MenuBar();
 		menu = new Menu("File");
 		ImportAudio = new MenuItem("Import Audio");
@@ -39,11 +39,11 @@ public class TopMenu extends MenuBar implements Observer{
 			ia.open("TalkBox/");	
 });};
 
-	private void ImportProfiles(GridPane gp, TreeItem<String> Profile) {
+	private void ImportProfiles(ButtonPanel panel, TreeItem<String> Profile) {
 		this.LoadProfile.setOnAction(e ->{
 			try {
 				Load Load = new Load();
-				Load.Loader(gp, Profile);
+				Load.Loader(panel, Profile);
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
