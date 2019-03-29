@@ -54,7 +54,6 @@ public class TalkBoxLogger {
 		}
 	}
 	
-	
 	public static void logMenuPressEvent(javafx.event.ActionEvent e) {
 		if (e.getSource() instanceof MenuItem) {
 			MenuItem btn = (MenuItem) e.getSource();
