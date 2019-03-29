@@ -9,6 +9,7 @@ public class TalkBoxConfig implements Serializable{
 	public int NumOfAudioSets;
 	public  int NumOfButtons;
 	public String[][] AudioName;
+	public String[] Audio;
 	public String[] Profiles;
 	public String path;
 	
@@ -50,6 +51,10 @@ public class TalkBoxConfig implements Serializable{
 
 	public String[][]  getAudioFileNames() {
 		return this.AudioName;
+	}
+	
+	public String[] getAudio() {
+		return this.Audio;
 	}
 
 	public String[] getProfile() {

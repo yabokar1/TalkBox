@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class TalkBoxButtons {
 	
@@ -29,11 +30,14 @@ public class TalkBoxButtons {
 		Launch.setMinSize(Names.LAUNCHBUTTON_WIDTH, Names.LAUNCHBUTTON_HEIGHT);
 		Launch.setOnAction(e -> {
 			try {
+			config.Audio = profile.getAudio();
 			config.setNumberofAudioButtons(button);
 			config.Profiles = profile.getProfiles();
 			config.AudioName = profile.getAudioFileNames();
 			config.getRelativePathToAudioFiles();
 				Serializer.Save(config, "TalkBox/TalkBoxData/");
+				TalkBoxSim Gui = new TalkBoxSim();
+				Gui.start(new Stage());
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

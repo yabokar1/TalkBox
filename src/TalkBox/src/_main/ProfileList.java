@@ -172,6 +172,15 @@ public class ProfileList implements Observer,Serializable {
 		return temp;
 	}
 	
+	public String[] getAudio() {
+		int length = this.root.getChildren().get(this.row).getChildren().size();
+		String[] temp = new String[length];
+		for(int i = 0; i < length; i++) {
+			temp[i] = this.root.getChildren().get(this.row).getChildren().get(i).getValue();
+		}
+		return temp;
+	}
+	
 	public String[] getProfiles() {
 		int size = this.getAudioSets();
 		String [] AudioProfiles = new String[size];
