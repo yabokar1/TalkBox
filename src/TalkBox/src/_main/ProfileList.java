@@ -20,7 +20,7 @@ public class ProfileList implements Observer,Serializable {
 	private ArrayList<TreeItem<String>> profileSet;
 	private ArrayList<ArrayList<TreeItem<String>>> profiles = new ArrayList<ArrayList<TreeItem<String>>>();
 	private int counter = 0;
-	private int max = 0;
+	
 
 	public ProfileList() {
 
@@ -43,23 +43,10 @@ public class ProfileList implements Observer,Serializable {
 
 	public int getAudioSets() {
 
-		return this.numofAudioSets;
+	   return this.numofAudioSets;
 	}
 	
-	public int LargestAudioSet() {
-		int length = this.root.getChildren().size();
-		for(int i = 0; i < length; i++) {
-			int ctr = 0;
-			int numofAudio = this.root.getChildren().get(i).getChildren().size();
-			for(int j = 0; j < numofAudio; j++) {
-				ctr++;
-			}
-			if(ctr > max) {
-				max = ctr;
-			}
-		}	
-		return max;
-		}
+
 
 	public void setProfileTitle(String e) {
 
@@ -68,7 +55,7 @@ public class ProfileList implements Observer,Serializable {
 			profiles.add(this.profileSet);
 
 			// this.displayAllProfiles();
-			this.maxProfileSet();
+		
 
 		}
 
@@ -93,35 +80,14 @@ public class ProfileList implements Observer,Serializable {
 		this.profileSet = new ArrayList<TreeItem<String>>();
 	}
 
-	public void displayAllProfiles() {
 
-		for (int i = 0; i <= this.profiles.size() - 1; i++) {
-
-			for (int j = 0; j <= this.profiles.get(i).size() - 1; j++) {
-
-				//System.out.println(this.profiles.get(i).get(j).getValue());
-			}
-
-		}
-
-	}
 	
 	public  ArrayList<ArrayList<TreeItem<String>>>  getProfile() {
 		
 		return this.profiles;
 	}
 
-	public void maxProfileSet() {
 
-		int max = 0;
-		int temp = 0;
-		for (int i = 0; i <= this.profiles.size() - 1; i++) {
-			temp = this.profiles.get(i).size() - 1;
-			if (temp > max) {
-				max = this.profiles.get(i).size() - 1;	
-			}
-		}
-	}
 
 	public void setProfileItem(String e) {
 
@@ -157,6 +123,29 @@ public class ProfileList implements Observer,Serializable {
 	public String getProfileName(int i) {
 		return this.root.getChildren().get(i).getValue().toString();
 	}
+	
+	
+	
+	
+	
+	public int LargestAudioSet() {
+		int length = this.root.getChildren().size();
+		int max=0;
+		for(int i = 0; i < length; i++) {
+			int audioSetSize = 0;
+			int numofAudio = this.root.getChildren().get(i).getChildren().size();
+			for(int j = 0; j < numofAudio; j++) {
+				audioSetSize++;
+			}
+			if(audioSetSize > max) {
+				max = audioSetSize;
+			}
+		}	
+		return max;
+	}
+	
+	
+	
 
 
 	public String[][] getAudioFileNames() {
@@ -166,7 +155,11 @@ public class ProfileList implements Observer,Serializable {
 		for(int i = 0; i < length; i++) {
 			int numofAudio = this.getRoot().getChildren().get(i).getChildren().size();
 			for(int j = 0; j < numofAudio; j++) {
-				temp[i][j] = this.getRoot().getChildren().get(i).getChildren().get(j).toString();
+				String audio = this.getRoot().getChildren().get(i).getChildren().get(j).toString();
+				if(audio == null) {
+					continue;
+					}
+				temp[i][j] = audio;
 			}
 		}
 		return temp;

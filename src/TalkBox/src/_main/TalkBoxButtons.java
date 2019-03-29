@@ -21,8 +21,6 @@ public class TalkBoxButtons {
 	}
 	
 	
-	
-	
 	public Button addLaunchButton(ButtonPanel button,ProfileList profile) {
 		TalkBoxConfig  config = new TalkBoxConfig();
 		Button Launch = new Button("Launch Button");
