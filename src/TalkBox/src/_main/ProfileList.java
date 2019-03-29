@@ -20,7 +20,8 @@ public class ProfileList implements Observer,Serializable {
 	private int numofAudioSets = 0;
 	private ArrayList<TreeItem<String>> profileSet;
 	private ArrayList<ArrayList<TreeItem<String>>> profiles = new ArrayList<ArrayList<TreeItem<String>>>();
-	private int counter = 0;
+	private int addProfileSet = 0;
+	
 	
 
 	public ProfileList() {
@@ -51,22 +52,20 @@ public class ProfileList implements Observer,Serializable {
 
 	public void setProfileTitle(String e) {
 
-		if (this.counter > 0) {
+		if (this.addProfileSet > 0) {
 
 			profiles.add(this.profileSet);
 
 			// this.displayAllProfiles();
 		
-
+			
 		}
 
-		this.counter++;
+		this.profileSet = new ArrayList<TreeItem<String>>();
+		
+		this.addProfileSet++;
 
 		TreeItem<String> newItem = new TreeItem<String>(e);
-
-		this.setProfileArray();
-
-		this.profileSet.add(newItem);
 
 		newItem.setExpanded(false);
 
@@ -76,10 +75,6 @@ public class ProfileList implements Observer,Serializable {
 
 	}
 
-	public void setProfileArray() {
-
-		this.profileSet = new ArrayList<TreeItem<String>>();
-	}
 
 
 	
@@ -98,7 +93,7 @@ public class ProfileList implements Observer,Serializable {
 
 		this.root.getChildren().get(this.row).getChildren().add(newItem);
 
-		this.profileSet.add(newItem);
+		//this.profileSet.add(newItem);
 
 	}
 
@@ -108,11 +103,17 @@ public class ProfileList implements Observer,Serializable {
 			if (NewValue != null) {
 				this.row = Tree.getRow(NewValue); // row is the position of the file name
 				this.profilename = NewValue.getValue(); // Gets the profile name of the clicked profile
+				System.out.println(this.profilename);
 			}
 
 		});
 
 	}
+	
+	
+	
+	
+	
 
 	public void RemoveProfileItem(int i) {
 		this.root.getChildren().remove(i);
@@ -184,12 +185,47 @@ public class ProfileList implements Observer,Serializable {
 		return AudioProfiles;
 	}
 	
+	
+	public void setProfileArrayList(String newItem) {
+		
+		TreeItem<String> audio = new TreeItem<String>(newItem);
+		this.profileSet.add(audio);
+	}
+	
+	
+	public void setProfileToPanel(ButtonPanel buttonpanel) {
+		
+		  this.profiles.add(this.profileSet);
+		  int size = this.profiles.get(this.row).size();
+		  buttonpanel.getChildren().clear();
+		  for(int i=0; i<=size-1; i++) {
+			  
+			  String name = this.profiles.get(this.row).get(i).getValue();
+			  buttonpanel.addButton(name);
+			  
+		  }
+		  
+		
+		   
+		  
+		   
+		
+		  
+			
+		}
+		
+		
+	
+	
+	
+	
 	@Override
 	public void update(Observable o, Object arg) {
 
 		String buttonName = (String) arg;
 		this.setProfileParameters();
 		this.setProfileItem(buttonName);
+		this.setProfileArrayList(buttonName);
 
 	}
 

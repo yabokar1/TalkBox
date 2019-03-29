@@ -60,6 +60,18 @@ public class TalkBoxButtons {
 	
 	}
 	
+	
+	public Button setProfile(ButtonPanel buttonpanel,ProfileList profile) {
+		Button setProfile = new Button("Set Profile");
+		setProfile.setOnAction(e->{
+		   buttonpanel.resetRow();
+		   buttonpanel.resetColumn();
+		   profile.setProfileToPanel(buttonpanel);
+	});
+		
+		return setProfile;
+	}
+	
     public Label headerLabel() {
     	Label talkBoxLabel = new Label(Names.TITLE);
     	talkBoxLabel.setStyle("-fx-font-family: TRON; -fx-font-size: 20;");

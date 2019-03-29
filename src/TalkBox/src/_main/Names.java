@@ -21,6 +21,6 @@ public class Names {
 	
 	public static final double RECORDBUTTON_WIDTH =  75;
 	
-	
+	static final int MAX_COL = 6;
 	
 }
