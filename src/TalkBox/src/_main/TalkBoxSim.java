@@ -16,7 +16,11 @@ public class TalkBoxSim extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		HBox root = mainHbox();
+		HBox HBox = mainHbox();
+		TalkBoxSimMenu main = new TalkBoxSimMenu();
+		VBox root = new VBox();
+		root.getChildren().add(main.mainVBox(HBox));
+		
 		Scene scene = new Scene(root,1050,300);
 		primaryStage.setScene(scene);
 		primaryStage.show();

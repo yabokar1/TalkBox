@@ -6,6 +6,8 @@ import io.ImportFiles;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TreeItem;
+import javafx.scene.layout.GridPane;
 
 public class TopMenu extends MenuBar implements Observer{
 
@@ -15,7 +17,7 @@ public class TopMenu extends MenuBar implements Observer{
 	private MenuItem LoadProfile;
 	
 	
-	public TopMenu() {
+	public TopMenu(GridPane gp, TreeItem<String> Profile) {
 		mb = new MenuBar();
 		menu = new Menu("File");
 		ImportAudio = new MenuItem("Import Audio");
@@ -24,7 +26,7 @@ public class TopMenu extends MenuBar implements Observer{
 		mb.getMenus().addAll(menu);
 		mb.setMaxWidth(65);
 		ImportAudioListener();
-		ImportProfiles();
+		ImportProfiles(gp,Profile);
 	}
 	
 	public MenuBar getMenu() {
@@ -37,9 +39,16 @@ public class TopMenu extends MenuBar implements Observer{
 			ia.open("TalkBox/");	
 });};
 
-	private void ImportProfiles() {
+	private void ImportProfiles(GridPane gp, TreeItem<String> Profile) {
 		this.LoadProfile.setOnAction(e ->{
-			System.out.println("Not yet implemented");
+			try {
+				Load Load = new Load();
+				Load.Loader(gp, Profile);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 		});
 	}
 

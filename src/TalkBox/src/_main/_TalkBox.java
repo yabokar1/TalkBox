@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TreeItem;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -36,12 +38,10 @@ public class _TalkBox extends Application {
         RootView root = new RootView(); // This is really an hbox
         
         
-        ButtonPanel observer = initializeButtonPanel(root);  // extends GridPane
-        
-        
-        
     	ProfileList observer2 = new ProfileList();
     	
+        
+        ButtonPanel observer = initializeButtonPanel(root,observer2.getRoot()); 
     	
     	LaunchButton(observer2,observer,root);
     	
@@ -62,12 +62,12 @@ public class _TalkBox extends Application {
     
     
 
-   private ButtonPanel initializeButtonPanel(RootView root) {
+   private ButtonPanel initializeButtonPanel(RootView root, TreeItem<String> Profile) {
 
 
         ButtonPanel  buttonPanel = new ButtonPanel();
         
-        VBox first =  this.addButtonPanelAndLabel(this.addScrollPane(buttonPanel)); // Fix this
+        VBox first =  this.addButtonPanelAndLabel(this.addScrollPane(buttonPanel),buttonPanel, Profile); // Fix this
         
         root.getChildren().add(first);  
         
@@ -112,11 +112,11 @@ public class _TalkBox extends Application {
 	
 
 
-	public VBox addButtonPanelAndLabel(ScrollPane scrollpane) {
+	public VBox addButtonPanelAndLabel(ScrollPane scrollpane,GridPane gp, TreeItem<String> Profile) {
     	
     	 this.buttonPanel = new VBox(10);
     	 TalkBoxButtons button = new TalkBoxButtons();
-         this.buttonPanel.getChildren().addAll(button.Menu().getMenu(),button.headerLabel(),scrollpane);
+         this.buttonPanel.getChildren().addAll(button.Menu(gp,Profile).getMenu(),button.headerLabel(),scrollpane);
          return this.buttonPanel;
     }
 	
