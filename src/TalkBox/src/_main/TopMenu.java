@@ -3,6 +3,7 @@ package _main;
 import java.util.Observable;
 import java.util.Observer;
 import io.ImportFiles;
+import io.TalkBoxLogger;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -35,6 +36,7 @@ public class TopMenu extends MenuBar implements Observer{
 	
 	private void ImportAudioListener() {
 		this.ImportAudio.setOnAction(e->{
+			TalkBoxLogger.logMenuPressEvent(e);
 			ImportFiles ia = new ImportFiles();
 			ia.open("TalkBox/");	
 });};
@@ -42,6 +44,7 @@ public class TopMenu extends MenuBar implements Observer{
 	private void ImportProfiles(GridPane gp, TreeItem<String> Profile) {
 		this.LoadProfile.setOnAction(e ->{
 			try {
+				TalkBoxLogger.logMenuPressEvent(e);
 				Load Load = new Load();
 				Load.Loader(gp, Profile);
 			} catch (Exception e1) {

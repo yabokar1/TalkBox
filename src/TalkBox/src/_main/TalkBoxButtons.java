@@ -2,6 +2,7 @@ package _main;
 
 import java.io.FileNotFoundException;
 
+import io.TalkBoxLogger;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -15,6 +16,7 @@ import javafx.stage.Stage;
 
 public class TalkBoxButtons {
 	
+	private TalkBoxLogger Log;
 	
 	
 	
@@ -53,8 +55,6 @@ public class TalkBoxButtons {
 		enterProfile.setOnMouseClicked(e -> enterProfile.clear());
 		enterProfile.setOnAction(e -> {
 		profile.setProfileTitle(enterProfile.getText());
-		
-			
 		 });
 		return enterProfile;
 	

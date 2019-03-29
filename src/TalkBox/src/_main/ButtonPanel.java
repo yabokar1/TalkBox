@@ -2,9 +2,11 @@ package _main;
 
 import java.util.Observable;
 import java.util.Observer;
+import java.util.logging.Level;
 
 import audio_players.AudioClipWav;
 import io.ImportFiles;
+import io.TalkBoxLogger;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -34,7 +36,7 @@ public class ButtonPanel extends GridPane implements Observer{
 		
 		private static final int MAX_COL = 6;
 
-	
+		private TalkBoxLogger Log;
 		
 		
 	
@@ -66,13 +68,13 @@ public class ButtonPanel extends GridPane implements Observer{
 			 
 			   currentRow++;
 		   }
-		   
-		
+		  
+		    
 		   this.numOfAudioButtons++;
 			
 		}
 		
-		
+
 		public int getNumofButtonsArray() {
 			
 			
@@ -87,6 +89,8 @@ public class ButtonPanel extends GridPane implements Observer{
 	            @Override
 	        public void handle(MouseEvent event) {
 	               
+	            	TalkBoxLogger.logMousePressEvent(event);
+	            	
 	            	MouseButton button = event.getButton();
 	               
 	                if(button==MouseButton.PRIMARY) {
