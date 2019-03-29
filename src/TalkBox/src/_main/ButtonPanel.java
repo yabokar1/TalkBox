@@ -32,10 +32,20 @@ public class ButtonPanel extends GridPane implements Observer{
 		
 		private static final int BTN_HEIGHT = 90;
 		
-		private static final int MAX_COL = 6;
+		
 
 	
 		
+		public void resetRow() {
+			
+			this.currentRow=0;
+		}
+		
+		
+		public void resetColumn() {
+			
+			this.currentCol=0;
+		}
 		
 	
 		public void addButton(String name) {
@@ -60,7 +70,7 @@ public class ButtonPanel extends GridPane implements Observer{
 
 		   currentCol++;
 		   
-		   if(currentCol > MAX_COL) {
+		   if(currentCol > Names.MAX_COL) {
 			 
 			   currentCol = 0;
 			 
