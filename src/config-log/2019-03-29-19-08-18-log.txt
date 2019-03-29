@@ -1,0 +1,14 @@
+Mar 29, 2019 7:08:18 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Mar 29, 2019 7:08:34 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed cartman_bdaysong button
+Mar 29, 2019 7:08:40 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Bye button
+Mar 29, 2019 7:08:41 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed cartman_bdaysong button
+Mar 29, 2019 7:08:43 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Bye button
+Mar 29, 2019 7:08:44 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed cartman_bdaysong button
+Mar 29, 2019 7:08:44 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Bye button

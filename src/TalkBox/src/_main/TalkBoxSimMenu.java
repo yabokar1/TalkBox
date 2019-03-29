@@ -2,6 +2,7 @@ package _main;
 
 import java.io.IOException;
 
+import io.TalkBoxLogger;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -9,13 +10,14 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+
 public class TalkBoxSimMenu {
 
 	
 	private MenuBar mb;
 	private Menu menu;
 	private MenuItem Config;
-	
+
 	
 	public TalkBoxSimMenu() {
 		mb = new MenuBar();
@@ -34,6 +36,7 @@ public class TalkBoxSimMenu {
 	
 	public void ActionListener() {
 		Config.setOnAction(e -> {
+			TalkBoxLogger.logMenuPressEvent(e);
 			_TalkBox Gui = new _TalkBox();
 			try {
 				Gui.start(new Stage());

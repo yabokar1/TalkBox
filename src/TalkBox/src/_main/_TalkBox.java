@@ -1,6 +1,7 @@
 package _main;
 
 
+import java.io.File;
 import java.io.FileNotFoundException;
 
 import java.io.IOException;
@@ -13,10 +14,13 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Path;
 import javafx.stage.Stage;
+import io.TalkBoxLogger;
 
 
 public class _TalkBox extends Application {
+	
    	
 	public static void main(String[] args) {
        
@@ -27,11 +31,14 @@ public class _TalkBox extends Application {
 	
 	
 	private VBox buttonPanel;
+	private File TalkBoxDataPath;
 	
 	
     @Override
     public void start(Stage primaryStage) throws IOException {
         
+    
+    	TalkBoxLogger.setupLogger(TalkBoxDataPath, "config-log");
     	
     	primaryStage.setTitle(Names.TITLE);
         
@@ -103,6 +110,9 @@ public class _TalkBox extends Application {
 	public void AddProfileBox(RootView root, ButtonPanel panel,ProfileList profile) throws FileNotFoundException {
 
 		VBox section2 = new VBox();
+		HBox Set = new HBox();
+		//Button SetProfile = new Button("Set Profile");
+		//Set.getChildren().addAll(profile.getTree(),SetProfile);
 		profile.setProfileParameters();
 		TalkBoxButtons button = new TalkBoxButtons();
 		HBox section3 = new HBox();

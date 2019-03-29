@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
+import io.TalkBoxLogger;
 import javafx.scene.Node;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
@@ -99,9 +100,7 @@ public class ProfileList implements Observer,Serializable {
 	public void setProfileParameters() {
 
 		Tree.getSelectionModel().selectedItemProperty().addListener((v, oldValue, NewValue) -> {
-
 			if (NewValue != null) {
-
 				this.row = Tree.getRow(NewValue); // row is the position of the file name
 				this.profilename = NewValue.getValue(); // Gets the profile name of the clicked profile
 				System.out.println(this.profilename);
