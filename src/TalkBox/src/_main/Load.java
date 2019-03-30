@@ -27,7 +27,7 @@ public class Load {
 		for (int j = 0; j <= column - 1; j++) {
 			TreeItem<String> item = new TreeItem<>(profilename);
 			if (audioname[i][j] != null) {
-				this.branch(audioname[i][j].substring(18, audioname[i][j].length() - 2),
+				this.branch(audioname[i][j],
 						root.getChildren().get(i));
 			}
 		}
