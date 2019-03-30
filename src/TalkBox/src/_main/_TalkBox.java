@@ -111,8 +111,6 @@ public class _TalkBox extends Application {
 
 		VBox section2 = new VBox();
 		HBox Set = new HBox();
-		//Button SetProfile = new Button("Set Profile");
-		//Set.getChildren().addAll(profile.getTree(),SetProfile);
 		profile.setProfileParameters();
 		TalkBoxButtons button = new TalkBoxButtons();
 		HBox section3 = new HBox();

@@ -52,19 +52,12 @@ public class ProfileList implements Observer,Serializable {
 
 	public void setProfileTitle(String e) {
 
-		if (this.addProfileSet > 0) {
-
-			profiles.add(this.profileSet);
-
-			// this.displayAllProfiles();
 		
-			
-		}
-
-		this.profileSet = new ArrayList<TreeItem<String>>();
+ 
+		this.profileSet = new ArrayList<TreeItem<String>>();	
 		
-		this.addProfileSet++;
-
+		this.profiles.add(this.profileSet);
+		
 		TreeItem<String> newItem = new TreeItem<String>(e);
 
 		newItem.setExpanded(false);
@@ -92,8 +85,9 @@ public class ProfileList implements Observer,Serializable {
 		newItem.setExpanded(false);
 
 		this.root.getChildren().get(this.row).getChildren().add(newItem);
-
-		//this.profileSet.add(newItem);
+		
+		this.profiles.get(this.row).add(newItem);
+		
 
 	}
 
@@ -187,12 +181,7 @@ public class ProfileList implements Observer,Serializable {
 		return AudioProfiles;
 	}
 	
-	
-	public void setProfileArrayList(String newItem) {
-		
-		TreeItem<String> audio = new TreeItem<String>(newItem);
-		this.profileSet.add(audio);
-	}
+
 	
 	
 	public void setProfileToPanel(ButtonPanel buttonpanel) {
@@ -223,7 +212,7 @@ public class ProfileList implements Observer,Serializable {
 		String buttonName = (String) arg;
 		this.setProfileParameters();
 		this.setProfileItem(buttonName);
-		this.setProfileArrayList(buttonName);
+		
 
 	}
 
