@@ -117,7 +117,7 @@ public class _TalkBox extends Application {
 		TalkBoxButtons button = new TalkBoxButtons();
 		HBox section3 = new HBox();
 		section3.getChildren().add(button.setProfile(panel, profile));
-		section2.getChildren().addAll(new Label("Profiles"),profile.getTree(),button.enterProfileTextField(profile),new Label("Audio"),this.AudioSample(panel,profile).getList(),button.addRecordArea());
+		section2.getChildren().addAll(new Label("Profiles"),profile.getTree(),button.enterProfileTextField(profile,panel),new Label("Audio"),this.AudioSample(panel,profile).getList(),button.addRecordArea());
 		root.addChildView(section2);
 		root.addChildView(section3);
 	}
@@ -125,11 +125,11 @@ public class _TalkBox extends Application {
 	
 
 
-	public VBox addButtonPanelAndLabel(ScrollPane scrollpane,GridPane gp, TreeItem<String> Profile) {
+	public VBox addButtonPanelAndLabel(ScrollPane scrollpane,ButtonPanel gp, TreeItem<String> Profile) {
     	
     	 this.buttonPanel = new VBox(10);
     	 TalkBoxButtons button = new TalkBoxButtons();
-         this.buttonPanel.getChildren().addAll(button.Menu(gp,Profile).getMenu(),button.headerLabel(),scrollpane);
+         this.buttonPanel.getChildren().addAll(button.Menu(Profile).getMenu(),button.headerLabel(),scrollpane);
          return this.buttonPanel;
     }
 	

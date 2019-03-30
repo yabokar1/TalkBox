@@ -167,6 +167,8 @@ public class ProfileList implements Observer,Serializable {
 	
 	
 	
+	
+	
 	public String[] getAudio() {
 		int length = this.root.getChildren().get(this.row).getChildren().size();
 		String[] temp = new String[length];
@@ -202,6 +204,7 @@ public class ProfileList implements Observer,Serializable {
 			  
 			  String name = this.profiles.get(this.row).get(i).getValue();
 			  buttonpanel.addButton(name);
+			  System.out.println(name);
 			  
 		  }
 

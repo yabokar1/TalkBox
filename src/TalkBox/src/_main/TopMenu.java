@@ -18,6 +18,7 @@ public class TopMenu extends MenuBar implements Observer{
 	private MenuItem LoadProfile;
 	
 	
+
 	public TopMenu(TreeItem<String> Profile) {
 		mb = new MenuBar();
 		menu = new Menu("File");
@@ -40,7 +41,6 @@ public class TopMenu extends MenuBar implements Observer{
 			ImportFiles ia = new ImportFiles();
 			ia.open("TalkBox/");	
 });};
-
 	private void ImportProfiles(TreeItem<String> Profile) {
 		this.LoadProfile.setOnAction(e ->{
 			try {

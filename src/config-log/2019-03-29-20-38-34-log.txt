@@ -1,0 +1,46 @@
+Mar 29, 2019 8:38:34 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Mar 29, 2019 8:38:54 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed boring button
+Mar 29, 2019 8:38:56 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Bye button
+Mar 29, 2019 8:38:56 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed cartman_bdaysong button
+Mar 29, 2019 8:38:56 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Clap button
+Mar 29, 2019 8:38:57 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Laugh button
+Mar 29, 2019 8:38:57 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Test button
+Mar 29, 2019 8:38:58 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Bye button
+Mar 29, 2019 8:38:58 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed cartman_bdaysong button
+Mar 29, 2019 8:38:59 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Clap button
+Mar 29, 2019 8:39:00 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Good Bye button
+Mar 29, 2019 8:39:00 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Laugh button
+Mar 29, 2019 8:39:01 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Test button
+Mar 29, 2019 8:39:01 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Yes button
+Mar 29, 2019 8:39:02 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed boring button
+Mar 29, 2019 8:39:02 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Bye button
+Mar 29, 2019 8:39:03 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed cartman_bdaysong button
+Mar 29, 2019 8:39:03 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Clap button
+Mar 29, 2019 8:39:04 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Good Bye button
+Mar 29, 2019 8:39:04 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Laugh button
+Mar 29, 2019 8:39:05 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Test button
+Mar 29, 2019 8:39:05 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Bye button
+Mar 29, 2019 8:39:06 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed cartman_bdaysong button
