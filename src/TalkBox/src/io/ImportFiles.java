@@ -59,6 +59,12 @@ public class ImportFiles {
 		}
 	}
 	
+	public File LoggerOpen() {
+		FileChooser fc = new FileChooser();
+		file = fc.showOpenDialog(stage);
+		return file;
+	}
+	
 	
 	/*
 	 * Closes file explorer

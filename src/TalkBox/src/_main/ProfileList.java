@@ -204,18 +204,13 @@ public class ProfileList implements Observer,Serializable {
 			  buttonpanel.addButton(name);
 			  
 		  }
-		  
-		
-		   
-		  
-		   
-		
-		  
-			
+
 		}
 		
 		
-	
+	public int getRow() {
+		return this.row;
+	}
 	
 	
 	

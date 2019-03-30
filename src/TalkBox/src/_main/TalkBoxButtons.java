@@ -64,6 +64,7 @@ public class TalkBoxButtons {
 	public Button setProfile(ButtonPanel buttonpanel,ProfileList profile) {
 		Button setProfile = new Button("Set Profile");
 		setProfile.setOnAction(e->{
+		TalkBoxLogger.logProfilePressEvent(e,profile);
 		   buttonpanel.resetRow();
 		   buttonpanel.resetColumn();
 		   profile.setProfileToPanel(buttonpanel);
@@ -107,7 +108,7 @@ public class TalkBoxButtons {
     }
     
 	public TopMenu Menu(GridPane gp, TreeItem<String> Profile){
-		TopMenu menu = new TopMenu(gp,Profile);
+		TopMenu menu = new TopMenu(Profile);
 		return menu;
 		
 	}

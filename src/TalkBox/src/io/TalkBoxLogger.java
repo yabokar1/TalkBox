@@ -1,6 +1,6 @@
 package io;
 
-import java.awt.event.ActionEvent;
+
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -8,14 +8,9 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
-
-import javax.swing.JButton;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-
+import _main.ProfileList;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.TreeItem;
 import javafx.scene.input.MouseEvent;
 
 public class TalkBoxLogger {
@@ -43,14 +38,12 @@ public class TalkBoxLogger {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		logger.info("Start of Log");
 	}
 
-	public static void logProfilePressEvent(ChangeEvent e) {
-		if (e.getSource() instanceof TreeItem<?>) {
-			TreeItem<?> btn = (TreeItem<?>) e.getSource();
-			logger.log(Level.INFO, "Pressed {0}", new Object[] { btn.getValue()});
+	public static void logProfilePressEvent(javafx.event.ActionEvent e,ProfileList p) {
+		if (e.getSource() instanceof Button) {
+			logger.log(Level.INFO, "Set {0}", new Object[] {p.getProfileName(p.getRow())});
 		}
 	}
 	

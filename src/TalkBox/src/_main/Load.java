@@ -2,7 +2,7 @@ package _main;
 
 
 import javafx.scene.control.TreeItem;
-import javafx.scene.layout.GridPane;
+
 
 public class Load {
 	TalkBoxConfig tbc;
@@ -14,7 +14,7 @@ public class Load {
 		profile = tbc.Profiles;
 	}
 	
-	public void Loader(GridPane sp,TreeItem<String> root) throws Exception {
+	public void Loader(TreeItem<String> root) throws Exception {
 	String[][] audioname = tbc.AudioName;
 	TreeItem<String> parent = new TreeItem<String>();
 	for (int i = 0; i <= profile.length - 1; i++) {

@@ -1,0 +1,4 @@
+Mar 29, 2019 7:45:06 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Mar 29, 2019 7:45:15 PM io.TalkBoxLogger logProfilePressEvent
+INFO: Pressed Profile 1
