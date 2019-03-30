@@ -1,6 +1,9 @@
 package _main;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+
+import javafx.scene.image.Image;
 
 public class TalkBoxConfig implements Serializable{
 
@@ -11,7 +14,9 @@ public class TalkBoxConfig implements Serializable{
 	public String[][] AudioName;
 	public String[] Audio;
 	public String[] Profiles;
+	public ArrayList<String> images;
 	public String path;
+	public int row;
 	
 	
 	
@@ -49,10 +54,13 @@ public class TalkBoxConfig implements Serializable{
 	}
 	
 
-	public String[][]  getAudioFileNames() {
+	public String[][] getAudioFileNames() {
 		return this.AudioName;
 	}
 	
+	public int getrow() {
+		return this.row;
+	}
 	public String[] getAudio() {
 		return this.Audio;
 	}
@@ -61,4 +69,7 @@ public class TalkBoxConfig implements Serializable{
 		return this.Profiles;
 	}
 
+	public ArrayList<String> getImages() {
+		return this.images;
+	}
 }

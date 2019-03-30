@@ -1,5 +1,6 @@
 package _main;
 
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.logging.Level;
@@ -26,17 +27,17 @@ public class ButtonPanel extends GridPane implements Observer{
 		
 		private int numOfAudioButtons = 0;
 		
-		
-		
-		
-		
 		private static final int BTN_WIDTH = 90;
 		
 		private static final int BTN_HEIGHT = 90;
 		
+		private ArrayList<String> ImageList;
+		private ArrayList<Button> ButtonList;
 		
-
-		private TalkBoxLogger Log;
+		public ButtonPanel() {
+			ImageList = new ArrayList<String>();
+			ButtonList = new ArrayList<Button>();
+		}
 		
 		public void resetRow() {
 			
@@ -49,12 +50,19 @@ public class ButtonPanel extends GridPane implements Observer{
 			this.currentCol=0;
 		}
 		
+		public ArrayList<String> getImageList(){
+			return this.ImageList;
+		}
+		
+		public ArrayList<Button> getButton() {
+			return this.ButtonList;
+		}
 	
 		public void addButton(String name) {
 			
 		   Button button = new Button(name);
 		   
-		    button.setMinSize(BTN_WIDTH, BTN_HEIGHT);
+		   button.setMinSize(BTN_WIDTH, BTN_HEIGHT);
 		   
 		   button.setMaxSize(BTN_WIDTH, BTN_HEIGHT);
 		   
@@ -78,8 +86,6 @@ public class ButtonPanel extends GridPane implements Observer{
 			 
 			   currentRow++;
 		   }
-		  
-		    
 		   this.numOfAudioButtons++;
 			
 		}
@@ -89,6 +95,10 @@ public class ButtonPanel extends GridPane implements Observer{
 			
 			
 			return this.numOfAudioButtons;
+		}
+		
+		public void imageArray(String temp) {
+				ImageList.add(temp);
 		}
 		
 
@@ -117,6 +127,8 @@ public class ButtonPanel extends GridPane implements Observer{
 	                image.open("Images/");
 	                
 	                Image pic = new Image(image.file.toURI().toString());
+	                
+	                imageArray(image.file.toURI().toString());
 	                
 	                ImageView iv = new ImageView(pic);
 	                

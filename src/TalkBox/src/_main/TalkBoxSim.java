@@ -1,14 +1,20 @@
 package _main;
 
+import java.io.File;
+
+import io.TalkBoxLogger;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class TalkBoxSim extends Application{
+	
+	private File TalkBoxDataPath;
 	
 	public static void main(String[] args) {
 		launch(args);
@@ -16,36 +22,25 @@ public class TalkBoxSim extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		HBox HBox = mainHbox();
-		TalkBoxSimMenu main = new TalkBoxSimMenu();
+	  	TalkBoxLogger.setupLogger(TalkBoxDataPath, "simulator-log");
+	  	GridPane p = new GridPane();
+		HBox HBox = mainHbox(p);
 		VBox root = new VBox();
+		TalkBoxSimMenu main = new TalkBoxSimMenu(p);
 		root.getChildren().add(main.mainVBox(HBox));
-		
-		Scene scene = new Scene(root,1050,300);
+		Scene scene = new Scene(root,800,300);
 		primaryStage.setScene(scene);
-		primaryStage.show();
-		
-		
+		primaryStage.show();	
 	}
 	
-	public HBox mainHbox() throws Exception {
+	public HBox mainHbox(GridPane ButtonP) throws Exception {
 	HBox main = new HBox();
-	ButtonPanel ButtonP = new ButtonPanel();
 	ScrollPane ScrollP = addScrollPane(ButtonP);
-	main.getChildren().addAll(ScrollP,ProfileandSet());
+	main.getChildren().addAll(ScrollP);
 	return main;
 	}
 	
-	public VBox ProfileandSet() throws Exception {
-		VBox ProfileandSetBox = new VBox();
-		TalkBoxSimProfiles Profile = new TalkBoxSimProfiles();
-		Button SetProfile = new Button("Set Profile");
-		SetProfile.setMinSize(250, 50);
-		ProfileandSetBox.getChildren().addAll(Profile.getProfiles(),SetProfile);
-		return ProfileandSetBox;
-	}
-	
-	public ScrollPane addScrollPane(ButtonPanel buttonpanel) {
+	public ScrollPane addScrollPane(GridPane buttonpanel) {
 		   ScrollPane scrollpane = new ScrollPane();
 		   buttonpanel.setHgap(10);
 		   buttonpanel.setVgap(5);
@@ -56,8 +51,4 @@ public class TalkBoxSim extends Application{
 		   scrollpane.setMaxSize(800, 300);
 		   return scrollpane;
 	}
-	
-	
-	
-
 }

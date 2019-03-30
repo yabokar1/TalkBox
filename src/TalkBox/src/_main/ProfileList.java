@@ -149,7 +149,7 @@ public class ProfileList implements Observer,Serializable {
 		for(int i = 0; i < length; i++) {
 			int numofAudio = this.getRoot().getChildren().get(i).getChildren().size();
 			for(int j = 0; j < numofAudio; j++) {
-				String audio = this.getRoot().getChildren().get(i).getChildren().get(j).toString();
+				String audio = this.getRoot().getChildren().get(i).getChildren().get(j).getValue();
 				if(audio == null) {
 					continue;
 					}

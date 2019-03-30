@@ -99,10 +99,6 @@ public class Sound {
 		this.filename=name;
 		thread.start();
 		System.out.println("Recording");
-		//Thread.sleep(5000); 
-		// don't put the thread to sleep, it wont be able to do any work!
-		// This is why your system was locking up.
-	
 		}
 		catch(Exception ie) {
 			

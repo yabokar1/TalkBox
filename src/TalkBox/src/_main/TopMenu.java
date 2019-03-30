@@ -53,11 +53,10 @@ public class TopMenu extends MenuBar implements Observer{
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			
 		});
 	}
 
-	@Override
+
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
 		

@@ -1,8 +1,11 @@
 package _main;
 
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 
 import javax.sound.sampled.LineUnavailableException;
+
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 import audio_players.Sound;
 import io.TalkBoxLogger;
@@ -35,6 +38,8 @@ public class TalkBoxButtons {
 		Launch.setMinSize(Names.LAUNCHBUTTON_WIDTH, Names.LAUNCHBUTTON_HEIGHT);
 		Launch.setOnAction(e -> {
 			try {
+			config.row = profile.getRow();
+			config.images = button.getImageList();
 			config.Audio = profile.getAudio();
 			config.setNumberofAudioButtons(button);
 			config.Profiles = profile.getProfiles();

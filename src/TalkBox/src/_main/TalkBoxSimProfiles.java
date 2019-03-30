@@ -2,15 +2,29 @@ package _main;
 
 
 import java.util.ArrayList;
+
+import audio_players.AudioClipWav;
+import io.ImportFiles;
+import io.TalkBoxLogger;
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 
 public class TalkBoxSimProfiles {
 	
 	private TalkBoxConfig tbc;
-	public int row;
 	public String profilename;
 	public TreeItem<String> root;
+
+	private int currentRow = 0;
+	
+	private int currentCol = 0;
 	
 	
 	public TalkBoxSimProfiles() throws Exception {
@@ -23,44 +37,52 @@ public class TalkBoxSimProfiles {
 	 * 
 	 */
 	
-	@SuppressWarnings({ "rawtypes", "unused" })
-	public TreeView<String> getProfiles() {
-
-		this.root = new TreeItem<String>(); // This is used to create the profile and root and branches are									// added
-		root.setExpanded(false);
-		ArrayList<TreeItem> TItems = new ArrayList<>(); // creating profile
-		TreeView<String> Tree = new TreeView<>(root); // put item in tree
-		Tree.setShowRoot(false);
-		Tree.getSelectionModel().selectedItemProperty().addListener((v, oldValue, NewValue) -> {
-			if (NewValue != null) {
-				row = Tree.getRow(NewValue); // row is the position of the file name
-				profilename = NewValue.getValue(); // Gets the profile name of the clicked profile
-			}
-		});
-		Tree.setMinSize(200, 250);
-
-		String[] profile = this.tbc.getProfile();
-		String[][] audioname = this.tbc.getAudioFileNames();
-		TreeItem<String> parent = new TreeItem<String>();
-		for (int i = 0; i <= profile.length - 1; i++) {
-
-			int column = audioname[i].length;
-			String profilename = profile[i];
-			this.SetProfile(profilename, root);
-
-			for (int j = 0; j <= column - 1; j++) {
-
-				TreeItem<String> item = new TreeItem<>(profilename);
-
-				if (audioname[i][j] != null) {
-					this.SetProfile(audioname[i][j].substring(18, audioname[i][j].length() - 2),
-							root.getChildren().get(i));
-
-				}
-			}
+	public void getProfiles(GridPane p, String row) {
+		String[][] audioname = this.tbc.AudioName;
+		ArrayList<String> image = this.tbc.images;
+		int ctr = 0;
+		int size = Integer.parseInt(row);
+		for(String temp : audioname[size]) {
+			Button b = new Button(temp);
+			b.setMaxSize(75, 75);
+			b.setMinSize(75, 75);
+			attachClickListener(temp,b);
+			 p.add(b, currentCol, currentRow);
+			   currentCol++;
+			   if(currentCol > Names.MAX_COL) {
+				   currentCol = 0;
+				   currentRow++;
+			   }
+			   if(ctr < image.size()) {
+			   Image im = new Image(image.get(ctr));
+			   ImageView iv = new ImageView(im);
+               iv.fitWidthProperty().bind(b.widthProperty());
+               iv.fitHeightProperty().bind(b.heightProperty());
+               b.setGraphic(iv);
 		}
-		return Tree;
+			   ctr++;
+		}
 	}
+	
+	private void attachClickListener(String name, Button b) {
+		b.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			
+		private AudioClipWav clip = null;
+            @Override
+        public void handle(MouseEvent event) {
+               
+            	TalkBoxLogger.logMousePressEvent(event);
+            	
+            	MouseButton button = event.getButton();
+               
+                if(button==MouseButton.PRIMARY) {
+					
+                	clip = new AudioClipWav(name);
+					
+					clip.play();
+                }
+            }
+		});}
 	
 	
 	
@@ -69,11 +91,6 @@ public class TalkBoxSimProfiles {
 		return this.root;
 	}
 	
-	
-	public int getRow() {
-		
-		return this.row;
-	} 
 	
 	public String getProfilename() {
 		
