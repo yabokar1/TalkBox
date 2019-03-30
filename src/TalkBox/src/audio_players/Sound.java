@@ -74,7 +74,7 @@ public class Sound {
 				fileName = temp + ".wav";
 				
 				
-				File audioFile = new File("src/Audio/" + fileName);
+				File audioFile = new File("TalkBox/" + fileName);
 				
 				System.out.println("The recording is being saved as:");
 				

@@ -2,6 +2,9 @@ package _main;
 
 import java.io.FileNotFoundException;
 
+import javax.sound.sampled.LineUnavailableException;
+
+import audio_players.Sound;
 import io.TalkBoxLogger;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,12 +19,12 @@ import javafx.stage.Stage;
 
 public class TalkBoxButtons {
 	
-	private TalkBoxLogger Log;
-	
+	private Sound sound;
+	private String filename;
 	
 	
 	public TalkBoxButtons() {
-		
+		sound = new Sound();
 		
 	}
 	
@@ -84,23 +87,36 @@ public class TalkBoxButtons {
     	return talkBoxLabel;
     }
     
-    public VBox FileandStart() {
+
+    public VBox FileandStart(AudioSampleList list) {
     	VBox v = new VBox();
-    	Button start = new Button("Start");
-    	start.setMinSize(Names.STARTBUTTON_WIDTH, Names.STARTBUTTON_HEIGHT);
-    	v.getChildren().addAll(start,new TextField("Enter Filename"));
+    	TextField filename = new TextField("Enter Filename");
+    	filename.setOnMouseClicked(e -> filename.clear());
+    	filename.setOnAction(e -> {
+    		this.filename = filename.getText();
+    	});
+    	Button Stop = new Button("Stop");
+    	Stop.setOnAction(e ->{ sound.stop(); list.loadFromDisk();});
+    	Stop.setMinSize(Names.STARTBUTTON_WIDTH, Names.STARTBUTTON_HEIGHT);
+    	v.getChildren().addAll(Stop,filename);
     	return v;
     }
 
     
     
-    public HBox addRecordArea() throws FileNotFoundException {
-
-        
- 
+    public HBox addRecordArea(AudioSampleList list) throws FileNotFoundException {
 
     	HBox RecordingArea = new HBox();
     	Button Record = new Button();
+    	Record.setOnAction(e ->{
+    		try {
+				sound.soundFormat();
+				sound.start(this.filename);
+			} catch (LineUnavailableException | InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+    	});
     	Image image = new Image("/Image/recorderImage.png");
     	ImageView imageView = new ImageView();
     	imageView.setImage(image);
@@ -108,7 +124,7 @@ public class TalkBoxButtons {
     	imageView.setFitWidth( 90);
     	Record.setMinSize(Names.RECORDBUTTON_HEIGHT, Names.RECORDBUTTON_WIDTH);
     	Record.setGraphic(imageView);
-    	RecordingArea.getChildren().addAll(Record,FileandStart());
+    	RecordingArea.getChildren().addAll(Record,FileandStart(list));
     	return RecordingArea;
     }
     

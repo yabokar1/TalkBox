@@ -32,6 +32,7 @@ public class _TalkBox extends Application {
 	
 	private VBox buttonPanel;
 	private File TalkBoxDataPath;
+	private AudioSampleList sampleList;
 	
 	
     @Override
@@ -88,7 +89,7 @@ public class _TalkBox extends Application {
 	
 	private AudioSampleList AudioSample(ButtonPanel panel,ProfileList profile) {
 
-	    AudioSampleList sampleList = new AudioSampleList();
+	    sampleList = new AudioSampleList();
 	   
 	    
 	    sampleList.addObserver(panel);  //This is for the observer of the buttonPanel
@@ -115,7 +116,7 @@ public class _TalkBox extends Application {
 		TalkBoxButtons button = new TalkBoxButtons();
 		HBox section3 = new HBox();
 		section3.getChildren().add(button.setProfile(panel, profile));
-		section2.getChildren().addAll(new Label("Profiles"),profile.getTree(),button.enterProfileTextField(profile,panel),new Label("Audio"),this.AudioSample(panel,profile).getList(),button.addRecordArea());
+		section2.getChildren().addAll(new Label("Profiles"),profile.getTree(),button.enterProfileTextField(profile,panel),new Label("Audio"),this.AudioSample(panel,profile).getList(),button.addRecordArea(this.sampleList));
 		root.addChildView(section2);
 		root.addChildView(section3);
 	}
