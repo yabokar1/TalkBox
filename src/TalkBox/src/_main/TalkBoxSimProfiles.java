@@ -62,19 +62,22 @@ public class TalkBoxSimProfiles {
                iv.fitHeightProperty().bind(b.heightProperty());
                b.setGraphic(iv);
 		       }
+			   else {
+				   try {
+					   if(rename.get(size).get(ctr) != null) {
+						   b.setText(rename.get(size).get(ctr));
+					   }
 			   }
 			   catch(Exception e) {
-				   try {
-				   if(rename.get(size).get(ctr) != null) {
-					   b.setText(rename.get(size).get(ctr));
+				  
 			   }
-						   }
-				   catch(Exception ie) {
-					  continue; 
-				   }
+		}
+			   }
+			   catch(Exception e1) {
+				   
 			   }
 			   ctr++;
-		}
+			   }
 	}
 	
 	private void attachClickListener(String name, Button b) {

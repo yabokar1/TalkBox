@@ -75,7 +75,6 @@ public class ProfileList implements Observer,Serializable {
 		
 		ArrayList<String> rename = new ArrayList<String>();
 		RenameSet.add(rename);
-		System.out.println(ImageSet);
 	}
 
 
@@ -187,14 +186,7 @@ public class ProfileList implements Observer,Serializable {
 		}
 		return AudioProfiles;
 	}
-	
-	public String[][] getnewName(ButtonPanel p,int row, int col){
-		String[][] temp = getAudioFileNames();
-		temp[row][col] = p.newname;
-		return temp;
-	}	
 
-	
 	
 	public void setProfileToPanel(ButtonPanel buttonpanel) {
 		  this.profiles.add(this.profileSet);
