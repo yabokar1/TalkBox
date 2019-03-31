@@ -12,9 +12,11 @@ public class TalkBoxConfig implements Serializable{
 	public int NumOfAudioSets;
 	public  int NumOfButtons;
 	public String[][] AudioName;
+	public String[][] newnames;
 	public String[] Audio;
 	public String[] Profiles;
-	public ArrayList<String> images;
+	public ArrayList<ArrayList<String>> images;
+	public ArrayList<ArrayList<String>> rename;
 	public String path;
 	public int row;
 	
@@ -69,7 +71,15 @@ public class TalkBoxConfig implements Serializable{
 		return this.Profiles;
 	}
 
-	public ArrayList<String> getImages() {
+	public ArrayList<ArrayList<String>> getrename(){
+		return this.rename;
+	}
+	
+	public ArrayList<ArrayList<String>> getImages() {
 		return this.images;
+	}
+	
+	public String[][] getNewName(){
+		return this.newnames;
 	}
 }

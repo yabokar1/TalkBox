@@ -21,7 +21,6 @@ public class TalkBoxSimProfiles {
 	private TalkBoxConfig tbc;
 	public String profilename;
 	public TreeItem<String> root;
-
 	private int currentRow = 0;
 	
 	private int currentCol = 0;
@@ -39,7 +38,9 @@ public class TalkBoxSimProfiles {
 	
 	public void getProfiles(GridPane p, String row) {
 		String[][] audioname = this.tbc.AudioName;
-		ArrayList<String> image = this.tbc.images;
+		ArrayList<ArrayList<String>> image = this.tbc.images;
+		ArrayList<ArrayList<String>> rename = this.tbc.rename;
+		System.out.println(rename);
 		int ctr = 0;
 		int size = Integer.parseInt(row);
 		for(String temp : audioname[size]) {
@@ -53,13 +54,25 @@ public class TalkBoxSimProfiles {
 				   currentCol = 0;
 				   currentRow++;
 			   }
-			   if(ctr < image.size()) {
-			   Image im = new Image(image.get(ctr));
+			   try {
+			   if(image.get(size).get(ctr) != null) {
+			   Image im = new Image(image.get(size).get(ctr));
 			   ImageView iv = new ImageView(im);
                iv.fitWidthProperty().bind(b.widthProperty());
                iv.fitHeightProperty().bind(b.heightProperty());
                b.setGraphic(iv);
-		}
+		       }
+			   }
+			   catch(Exception e) {
+				   try {
+				   if(rename.get(size).get(ctr) != null) {
+					   b.setText(rename.get(size).get(ctr));
+			   }
+						   }
+				   catch(Exception ie) {
+					  continue; 
+				   }
+			   }
 			   ctr++;
 		}
 	}
@@ -83,7 +96,6 @@ public class TalkBoxSimProfiles {
                 }
             }
 		});}
-	
 	
 	
 	public TreeItem<String> getRoot() {

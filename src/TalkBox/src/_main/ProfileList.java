@@ -18,8 +18,11 @@ public class ProfileList implements Observer,Serializable {
 	private int row;
 	private String profilename;
 	private int numofAudioSets = 0;
+	public ArrayList<ArrayList<String>> ImageSet;
+	public ArrayList<ArrayList<String>> RenameSet;
 	private ArrayList<TreeItem<String>> profileSet;
 	private ArrayList<ArrayList<TreeItem<String>>> profiles = new ArrayList<ArrayList<TreeItem<String>>>();
+
 	private int addProfileSet = 0;
 	
 	
@@ -30,6 +33,8 @@ public class ProfileList implements Observer,Serializable {
 		this.root.setExpanded(false);
 		this.Tree = new TreeView<String>(this.root);
 		this.Tree.setShowRoot(false);
+		ImageSet = new ArrayList<ArrayList<String>>();
+		RenameSet = new ArrayList<ArrayList<String>>();
 
 	}
 
@@ -47,32 +52,36 @@ public class ProfileList implements Observer,Serializable {
 
 	   return this.numofAudioSets;
 	}
-	
 
 
 	public void setProfileTitle(String e) {
 
-		
  
 		this.profileSet = new ArrayList<TreeItem<String>>();	
 		
 		this.profiles.add(this.profileSet);
 		
 		TreeItem<String> newItem = new TreeItem<String>(e);
+		
 
 		newItem.setExpanded(false);
 
 		this.root.getChildren().add(newItem);
 
 		this.numofAudioSets++;
-
+		
+		ArrayList<String> Imglist = new ArrayList<String>();
+		ImageSet.add(Imglist);
+		
+		ArrayList<String> rename = new ArrayList<String>();
+		RenameSet.add(rename);
+		System.out.println(ImageSet);
 	}
 
 
 
 	
-	public  ArrayList<ArrayList<TreeItem<String>>>  getProfile() {
-		
+	public  ArrayList<ArrayList<TreeItem<String>>> getProfile() {
 		return this.profiles;
 	}
 
@@ -87,6 +96,7 @@ public class ProfileList implements Observer,Serializable {
 		this.root.getChildren().get(this.row).getChildren().add(newItem);
 		
 		this.profiles.get(this.row).add(newItem);
+		
 		
 
 	}
@@ -138,7 +148,7 @@ public class ProfileList implements Observer,Serializable {
 		return max;
 	}
 	
-	
+
 	
 
 
@@ -160,9 +170,6 @@ public class ProfileList implements Observer,Serializable {
 	}
 	
 	
-	
-	
-	
 	public String[] getAudio() {
 		int length = this.root.getChildren().get(this.row).getChildren().size();
 		String[] temp = new String[length];
@@ -181,29 +188,28 @@ public class ProfileList implements Observer,Serializable {
 		return AudioProfiles;
 	}
 	
+	public String[][] getnewName(ButtonPanel p,int row, int col){
+		String[][] temp = getAudioFileNames();
+		temp[row][col] = p.newname;
+		return temp;
+	}	
 
 	
 	
 	public void setProfileToPanel(ButtonPanel buttonpanel) {
-		
 		  this.profiles.add(this.profileSet);
 		  int size = this.profiles.get(this.row).size();
 		  buttonpanel.getChildren().clear();
-		  for(int i=0; i<=size-1; i++) {
-			  
+		  for(int i=0; i<=size-1; i++) {	  
 			  String name = this.profiles.get(this.row).get(i).getValue();
 			  buttonpanel.addButton(name);
-			  System.out.println(name);
-			  
+			  System.out.println(name);  
 		  }
-
 		}
-		
 		
 	public int getRow() {
 		return this.row;
 	}
-	
 	
 	
 	@Override

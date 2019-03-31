@@ -11,6 +11,7 @@ import io.TalkBoxLogger;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
@@ -31,33 +32,34 @@ public class ButtonPanel extends GridPane implements Observer{
 		
 		private static final int BTN_HEIGHT = 90;
 		
-		private ArrayList<String> ImageList;
-		private ArrayList<Button> ButtonList;
+		public String newname;
+		
+		public ProfileList list;
 		
 		public ButtonPanel() {
-			ImageList = new ArrayList<String>();
-			ButtonList = new ArrayList<Button>();
+			
 		}
 		
 		public void resetRow() {
-			
 			this.currentRow=0;
 		}
+	
+		public void setProfileList(ProfileList temp) {
+			list = temp;
+		}
+		public void setnewName(String s) {
+			newname = s;
+		}
 		
+		public String newName() {
+			return this.newname;
+		}
 		
 		public void resetColumn() {
 			
 			this.currentCol=0;
 		}
-		
-		public ArrayList<String> getImageList(){
-			return this.ImageList;
-		}
-		
-		public ArrayList<Button> getButton() {
-			return this.ButtonList;
-		}
-	
+
 		public void addButton(String name) {
 			
 		   Button button = new Button(name);
@@ -66,9 +68,9 @@ public class ButtonPanel extends GridPane implements Observer{
 		   
 		   button.setMaxSize(BTN_WIDTH, BTN_HEIGHT);
 		   
-		   this.setHgrow(button, Priority.ALWAYS);
+		   ButtonPanel.setHgrow(button, Priority.ALWAYS);
 		   
-		   this.setHgrow(button, Priority.ALWAYS);
+		   ButtonPanel.setHgrow(button, Priority.ALWAYS);
 		   
 		   this.setVgap(20);
 		   
@@ -92,13 +94,7 @@ public class ButtonPanel extends GridPane implements Observer{
 		
 
 		public int getNumofButtonsArray() {
-			
-			
 			return this.numOfAudioButtons;
-		}
-		
-		public void imageArray(String temp) {
-				ImageList.add(temp);
 		}
 		
 
@@ -119,29 +115,17 @@ public class ButtonPanel extends GridPane implements Observer{
 						
 						clip.play();
 	                }
-	                
 	                else if(button==MouseButton.SECONDARY){
-	                
-	                ImportFiles image = new ImportFiles();
-	                
-	                image.open("Images/");
-	                
-	                Image pic = new Image(image.file.toURI().toString());
-	                
-	                imageArray(image.file.toURI().toString());
-	                
-	                ImageView iv = new ImageView(pic);
-	                
-	                iv.fitWidthProperty().bind(b.widthProperty());
-	                
-	                iv.fitHeightProperty().bind(b.heightProperty());
-	                
-	                b.setGraphic(iv);
+	                ContextMenuClass right = new ContextMenuClass(b,list,newName(),list.getRow());
+	                right.cm.show(b, event.getScreenX(), event.getScreenY());
+	                System.out.println(list.ImageSet);
+	                System.out.println(list.RenameSet);
 	                }
 	            }
 	        });
 		}
 
+		
 
 		@Override
 		public void update(Observable o, Object arg) {
@@ -149,9 +133,6 @@ public class ButtonPanel extends GridPane implements Observer{
 			String buttonName = (String) arg;
 	
 			addButton(buttonName);
-		
-			//System.out.println(this.numOfAudioButtons);
-			
 			
 		}
 

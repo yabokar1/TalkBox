@@ -20,6 +20,7 @@ public class TalkBoxSimMenu {
 	private MenuItem Config;
 	private Menu Profiles;
 	private int row;
+
 	
 	public TalkBoxSimMenu(GridPane p) throws Exception {
 		tbc=(TalkBoxConfig) Serializer.Load("TalkBox/TalkBoxData/TalkBoxData.tbc");
@@ -44,19 +45,24 @@ public class TalkBoxSimMenu {
 			MenuItem item = new MenuItem(temp);
 			item.setId(String.format("%d", row));
 			Profiles.getItems().add(item);
-			item.setOnAction(e ->{
-				TalkBoxSimProfiles tbsp;
-				try {
-					tbsp = new TalkBoxSimProfiles();
-					tbsp.getProfiles(p, item.getId());
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			});
+			attachlistener(p,item);
 			row++;
 		}
 	}
+	
+	public void attachlistener(GridPane p,MenuItem item) {
+		item.setOnAction(e ->{
+			TalkBoxSimProfiles tbsp;
+			try {
+				tbsp = new TalkBoxSimProfiles();
+				tbsp.getProfiles(p, item.getId());
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+	});
+	}
+
 
 	
 	public void ActionListener() {

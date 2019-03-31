@@ -24,7 +24,7 @@ public class TalkBoxButtons {
 	
 	private Sound sound;
 	private String filename;
-	
+	private String newname;
 	
 	public TalkBoxButtons() {
 		sound = new Sound();
@@ -38,8 +38,9 @@ public class TalkBoxButtons {
 		Launch.setMinSize(Names.LAUNCHBUTTON_WIDTH, Names.LAUNCHBUTTON_HEIGHT);
 		Launch.setOnAction(e -> {
 			try {
+		    config.rename = profile.RenameSet;
 			config.row = profile.getRow();
-			config.images = button.getImageList();
+		    config.images = profile.ImageSet;
 			config.Audio = profile.getAudio();
 			config.setNumberofAudioButtons(button);
 			config.Profiles = profile.getProfiles();
@@ -85,6 +86,21 @@ public class TalkBoxButtons {
 		
 		return setProfile;
 	}
+	
+	public TextField Rename(ButtonPanel p) {
+		TextField text = new TextField("Enter New Name");
+		text.setMaxSize(200, 50);
+		text.setOnMouseClicked(e -> text.clear());
+		text.setOnAction(e -> {
+			this.newname = text.getText();
+			p.setnewName(this.newname)
+			
+			;});
+		
+		return text;
+	}
+	
+	
 	
     public Label headerLabel() {
     	Label talkBoxLabel = new Label(Names.TITLE);
@@ -134,7 +150,8 @@ public class TalkBoxButtons {
     }
     
 
-	public TopMenu Menu(TreeItem<String> Profile){
+	public TopMenu Menu(TreeItem<String> 
+	Profile){
 		TopMenu menu = new TopMenu(Profile);
 		return menu;
 		

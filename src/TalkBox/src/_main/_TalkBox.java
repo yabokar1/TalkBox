@@ -50,6 +50,7 @@ public class _TalkBox extends Application {
     	
         
         ButtonPanel observer = initializeButtonPanel(root,observer2.getRoot()); 
+        observer.list = observer2;
     	
     	LaunchButton(observer2,observer,root);
     	
@@ -142,7 +143,8 @@ public class _TalkBox extends Application {
 	public void LaunchButton(ProfileList profile,ButtonPanel button,RootView root) {
 		
 		TalkBoxButtons launchButton = new TalkBoxButtons();
-		this.getButtonPanel().getChildren().add(launchButton.addLaunchButton(button,profile));
+		
+		this.getButtonPanel().getChildren().addAll(launchButton.addLaunchButton(button,profile),launchButton.Rename(button));
 	
 		
 	}
