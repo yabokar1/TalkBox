@@ -84,6 +84,9 @@ public class TalkBoxButtons {
 		   buttonpanel.resetRow();
 		   buttonpanel.resetColumn();
 		   profile.setProfileToPanel(buttonpanel);
+		   System.out.println(profile.getProfile());
+		   System.out.println(profile.getAudioSets());
+		   System.out.println(Arrays.deepToString(profile.getProfiles()));
 	});
 		
 		return setProfile;

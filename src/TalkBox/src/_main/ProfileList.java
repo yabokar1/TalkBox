@@ -57,16 +57,12 @@ public class ProfileList implements Observer,Serializable {
 		this.root = temp;
 	}
 
-	public void setProfileTitle(String e) {
-
- 
-		this.profileSet = new ArrayList<TreeItem<String>>();	
+	public void setProfileTitle(String e) {	
 		
 		this.profiles.add(this.profileSet);
 		
 		TreeItem<String> newItem = new TreeItem<String>(e);
 		
-
 		newItem.setExpanded(false);
 
 		this.root.getChildren().add(newItem);
