@@ -35,7 +35,7 @@ public class ProfileList implements Observer,Serializable {
 		this.Tree.setShowRoot(false);
 		ImageSet = new ArrayList<ArrayList<String>>();
 		RenameSet = new ArrayList<ArrayList<String>>();
-
+		profileSet = new ArrayList<TreeItem<String>>();
 	}
 
 	public TreeView<String> getTree() {
@@ -198,14 +198,14 @@ public class ProfileList implements Observer,Serializable {
 		  buttonpanel.getChildren().clear();
 		  for(int i=0; i<=size-1; i++) {	  
 			  String name = this.profiles.get(this.row).get(i).getValue();
-			  buttonpanel.addButton(name);
-			  System.out.println(name);  
+			  buttonpanel.addButton(name); 
 		  }}
 		catch(Exception e) {
-			System.out.println(this.profileSet);
+			System.out.println("ah e");
 		}
 		}
 		
+	
 	public int getRow() {
 		return this.row;
 	}

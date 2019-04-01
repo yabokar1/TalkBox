@@ -161,7 +161,18 @@ public class TalkBoxButtons {
 		
 		menu.getrefresh().setOnAction(e->{
 			this.list.loadFromDisk();});
-		menu.ImportProfiles(menu.getLoad(), Profile);		
+		
+		menu.getLoad().setOnAction(e->{
+			TalkBoxLogger.logMenuPressEvent(e);
+			Load Load;
+			try {
+				Load = new Load();
+				Load.Loader(Profile);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+	});
 		return menu.getMenu();
 	}
 	
