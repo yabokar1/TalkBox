@@ -11,6 +11,7 @@ import audio_players.Sound;
 import io.TalkBoxLogger;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.image.Image;
@@ -25,6 +26,7 @@ public class TalkBoxButtons {
 	private Sound sound;
 	private String filename;
 	private String newname;
+	public AudioSampleList list;
 	
 	public TalkBoxButtons() {
 		sound = new Sound();
@@ -77,11 +79,14 @@ public class TalkBoxButtons {
 	
 	public Button setProfile(ButtonPanel buttonpanel,ProfileList profile) {
 		Button setProfile = new Button("Set Profile");
-		setProfile.setOnAction(e->{
+		   setProfile.setOnAction(e->{
 		   profile.setProfileParameters();
 		   buttonpanel.resetRow();
 		   buttonpanel.resetColumn();
 		   profile.setProfileToPanel(buttonpanel);
+		   System.out.println(profile.getProfile());
+		   System.out.println(profile.getAudioSets());
+		   System.out.println(Arrays.deepToString(profile.getProfiles()));
 	});
 		
 		return setProfile;
@@ -109,7 +114,7 @@ public class TalkBoxButtons {
     }
     
 
-    public VBox FileandStart(AudioSampleList list) {
+    public VBox FileandStart() {
     	VBox v = new VBox();
     	TextField filename = new TextField("Enter Filename");
     	filename.setOnMouseClicked(e -> filename.clear());
@@ -117,7 +122,7 @@ public class TalkBoxButtons {
     		this.filename = filename.getText();
     	});
     	Button Stop = new Button("Stop");
-    	Stop.setOnAction(e ->{ sound.stop(); list.loadFromDisk();});
+    	Stop.setOnAction(e ->{ System.out.println(list); sound.stop(); this.list.loadFromDisk();});
     	Stop.setMinSize(Names.STARTBUTTON_WIDTH, Names.STARTBUTTON_HEIGHT);
     	v.getChildren().addAll(Stop,filename);
     	return v;
@@ -145,16 +150,33 @@ public class TalkBoxButtons {
     	imageView.setFitWidth( 90);
     	Record.setMinSize(Names.RECORDBUTTON_HEIGHT, Names.RECORDBUTTON_WIDTH);
     	Record.setGraphic(imageView);
-    	RecordingArea.getChildren().addAll(Record,FileandStart(list));
+    	RecordingArea.getChildren().addAll(Record,FileandStart());
     	return RecordingArea;
     }
     
 
-	public TopMenu Menu(TreeItem<String> 
-	Profile){
-		TopMenu menu = new TopMenu(Profile);
-		return menu;
+	public MenuBar Menu(TreeItem<String> Profile){
+		TopMenu menu = new TopMenu();
+		menu.getImport().setOnAction(e ->{
+			TalkBoxLogger.logMenuPressEvent(e);
+			menu.ImportAudioListener(menu.getImport());
+		});
 		
+		menu.getrefresh().setOnAction(e->{
+			this.list.loadFromDisk();});
+		
+		menu.getLoad().setOnAction(e->{
+			TalkBoxLogger.logMenuPressEvent(e);
+			Load Load;
+			try {
+				Load = new Load();
+				Load.Loader(Profile);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+	});
+		return menu.getMenu();
 	}
 	
 	

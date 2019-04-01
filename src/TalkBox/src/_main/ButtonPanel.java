@@ -118,10 +118,18 @@ public class ButtonPanel extends GridPane implements Observer{
 	                else if(button==MouseButton.SECONDARY){
 	                ContextMenuClass right = new ContextMenuClass(b,list,newName(),list.getRow());
 	                right.cm.show(b, event.getScreenX(), event.getScreenY());
-	                System.out.println(list.ImageSet);
-	                System.out.println(list.RenameSet);
+	                right.LoadImage.setOnAction(e ->{
+	           			right.attachImageAdder(b, list, list.getRow());
+	                    System.out.println(list.ImageSet);
+	                    System.out.println(list.RenameSet);
+	           		});
+	                	right.Rename.setOnAction(e ->{
+	                	right.rename(b, newName(), list, list.getRow());
+	                    System.out.println(list.ImageSet);
+	                    System.out.println(list.RenameSet);
+	                	});
 	                }
-	            }
+	                }
 	        });
 		}
 

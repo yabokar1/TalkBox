@@ -22,8 +22,6 @@ public class AudioFileIO {
 	
 	
 	public AudioFileIO() {
-
-		
 		this.audioNames = new ArrayList<String>();
 	}
 	
@@ -50,8 +48,6 @@ public class AudioFileIO {
 			e.printStackTrace();
 		}
 
-		
-		
 		return this.audioNames;
 	}
 
@@ -60,8 +56,7 @@ public class AudioFileIO {
 	
 	
 	private StringBuilder removeFileExtension(StringBuilder sb) {
-		
-		
+
 		return sb.delete(sb.length() - 4, sb.length()); 
 	}
 	
@@ -72,7 +67,6 @@ public class AudioFileIO {
 	 * @return all the wav audio files in the given directory.
 	 */
 	public File[] getWavFiles(String dirName) throws IOException {
-	
 	
 
 		try {
@@ -97,15 +91,11 @@ public class AudioFileIO {
 			return files;
 		}
 		catch(NullPointerException e) {
-			
+			System.out.println("hi");
 			return new File[0];
 		}
 	}
 
-	
-	
-	
-	
 	
 	
 	public static FileInputStream getWavFile(String fileName) throws Exception {

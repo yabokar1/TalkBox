@@ -29,13 +29,15 @@ public class _TalkBox extends Application {
 	private VBox buttonPanel;
 	private File TalkBoxDataPath;
 	private AudioSampleList sampleList;
-	
+	private TalkBoxButtons button;
+
 	
     @Override
     public void start(Stage primaryStage) throws IOException {
         
     
     	TalkBoxLogger.setupLogger(TalkBoxDataPath, "config-log");
+        button =  new TalkBoxButtons();
     	
     	primaryStage.setTitle(Names.TITLE);
         
@@ -46,15 +48,14 @@ public class _TalkBox extends Application {
     	
         
         ButtonPanel observer = initializeButtonPanel(root,observer2.getRoot()); 
-        observer.list = observer2;
-    	
-    	LaunchButton(observer2,observer,root);
-    	
-    	AddProfileBox(root,observer,observer2);
-    	
-    	//LaunchButton(observer2,observer,root);
         
-    	
+        observer.list = observer2;
+    	AddProfileBox(root,observer,observer2);
+    	button.list = this.sampleList;
+    	LaunchButton(observer2,observer,root);
+        AudioSample(observer,observer2);
+
+        
         Scene scene = new Scene(root, Names.SCENE_WIDTH, Names.SCENE_HEIGHT);
         
         primaryStage.setScene(scene);
@@ -88,7 +89,6 @@ public class _TalkBox extends Application {
 
 	    sampleList = new AudioSampleList();
 	   
-	    
 	    sampleList.addObserver(panel);  //This is for the observer of the buttonPanel
 	    
 	    sampleList.addObserver(profile);
@@ -97,20 +97,12 @@ public class _TalkBox extends Application {
 	    
 	    return sampleList;
 	    }
-	
-	private ProfileList Profiles() {
-		ProfileList Profiles = new ProfileList();
-		return Profiles;
-	}
-
-	
+		
 	
 	public void AddProfileBox(RootView root, ButtonPanel panel,ProfileList profile) throws FileNotFoundException {
 
 		VBox section2 = new VBox();
-		HBox Set = new HBox();
 		profile.setProfileParameters();
-		TalkBoxButtons button = new TalkBoxButtons();
 		HBox section3 = new HBox();
 		section3.getChildren().add(button.setProfile(panel, profile));
 		section2.getChildren().addAll(new Label("Profiles"),profile.getTree(),button.enterProfileTextField(profile,panel),new Label("Audio"),this.AudioSample(panel,profile).getList(),button.addRecordArea(this.sampleList));
@@ -124,8 +116,7 @@ public class _TalkBox extends Application {
 	public VBox addButtonPanelAndLabel(ScrollPane scrollpane,ButtonPanel gp, TreeItem<String> Profile) {
     	
     	 this.buttonPanel = new VBox(10);
-    	 TalkBoxButtons button = new TalkBoxButtons();
-         this.buttonPanel.getChildren().addAll(button.Menu(Profile).getMenu(),button.headerLabel(),scrollpane);
+         this.buttonPanel.getChildren().addAll(button.Menu(Profile),button.headerLabel(),scrollpane);
          return this.buttonPanel;
     }
 	
@@ -136,14 +127,14 @@ public class _TalkBox extends Application {
 	}
 	
 	
-	public void LaunchButton(ProfileList profile,ButtonPanel button,RootView root) {
+	public void LaunchButton(ProfileList profile,ButtonPanel buttonp,RootView root) {
 		
-		TalkBoxButtons launchButton = new TalkBoxButtons();
 		
-		this.getButtonPanel().getChildren().addAll(launchButton.addLaunchButton(button,profile),launchButton.Rename(button));
+		this.getButtonPanel().getChildren().addAll(button.addLaunchButton(buttonp,profile),button.Rename(buttonp));
 	
 		
 	}
+
     
 	public ScrollPane addScrollPane(ButtonPanel buttonpanel) {
 		

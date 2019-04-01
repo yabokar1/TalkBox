@@ -1,6 +1,8 @@
 package _main;
 
 
+import java.util.ArrayList;
+
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 
@@ -11,6 +13,7 @@ public class Load {
 	private String[] profile;
 	TreeView<String> Tree;
 	private int row;
+
 	
 	Load() throws Exception{
 		tbc = (TalkBoxConfig) Serializer.Load("TalkBox/TalkBoxData/TalkBoxData.tbc");
@@ -25,7 +28,6 @@ public class Load {
 		String profilename = profile[i];
 		this.branch(profilename, root);
 		for (int j = 0; j <= column - 1; j++) {
-			TreeItem<String> item = new TreeItem<>(profilename);
 			if (audioname[i][j] != null) {
 				this.branch(audioname[i][j],
 						root.getChildren().get(i));
@@ -45,9 +47,7 @@ public class Load {
 			}
 
 		});
-
-	}
-	
+	}	
 
 	
 	public TreeItem getTreeItem(int i,TreeItem<String> root) {
