@@ -18,7 +18,7 @@ import javafx.scene.shape.Path;
 import javafx.stage.Stage;
 import io.TalkBoxLogger;
 
-
+// Inherits from Application 
 public class _TalkBox extends Application {
 	
    	
