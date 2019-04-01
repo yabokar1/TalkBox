@@ -53,6 +53,9 @@ public class ProfileList implements Observer,Serializable {
 	   return this.numofAudioSets;
 	}
 
+	public void setRoot(TreeItem <String> temp){
+		this.root = temp;
+	}
 
 	public void setProfileTitle(String e) {
 
@@ -189,6 +192,7 @@ public class ProfileList implements Observer,Serializable {
 
 	
 	public void setProfileToPanel(ButtonPanel buttonpanel) {
+		try {
 		  this.profiles.add(this.profileSet);
 		  int size = this.profiles.get(this.row).size();
 		  buttonpanel.getChildren().clear();
@@ -196,7 +200,10 @@ public class ProfileList implements Observer,Serializable {
 			  String name = this.profiles.get(this.row).get(i).getValue();
 			  buttonpanel.addButton(name);
 			  System.out.println(name);  
-		  }
+		  }}
+		catch(Exception e) {
+			System.out.println(this.profileSet);
+		}
 		}
 		
 	public int getRow() {

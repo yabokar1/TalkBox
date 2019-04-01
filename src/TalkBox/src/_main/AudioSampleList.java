@@ -1,5 +1,6 @@
 package _main;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.AudioFileIO;
@@ -13,7 +14,14 @@ import java.util.Observable;
 public class AudioSampleList extends Observable {
 	
 	
-	private ListView<String> privateListView = new ListView<String>();
+	private ListView<String> privateListView;
+	public List<String> list;
+	
+	public AudioSampleList() {
+		privateListView = new ListView<String>();
+		list = new ArrayList<String>();
+	}
+
 
 	public void loadFromDisk() {
 
@@ -21,7 +29,7 @@ public class AudioSampleList extends Observable {
 
 		try {
 
-			List<String> list = io.getAudioNames();
+			list = io.getAudioNames();
 
 			for (String e : list) {
 
@@ -31,11 +39,12 @@ public class AudioSampleList extends Observable {
 			privateListView.setMinSize(200, 175);
 
 		} catch (Exception e) {
-
-			e.printStackTrace();
+			System.out.println("hi");
+		//	e.printStackTrace();
 		}
 
 	}
+	
 
 	public void notifyButtonPanel(String audioSampleName) {
 
