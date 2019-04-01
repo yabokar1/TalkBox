@@ -1,9 +1,7 @@
 package _main;
 
-
 import java.io.File;
 import java.io.FileNotFoundException;
-
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -27,9 +25,7 @@ public class _TalkBox extends Application {
 		launch(args);
 		
     }
-   //
-	
-	
+   	
 	private VBox buttonPanel;
 	private File TalkBoxDataPath;
 	private AudioSampleList sampleList;
