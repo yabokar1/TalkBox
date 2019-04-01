@@ -51,9 +51,10 @@ public class _TalkBox extends Application {
     	ProfileList observer2 = new ProfileList();
     	
         
-        ButtonPanel observer = initializeButtonPanel(root,observer2.getRoot()); 
+        ButtonPanel observer = initializeButtonPanel(root,observer2); 
         
         observer.list = observer2;
+        
     	AddProfileBox(root,observer,observer2);
     	button.list = this.sampleList;
     	LaunchButton(observer2,observer,root);
@@ -72,7 +73,7 @@ public class _TalkBox extends Application {
     
     
 
-   private ButtonPanel initializeButtonPanel(RootView root, TreeItem<String> Profile) {
+   private ButtonPanel initializeButtonPanel(RootView root, ProfileList Profile) {
 
 
         ButtonPanel  buttonPanel = new ButtonPanel();
@@ -117,7 +118,7 @@ public class _TalkBox extends Application {
 	
 
 
-	public VBox addButtonPanelAndLabel(ScrollPane scrollpane,ButtonPanel gp, TreeItem<String> Profile) {
+	public VBox addButtonPanelAndLabel(ScrollPane scrollpane,ButtonPanel gp, ProfileList Profile) {
     	
     	 this.buttonPanel = new VBox(10);
          this.buttonPanel.getChildren().addAll(button.Menu(Profile),button.headerLabel(),scrollpane);

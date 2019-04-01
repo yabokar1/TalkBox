@@ -155,7 +155,7 @@ public class TalkBoxButtons {
     }
     
 
-	public MenuBar Menu(TreeItem<String> Profile){
+	public MenuBar Menu(ProfileList list){
 		TopMenu menu = new TopMenu();
 		menu.getImport().setOnAction(e ->{
 			TalkBoxLogger.logMenuPressEvent(e);
@@ -170,7 +170,13 @@ public class TalkBoxButtons {
 			Load Load;
 			try {
 				Load = new Load();
-				Load.Loader(Profile);
+				list.SetProfile(Load.holder);
+				Load.Loader(list.getRoot());
+				list.setProfileArray(Load.NameHolder);
+				System.out.println(Load.holder);
+				System.out.println(Arrays.deepToString(Load.NameHolder));
+				System.out.println(Arrays.deepToString(list.getProfiles()));
+				System.out.println(Arrays.deepToString(list.getAudioFileNames()));
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

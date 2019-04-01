@@ -21,14 +21,14 @@ public class ProfileList implements Observer,Serializable {
 	public ArrayList<ArrayList<String>> ImageSet;
 	public ArrayList<ArrayList<String>> RenameSet;
 	private ArrayList<TreeItem<String>> profileSet;
-	private ArrayList<ArrayList<TreeItem<String>>> profiles = new ArrayList<ArrayList<TreeItem<String>>>();
+	private ArrayList<ArrayList<TreeItem<String>>> profiles;
+	public String [] AudioProfiles;
 
 	private int addProfileSet = 0;
 	
 	
 
 	public ProfileList() {
-
 		this.root = new TreeItem<String>();
 		this.root.setExpanded(false);
 		this.Tree = new TreeView<String>(this.root);
@@ -36,7 +36,10 @@ public class ProfileList implements Observer,Serializable {
 		ImageSet = new ArrayList<ArrayList<String>>();
 		RenameSet = new ArrayList<ArrayList<String>>();
 		profileSet = new ArrayList<TreeItem<String>>();
+		profiles = new ArrayList<ArrayList<TreeItem<String>>>();
 	}
+	
+	
 
 	public TreeView<String> getTree() {
 
@@ -82,6 +85,10 @@ public class ProfileList implements Observer,Serializable {
 	public  ArrayList<ArrayList<TreeItem<String>>> getProfile() {
 		return this.profiles;
 	}
+	
+	public void SetProfile(ArrayList<ArrayList<TreeItem<String>>> temp) {
+		this.profiles = temp;
+	}
 
 
 
@@ -105,11 +112,9 @@ public class ProfileList implements Observer,Serializable {
 			if (NewValue != null) {
 				this.row = Tree.getRow(NewValue); // row is the position of the file name
 				this.profilename = NewValue.getValue(); // Gets the profile name of the clicked profile
-				System.out.println(this.profilename);
+			//	System.out.println(this.profilename);
 			}
-
 		});
-
 	}
 	
 	
@@ -125,8 +130,6 @@ public class ProfileList implements Observer,Serializable {
 	public String getProfileName(int i) {
 		return this.root.getChildren().get(i).getValue().toString();
 	}
-	
-	
 	
 	
 	
@@ -146,9 +149,6 @@ public class ProfileList implements Observer,Serializable {
 		return max;
 	}
 	
-
-	
-
 
 	public String[][] getAudioFileNames() {
 		int length = this.root.getChildren().size();
@@ -178,12 +178,19 @@ public class ProfileList implements Observer,Serializable {
 	}
 	
 	public String[] getProfiles() {
+
 		int size = this.getAudioSets();
-		String [] AudioProfiles = new String[size];
-		for(int i=0; i<size; i++) {
+		System.out.println(AudioProfiles.length);
+		for(int i=AudioProfiles.length; i< size; i++) {
 			AudioProfiles[i] = this.getRoot().getChildren().get(i).getValue();
 		}
 		return AudioProfiles;
+	}
+	
+	public void setProfileArray(String[] temp) {
+		int size = this.getAudioSets();
+		AudioProfiles = new String[size];
+		this.AudioProfiles = temp;
 	}
 
 	
