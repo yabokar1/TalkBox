@@ -55,7 +55,6 @@ public class TalkBoxConfig implements Serializable{
 		return "TalkBox/";
 	}
 	
-
 	public String[][] getAudioFileNames() {
 		return this.AudioName;
 	}
