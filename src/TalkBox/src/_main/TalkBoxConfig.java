@@ -70,7 +70,7 @@ public class TalkBoxConfig implements Serializable{
 	public String[] getProfile() {
 		return this.Profiles;
 	}
-
+	
 	public ArrayList<ArrayList<String>> getrename(){
 		return this.rename;
 	}
