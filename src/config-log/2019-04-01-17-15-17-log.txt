@@ -1,0 +1,42 @@
+Apr 01, 2019 5:15:17 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 01, 2019 5:15:22 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 01, 2019 5:15:23 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 01, 2019 5:25:05 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Help button
+Apr 01, 2019 5:25:13 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Help button
+Apr 01, 2019 5:25:16 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Help button
+Apr 01, 2019 5:25:20 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Bye button
+Apr 01, 2019 5:25:21 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Help button
+Apr 01, 2019 5:25:22 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Good Bye button
+Apr 01, 2019 5:25:23 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Bye button
+Apr 01, 2019 5:25:24 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Help button
+Apr 01, 2019 5:25:25 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Good Bye button
+Apr 01, 2019 5:25:34 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Help button
+Apr 01, 2019 5:25:38 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed null button
+Apr 01, 2019 5:25:38 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed null button
+Apr 01, 2019 5:25:40 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed null button
+Apr 01, 2019 5:25:45 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed null button
+Apr 01, 2019 5:25:48 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed null button
+Apr 01, 2019 5:25:55 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed null button
+Apr 01, 2019 5:25:58 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Bye button
+Apr 01, 2019 5:25:58 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Bye button

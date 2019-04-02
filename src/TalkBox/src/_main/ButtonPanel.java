@@ -43,22 +43,24 @@ public class ButtonPanel extends GridPane implements Observer{
 		public void resetRow() {
 			this.currentRow=0;
 		}
+		
+		public void resetColumn() {
+			
+			this.currentCol=0;
+		}
 	
 		public void setProfileList(ProfileList temp) {
-			list = temp;
+			this.list = temp;
 		}
 		public void setnewName(String s) {
-			newname = s;
+			this.newname = s;
 		}
 		
 		public String newName() {
 			return this.newname;
 		}
 		
-		public void resetColumn() {
-			
-			this.currentCol=0;
-		}
+		
 
 		public void addButton(String name) {
 			
@@ -116,12 +118,18 @@ public class ButtonPanel extends GridPane implements Observer{
 						clip.play();
 	                }
 	                else if(button==MouseButton.SECONDARY){
+	              
 	                ContextMenuClass right = new ContextMenuClass(b,list,newName(),list.getRow());
+	                
 	                right.cm.show(b, event.getScreenX(), event.getScreenY());
+	                
 	                right.LoadImage.setOnAction(e ->{
-	           			right.attachImageAdder(b, list, list.getRow());
-	                    System.out.println(list.ImageSet);
-	                    System.out.println(list.RenameSet);
+	           			
+	                	right.attachImageAdder(b, list, list.getRow());
+	                    
+	                	System.out.println(list.ImageSet);
+	                    
+	                	System.out.println(list.RenameSet);
 	           		});
 	                	right.Rename.setOnAction(e ->{
 	                	right.rename(b, newName(), list, list.getRow());

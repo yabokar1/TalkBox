@@ -60,11 +60,16 @@ public class TalkBoxSimProfiles {
 			   }
 			   try {
 			   if(image.get(size).get(ctr) != null) {
-			   Image im = new Image(image.get(size).get(ctr));
-			   ImageView iv = new ImageView(im);
-               iv.fitWidthProperty().bind(b.widthProperty());
-               iv.fitHeightProperty().bind(b.heightProperty());
-               b.setGraphic(iv);
+			   
+				Image im = new Image(image.get(size).get(ctr));
+			   
+				ImageView iv = new ImageView(im);
+               
+				iv.fitWidthProperty().bind(b.widthProperty());
+               
+				iv.fitHeightProperty().bind(b.heightProperty());
+               
+				b.setGraphic(iv);
 		       }
 			   else {
 				   try {

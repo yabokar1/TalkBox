@@ -43,9 +43,9 @@ public class TalkBoxButtons {
 		    config.rename = profile.RenameSet;
 			config.row = profile.getRow();
 		    config.images = profile.ImageSet;
-			config.Audio = profile.getAudio();
+			config.Audio = profile.getSets();
 			config.setNumberofAudioButtons(button);
-			config.Profiles = profile.getProfiles();
+			config.Profiles = profile.getSets();
 			config.AudioName = profile.getAudioFileNames();
 			config.getRelativePathToAudioFiles();
 				Serializer.Save(config, "TalkBox/TalkBoxData/");
@@ -84,9 +84,9 @@ public class TalkBoxButtons {
 		   buttonpanel.resetRow();
 		   buttonpanel.resetColumn();
 		   profile.setProfileToPanel(buttonpanel);
-		   System.out.println(profile.getProfile());
-		   System.out.println(profile.getAudioSets());
-		   System.out.println(Arrays.deepToString(profile.getProfiles()));
+		   //System.out.println(profile.getProfile());
+		   //System.out.println(profile.getAudioSets());
+		   //System.out.println(Arrays.deepToString(profile.getProfiles()));
 	});
 		
 		return setProfile;
@@ -172,10 +172,10 @@ public class TalkBoxButtons {
 				Load = new Load();
 				list.SetProfile(Load.holder);
 				Load.Loader(list.getRoot());
-				list.setProfileArray(Load.NameHolder);
+				//list.setProfileArray(Load.NameHolder);
 				System.out.println(Load.holder);
 				System.out.println(Arrays.deepToString(Load.NameHolder));
-				System.out.println(Arrays.deepToString(list.getProfiles()));
+				//System.out.println(Arrays.deepToString(list.getProfiles()));
 				System.out.println(Arrays.deepToString(list.getAudioFileNames()));
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block

@@ -23,6 +23,7 @@ public class ProfileList implements Observer,Serializable {
 	private ArrayList<TreeItem<String>> profileSet;
 	private ArrayList<ArrayList<TreeItem<String>>> profiles;
 	public String [] AudioProfiles;
+	private ArrayList<String> audiosets = new  ArrayList<String>();
 
 	private int addProfileSet = 0;
 	
@@ -35,7 +36,6 @@ public class ProfileList implements Observer,Serializable {
 		this.Tree.setShowRoot(false);
 		ImageSet = new ArrayList<ArrayList<String>>();
 		RenameSet = new ArrayList<ArrayList<String>>();
-		profileSet = new ArrayList<TreeItem<String>>();
 		profiles = new ArrayList<ArrayList<TreeItem<String>>>();
 	}
 	
@@ -62,20 +62,28 @@ public class ProfileList implements Observer,Serializable {
 
 	public void setProfileTitle(String e) {	
 		
+		profileSet = new ArrayList<TreeItem<String>>();
+		
 		this.profiles.add(this.profileSet);
+		
+		
 		
 		TreeItem<String> newItem = new TreeItem<String>(e);
 		
 		newItem.setExpanded(false);
 
 		this.root.getChildren().add(newItem);
+		
+		audiosets.add(newItem.getValue());
 
 		this.numofAudioSets++;
 		
 		ArrayList<String> Imglist = new ArrayList<String>();
+		
 		ImageSet.add(Imglist);
 		
 		ArrayList<String> rename = new ArrayList<String>();
+		
 		RenameSet.add(rename);
 	}
 
@@ -84,6 +92,11 @@ public class ProfileList implements Observer,Serializable {
 	
 	public  ArrayList<ArrayList<TreeItem<String>>> getProfile() {
 		return this.profiles;
+	}
+	
+	public ArrayList<String> getSets() {
+		
+		return this.audiosets;
 	}
 	
 	public void SetProfile(ArrayList<ArrayList<TreeItem<String>>> temp) {
@@ -100,7 +113,7 @@ public class ProfileList implements Observer,Serializable {
 
 		this.root.getChildren().get(this.row).getChildren().add(newItem);
 		
-		this.profiles.get(this.row).add(newItem);
+		this.profileSet.add(newItem);
 		
 		
 
@@ -168,44 +181,32 @@ public class ProfileList implements Observer,Serializable {
 	}
 	
 	
-	public String[] getAudio() {
-		int length = this.root.getChildren().get(this.row).getChildren().size();
-		String[] temp = new String[length];
-		for(int i = 0; i < length; i++) {
-			temp[i] = this.root.getChildren().get(this.row).getChildren().get(i).getValue();
-		}
-		return temp;
-	}
-	
-	public String[] getProfiles() {
-
-		int size = this.getAudioSets();
-		System.out.println(AudioProfiles.length);
-		for(int i=AudioProfiles.length; i< size; i++) {
-			AudioProfiles[i] = this.getRoot().getChildren().get(i).getValue();
-		}
-		return AudioProfiles;
-	}
-	
-	public void setProfileArray(String[] temp) {
-		int size = this.getAudioSets();
-		AudioProfiles = new String[size];
-		this.AudioProfiles = temp;
-	}
 
 	
+
+	
+	public ArrayList<String> getProfiles(){
+		
+		
+		return this.audiosets;
+	}	
 	public void setProfileToPanel(ButtonPanel buttonpanel) {
-		try {
-		  this.profiles.add(this.profileSet);
+		
+		 
 		  int size = this.profiles.get(this.row).size();
-		  buttonpanel.getChildren().clear();
+		  //System.out.println(this.profiles.get(this.row));
+		 
+		  
 		  for(int i=0; i<=size-1; i++) {	  
 			  String name = this.profiles.get(this.row).get(i).getValue();
+			 // System.out.println(this.profiles.get(this.row));
+			  //System.out.println(name);
+			  //System.out.println(this.row);
+			  
 			  buttonpanel.addButton(name); 
-		  }}
-		catch(Exception e) {
-			System.out.println("ah e");
-		}
+			  
+		  }
+		
 		}
 		
 	

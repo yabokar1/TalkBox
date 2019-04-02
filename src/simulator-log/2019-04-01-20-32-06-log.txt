@@ -1,0 +1,10 @@
+Apr 01, 2019 8:32:06 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 01, 2019 8:32:11 PM io.TalkBoxLogger logMenuPressEvent
+INFO: Pressed Return To Configurator MenuItem
+Apr 01, 2019 8:32:11 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 01, 2019 8:32:13 PM io.TalkBoxLogger logMenuPressEvent
+INFO: Pressed Load Profile MenuItem
+Apr 01, 2019 8:32:16 PM io.TalkBoxLogger logMenuPressEvent
+INFO: Pressed Load Profile MenuItem

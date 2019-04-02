@@ -29,14 +29,14 @@ public class AudioSampleList extends Observable {
 
 		try {
 
-			list = io.getAudioNames();
+			this.list = io.getAudioNames();
 
-			for (String e : list) {
+			for (String e : this.list) {
 
-				privateListView.getItems().add(e);
+				this.privateListView.getItems().add(e);
 			}
 
-			privateListView.setMinSize(200, 175);
+			this.privateListView.setMinSize(200, 175);
 
 		} catch (Exception e) {
 			System.out.println("hi");

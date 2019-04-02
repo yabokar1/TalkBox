@@ -19,18 +19,22 @@ public class Load {
 	
 	Load() throws Exception{
 		tbc = (TalkBoxConfig) Serializer.Load("TalkBox/TalkBoxData/TalkBoxData.tbc");
-		profile = tbc.Profiles;
+		//profile = tbc.Profiles;
 		holder = new ArrayList<ArrayList<TreeItem<String>>>();
 	}
 	
 	public void Loader(TreeItem<String> root) throws Exception {
-	String[][] audioname = tbc.AudioName;
-	NameHolder = new String[profile.length];
-	 this.Tree = new TreeView<String>(root);
+	
+		String[][] audioname = tbc.AudioName;
+	
+	this.NameHolder = new String[profile.length];
+	
+	this.Tree = new TreeView<String>(root);
+	
 	for (int i = 0; i <= profile.length - 1; i++) {
 		int column = audioname[i].length;
 		String profilename = profile[i];
-		NameHolder[i] = profilename;
+		//NameHolder[i] = profilename;
 		ArrayList<TreeItem<String>> profilearray = new ArrayList<TreeItem<String>>();
 		this.branch(profilename, root);
 		for (int j = 0; j <= column - 1; j++) {

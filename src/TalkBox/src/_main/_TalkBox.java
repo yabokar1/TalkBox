@@ -37,7 +37,8 @@ public class _TalkBox extends Application {
         
     
     	TalkBoxLogger.setupLogger(TalkBoxDataPath, "config-log");
-        button =  new TalkBoxButtons();
+        
+    	button =  new TalkBoxButtons();
     	
     	primaryStage.setTitle(Names.TITLE);
         
@@ -88,13 +89,13 @@ public class _TalkBox extends Application {
 	
 	private AudioSampleList AudioSample(ButtonPanel panel,ProfileList profile) {
 
-	    sampleList = new AudioSampleList();
+	    this.sampleList = new AudioSampleList();
 	   
-	    sampleList.addObserver(panel);  //This is for the observer of the buttonPanel
+	    this.sampleList.addObserver(panel);  //This is for the observer of the buttonPanel
 	    
-	    sampleList.addObserver(profile);
+	    this.sampleList.addObserver(profile);
 	    
-	    sampleList.loadFromDisk();
+	    this.sampleList.loadFromDisk();
 	    
 	    return sampleList;
 	    }
@@ -102,11 +103,18 @@ public class _TalkBox extends Application {
 	
 	public void AddProfileBox(RootView root, ButtonPanel panel,ProfileList profile) throws FileNotFoundException {
 
-		VBox section2 = new VBox();
+		
 		profile.setProfileParameters();
 		HBox section3 = new HBox();
-		section3.getChildren().add(button.setProfile(panel, profile));
-		section2.getChildren().addAll(new Label("Profiles"),profile.getTree(),button.enterProfileTextField(profile,panel),new Label("Audio"),this.AudioSample(panel,profile).getList(),button.addRecordArea(this.sampleList));
+		section3.getChildren().add(this.button.setProfile(panel, profile));
+		VBox section2 = new VBox();
+		section2.getChildren().add(new Label("Profiles"));
+		section2.getChildren().add(profile.getTree());
+		section2.getChildren().add(this.button.enterProfileTextField(profile,panel));
+		section2.getChildren().add(new Label("Audio"));
+		section2.getChildren().add(this.AudioSample(panel,profile).getList());
+		section2.getChildren().add(this.button.addRecordArea(this.sampleList));
+		//section2.getChildren().addAll(new Label("Profiles"),profile.getTree(),this.button.enterProfileTextField(profile,panel),new Label("Audio"),this.AudioSample(panel,profile).getList(),this.button.addRecordArea(this.sampleList));
 		root.addChildView(section2);
 		root.addChildView(section3);
 	}

@@ -43,7 +43,7 @@ public class TalkBoxSimMenu {
 	public void ProfileAdder(GridPane p) {
 		for(String temp : this.tbc.getProfile()){
 			MenuItem item = new MenuItem(temp);
-			item.setId(String.format("%d", row));
+			item.setId(String.format("%d", this.row));
 			Profiles.getItems().add(item);
 			attachlistener(p,item);
 			row++;
