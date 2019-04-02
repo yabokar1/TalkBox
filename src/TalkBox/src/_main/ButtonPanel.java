@@ -118,29 +118,39 @@ public class ButtonPanel extends GridPane implements Observer{
 						clip.play();
 	                }
 	                else if(button==MouseButton.SECONDARY){
-	              
-	                ContextMenuClass right = new ContextMenuClass(b,list,newName(),list.getRow());
-	                
-	                right.cm.show(b, event.getScreenX(), event.getScreenY());
-	                
-	                right.LoadImage.setOnAction(e ->{
-	           			
-	                	right.attachImageAdder(b, list, list.getRow());
-	                    
-	                	System.out.println(list.ImageSet);
-	                    
-	                	System.out.println(list.RenameSet);
-	           		});
-	                	right.Rename.setOnAction(e ->{
-	                	right.rename(b, newName(), list, list.getRow());
-	                    System.out.println(list.ImageSet);
-	                    System.out.println(list.RenameSet);
-	                	});
+	                	
+	                	rightClick(event,b);
+	      
 	                }
 	                }
 	        });
 		}
 
+		
+		public void rightClick(MouseEvent event,Button button) {
+			
+			
+            ContextMenuClass right = new ContextMenuClass(button,list,newName(),list.getRow());
+            
+            right.cm.show(button, event.getScreenX(), event.getScreenY());
+            
+            right.LoadImage.setOnAction(e ->{
+       			
+            right.attachImageAdder(button, list, list.getRow());
+                
+            System.out.println(list.ImageSet);
+                
+            System.out.println(list.RenameSet);
+       		});
+            right.Rename.setOnAction(e ->{
+            right.rename(button, newName(), list, list.getRow());
+            System.out.println(list.ImageSet);
+              System.out.println(list.RenameSet);
+            	});
+			
+			
+			
+		}
 		
 
 		@Override

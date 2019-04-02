@@ -94,12 +94,12 @@ public class ProfileList implements Observer,Serializable {
 		return this.profiles;
 	}
 	
-	public ArrayList<String> getSets() {
+	public ArrayList<String> getSets() { // get an array of the audio set names
 		
 		return this.audiosets;
 	}
 	
-	public void SetProfile(ArrayList<ArrayList<TreeItem<String>>> temp) {
+	public void SetProfile(ArrayList<ArrayList<TreeItem<String>>> temp) { // sets profile arraylist
 		this.profiles = temp;
 	}
 
@@ -129,6 +129,8 @@ public class ProfileList implements Observer,Serializable {
 			}
 		});
 	}
+	
+	
 	
 	
 	

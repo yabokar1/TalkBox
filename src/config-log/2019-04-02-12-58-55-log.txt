@@ -1,0 +1,12 @@
+Apr 02, 2019 12:58:55 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 02, 2019 12:59:00 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Bye button
+Apr 02, 2019 12:59:03 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 02, 2019 12:59:06 PM io.TalkBoxLogger logMenuPressEvent
+INFO: Pressed Return To Configurator MenuItem
+Apr 02, 2019 12:59:06 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 02, 2019 12:59:08 PM io.TalkBoxLogger logMenuPressEvent
+INFO: Pressed Load Profile MenuItem

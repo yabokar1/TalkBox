@@ -39,7 +39,7 @@ public class AudioSampleList extends Observable {
 			this.privateListView.setMinSize(200, 175);
 
 		} catch (Exception e) {
-			System.out.println("hi");
+		
 		//	e.printStackTrace();
 		}
 

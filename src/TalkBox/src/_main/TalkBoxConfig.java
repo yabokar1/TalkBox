@@ -70,6 +70,17 @@ public class TalkBoxConfig implements Serializable{
 		return this.Profiles;
 	}
 	
+	public ArrayList<String>getAudioSets() {
+		
+		return this.Audio;
+	}
+	
+	public void setAudioSets(ArrayList<String> audio) {
+		
+		this.Audio=audio;
+		
+	}
+	
 	public ArrayList<ArrayList<String>> getrename(){
 		return this.rename;
 	}

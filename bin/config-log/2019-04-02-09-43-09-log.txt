@@ -1,0 +1,20 @@
+Apr 02, 2019 9:43:09 AM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 02, 2019 9:43:30 AM io.TalkBoxLogger logMenuPressEvent
+INFO: Pressed Load Profile MenuItem
+Apr 02, 2019 9:43:33 AM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 02, 2019 9:43:35 AM io.TalkBoxLogger logMenuPressEvent
+INFO: Pressed Return To Configurator MenuItem
+Apr 02, 2019 9:43:35 AM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 02, 2019 9:43:37 AM io.TalkBoxLogger logMenuPressEvent
+INFO: Pressed Load Profile MenuItem
+Apr 02, 2019 9:43:43 AM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed cartman_bdaysong button
+Apr 02, 2019 9:43:46 AM io.TalkBoxLogger logMenuPressEvent
+INFO: Pressed Return To Configurator MenuItem
+Apr 02, 2019 9:43:46 AM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 02, 2019 9:43:47 AM io.TalkBoxLogger logMenuPressEvent
+INFO: Pressed Load Profile MenuItem

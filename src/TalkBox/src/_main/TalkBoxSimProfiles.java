@@ -79,16 +79,18 @@ public class TalkBoxSimProfiles {
 			   }
 			   catch(Exception e) {
 				  
-			   }
-		}
+			   			}
+			   		}
 			   }
 			   catch(Exception e1) {
 				   
-			   }
+			 }
 			   ctr++;
 			   }
-	}
+		}
 	
+	
+
 	private void attachClickListener(String name, Button b) {
 		b.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			

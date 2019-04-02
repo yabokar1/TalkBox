@@ -32,28 +32,30 @@ public class _TalkBox extends Application {
 	private TalkBoxButtons button;
 
 	
+	
+	
+	
+	
     @Override
     public void start(Stage primaryStage) throws IOException {
         
     
-    	TalkBoxLogger.setupLogger(TalkBoxDataPath, "config-log");
+    	TalkBoxLogger.setupLogger(TalkBoxDataPath, "config-log"); //This is for the logger
         
-    	button =  new TalkBoxButtons();
+    	button =  new TalkBoxButtons(); // this instance is to add the buttons to the view(Gui)
     	
     	primaryStage.setTitle(Names.TITLE);
         
         RootView root = new RootView(); // This is really an hbox
         
-        
-    	ProfileList observer2 = new ProfileList();
+        ProfileList observer2 = new ProfileList();
     	
-        
         ButtonPanel observer = initializeButtonPanel(root,observer2); 
         
-        observer.list = observer2;
+        observer.list = observer2; // I don't know what this is for
         
     	AddProfileBox(root,observer,observer2);
-    	button.list = this.sampleList;
+    	button.list = this.sampleList; // I don't know what this is for 
     	LaunchButton(observer2,observer,root);
         AudioSample(observer,observer2);
 
@@ -107,6 +109,11 @@ public class _TalkBox extends Application {
 		profile.setProfileParameters();
 		HBox section3 = new HBox();
 		section3.getChildren().add(this.button.setProfile(panel, profile));
+		root.addChildView(this.audioAndSetPanel(panel, profile));
+		root.addChildView(section3);
+	}
+	
+	public VBox audioAndSetPanel( ButtonPanel panel,ProfileList profile) throws FileNotFoundException { //Right side of the Gui
 		VBox section2 = new VBox();
 		section2.getChildren().add(new Label("Profiles"));
 		section2.getChildren().add(profile.getTree());
@@ -114,12 +121,10 @@ public class _TalkBox extends Application {
 		section2.getChildren().add(new Label("Audio"));
 		section2.getChildren().add(this.AudioSample(panel,profile).getList());
 		section2.getChildren().add(this.button.addRecordArea(this.sampleList));
-		//section2.getChildren().addAll(new Label("Profiles"),profile.getTree(),this.button.enterProfileTextField(profile,panel),new Label("Audio"),this.AudioSample(panel,profile).getList(),this.button.addRecordArea(this.sampleList));
-		root.addChildView(section2);
-		root.addChildView(section3);
+		return section2;
+		
+		
 	}
-	
-	
 
 
 	public VBox addButtonPanelAndLabel(ScrollPane scrollpane,ButtonPanel gp, ProfileList Profile) {
