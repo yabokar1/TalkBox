@@ -53,6 +53,11 @@ public class AudioSampleList extends Observable {
 
 	}
 
+	
+	public int getSize() {
+		
+		return this.list.size();
+	}
 
 	
 	public void attachListener() {
