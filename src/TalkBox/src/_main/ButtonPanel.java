@@ -9,7 +9,9 @@ import audio_players.AudioClipWav;
 import io.ImportFiles;
 import io.TalkBoxLogger;
 import javafx.event.EventHandler;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -77,6 +79,7 @@ public class ButtonPanel extends GridPane implements Observer{
 		   
 		   ButtonPanel.setHgrow(button, Priority.ALWAYS);
 		   
+		   
 		   this.setVgap(20);
 		   
 		   button.setPadding(new Insets(10,10,10,10));
@@ -84,7 +87,7 @@ public class ButtonPanel extends GridPane implements Observer{
 		   attachClickListener(name, button);
 
 		   this.add(button, currentCol, currentRow);
-
+		   
 		   currentCol++;
 
 		   this.numOfAudioButtons++;
@@ -155,9 +158,6 @@ public class ButtonPanel extends GridPane implements Observer{
             	}
             right.rename(button, newName(), list, list.getRow(),location);
             	});
-			
-			
-			
 		}
 		
 

@@ -1,0 +1,22 @@
+Apr 03, 2019 2:41:06 PM io.TalkBoxLogger setupTBlogger
+INFO: Start of Log
+Apr 03, 2019 2:41:14 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Hello button
+Apr 03, 2019 2:41:15 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Nani button
+Apr 03, 2019 2:41:17 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Nani button
+Apr 03, 2019 2:41:18 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Morning button
+Apr 03, 2019 2:41:19 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Morning button
+Apr 03, 2019 2:41:20 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Null button
+Apr 03, 2019 2:41:21 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Morning button
+Apr 03, 2019 2:41:25 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Morning button
+Apr 03, 2019 2:41:26 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Hello button
+Apr 03, 2019 2:41:27 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Hello button

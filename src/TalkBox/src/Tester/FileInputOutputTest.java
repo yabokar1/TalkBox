@@ -20,7 +20,7 @@ class FileInputOutputTest {
 	void testFindFilesReturnArrayofFiles() throws IOException {
 		
 		AudioFileIO file  =  new AudioFileIO();
-		Object[] files = file.getWavFiles("src/TalkBox/TalkBoxData");
+		Object[] files = file.getWavFiles("TalkBox/Audio");
 		assertEquals(File[].class,files.getClass());              
 	}
 	
@@ -57,8 +57,8 @@ class FileInputOutputTest {
 	void testReturnsAllWavsInDir() throws IOException {
 		
 		AudioFileIO file  =  new AudioFileIO();
-		Object[] files = file.getWavFiles("src/TalkBox/TalkBoxData");
-		assertEquals(10,files.length);  
+		Object[] files = file.getWavFiles("TalkBox/Audio");
+		assertEquals(11,files.length);  
 	}
 
 

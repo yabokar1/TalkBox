@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -22,15 +23,15 @@ public class TalkBoxSim extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-	  	TalkBoxLogger.setupLogger(TalkBoxDataPath, "simulator-log");
+	  	TalkBoxLogger.setupTBlogger(TalkBoxDataPath, "simulator-log");
 	  	GridPane p = new GridPane();
 		HBox HBox = mainHbox(p);
 		VBox root = new VBox();
 		TalkBoxSimMenu main = new TalkBoxSimMenu(p);
 		root.getChildren().add(main.mainVBox(HBox));
-		Scene scene = new Scene(root,800,300);
+		Scene scene = new Scene(root,800,230);
 		primaryStage.setScene(scene);
-		primaryStage.show();	
+		primaryStage.show();
 	}
 	
 	public HBox mainHbox(GridPane ButtonP) throws Exception {
@@ -45,10 +46,9 @@ public class TalkBoxSim extends Application{
 		   buttonpanel.setHgap(10);
 		   buttonpanel.setVgap(5);
 		   scrollpane.setContent(buttonpanel);
-		   scrollpane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER); // size of the scroll bar
-		   scrollpane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-		   scrollpane.setMinSize(800, 300);
-		   scrollpane.setMaxSize(800, 300);
+		   scrollpane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED); // size of the scroll bar
+		   scrollpane.setMinSize(800, 200);
+		   HBox.setHgrow(scrollpane, Priority.ALWAYS);
 		   return scrollpane;
 	}
 }
