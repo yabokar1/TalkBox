@@ -15,12 +15,10 @@ class AudioClipTest {
 	@Test
 	void testAudioClipStartsSuccessfully() {
 		
-		AudioClip clip = new AudioClip("src/Audio/boring.wav");
+		AudioClip clip = new AudioClip("/boring.wav");
 		
 		clip.play();
 
-		
-		
 		assertTrue(clip.isConnecting());
 	}
 	
@@ -29,7 +27,7 @@ class AudioClipTest {
 		
 		try {
 		
-		AudioClip clip = new AudioClip("src/Audio/boring.wav");
+		AudioClip clip = new AudioClip("/boring.wav");
 		
 		clip.play();
 		

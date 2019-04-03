@@ -44,7 +44,7 @@ public class TalkBoxButtons {
 		    config.rename = profile.RenameSet;
 			config.row = profile.getRow();
 		    config.images = profile.ImageSet;
-			config.Audio = profile.getSets();
+			config.NumOfAudioSets = profile.getAudioFileNames().length;
 			config.setNumberofAudioButtons(button);
 			config.Profiles = profile.getSets();
 			config.AudioName = profile.getAudioFileNames();

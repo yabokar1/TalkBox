@@ -5,14 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TreeItem;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.shape.Path;
 import javafx.stage.Stage;
 import io.TalkBoxLogger;
 
@@ -31,40 +27,33 @@ public class _TalkBox extends Application {
 	private AudioSampleList sampleList;
 	private TalkBoxButtons button;
 
-	
-	
-	
-	
-	
     @Override
     public void start(Stage primaryStage) throws IOException {
         
     
-    	TalkBoxLogger.setupLogger(TalkBoxDataPath, "config-log"); //This is for the logger
+    	TalkBoxLogger.setupTBlogger(TalkBoxDataPath, "config-log"); //This is for the logger
         
     	button =  new TalkBoxButtons(); // this instance is to add the buttons to the view(Gui)
     	
     	primaryStage.setTitle(Names.TITLE);
         
-        RootView root = new RootView(); // This is really an hbox
+        RootView root = new RootView(); 
         
         ProfileList observer2 = new ProfileList();
     	
         ButtonPanel observer = initializeButtonPanel(root,observer2); 
         
-        observer.list = observer2; // I don't know what this is for
-        
+        observer.list = observer2; 
     	AddProfileBox(root,observer,observer2);
-    	button.list = this.sampleList; // I don't know what this is for 
+    	button.list = this.sampleList; 
     	LaunchButton(observer2,observer,root);
         AudioSample(observer,observer2);
-
-        
         Scene scene = new Scene(root, Names.SCENE_WIDTH, Names.SCENE_HEIGHT);
         
         primaryStage.setScene(scene);
         
         primaryStage.show();
+ 
        
         
     }
@@ -77,10 +66,12 @@ public class _TalkBox extends Application {
 
         ButtonPanel  buttonPanel = new ButtonPanel();
         
-        VBox first =  this.addButtonPanelAndLabel(this.addScrollPane(buttonPanel),buttonPanel, Profile); // Fix this
+        VBox first =  this.addButtonPanelAndLabel(this.addScrollPane(buttonPanel),buttonPanel, Profile); 
         
         root.getChildren().add(first);  
-        
+               
+        first.setSpacing(35.0);
+
         return buttonPanel;
 	}
 
@@ -161,13 +152,10 @@ public class _TalkBox extends Application {
 		   scrollpane.setContent(buttonpanel);
 		   
 		   scrollpane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED); // size of the scroll bar
-		   
-		   scrollpane.setMinSize(800, 300);
-		   scrollpane.setMaxSize(800, 300);
+		  
+		   scrollpane.setMinSize(800, 200);
+		   scrollpane.setMaxSize(800, 200);
 		   return scrollpane;
 	}
-	
-
- 
 
 }

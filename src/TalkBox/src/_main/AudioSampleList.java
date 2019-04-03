@@ -68,7 +68,6 @@ public class AudioSampleList extends Observable {
 			public void changed(ObservableValue observable, Object oldValue, Object newValue) {
 
 				notifyButtonPanel(newValue.toString());
-
 			}
 		});
 	}

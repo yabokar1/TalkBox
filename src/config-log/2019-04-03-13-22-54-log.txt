@@ -1,0 +1,4 @@
+Apr 03, 2019 1:22:54 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 03, 2019 1:23:16 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log

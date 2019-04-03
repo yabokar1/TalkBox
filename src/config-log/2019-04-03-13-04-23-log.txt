@@ -1,0 +1,12 @@
+Apr 03, 2019 1:04:23 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 03, 2019 1:04:32 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Ah e button
+Apr 03, 2019 1:04:38 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Ah e button
+Apr 03, 2019 1:04:41 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Ah e button
+Apr 03, 2019 1:04:53 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Bye button
+Apr 03, 2019 1:04:55 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log

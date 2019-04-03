@@ -12,8 +12,6 @@ public class TalkBoxConfig implements Serializable{
 	public int NumOfAudioSets;
 	public  int NumOfButtons;
 	public String[][] AudioName;
-	public String[][] newnames;
-	public ArrayList<String> Audio;
 	public ArrayList<String> Profiles;
 	public ArrayList<ArrayList<String>> images;
 	public ArrayList<ArrayList<String>> rename;
@@ -62,25 +60,23 @@ public class TalkBoxConfig implements Serializable{
 	public int getrow() {
 		return this.row;
 	}
+	/*
 	public ArrayList<String> getAudio() {
 		return this.Audio;
 	}
-
+*/
 	public ArrayList<String> getProfile() {
 		return this.Profiles;
 	}
-	
+	/*
 	public ArrayList<String>getAudioSets() {
-		
 		return this.Audio;
 	}
 	
 	public void setAudioSets(ArrayList<String> audio) {
-		
 		this.Audio=audio;
-		
 	}
-	
+	*/
 	public ArrayList<ArrayList<String>> getrename(){
 		return this.rename;
 	}
@@ -89,7 +85,5 @@ public class TalkBoxConfig implements Serializable{
 		return this.images;
 	}
 	
-	public String[][] getNewName(){
-		return this.newnames;
-	}
+
 }
