@@ -40,10 +40,13 @@ public class _TalkBox extends Application {
         RootView root = new RootView(); 
         
         ProfileList observer2 = new ProfileList();
-    	
-        ButtonPanel observer = initializeButtonPanel(root,observer2); 
         
-        observer.list = observer2; 
+        ButtonPanel observer = initializeButtonPanel(root,observer2); 
+
+        observer2.setButtonPanel(observer);
+        
+        observer.list = observer2; // I don't know what this is for
+
     	AddProfileBox(root,observer,observer2);
     	button.list = this.sampleList; 
     	LaunchButton(observer2,observer,root);
@@ -97,7 +100,7 @@ public class _TalkBox extends Application {
 	public void AddProfileBox(RootView root, ButtonPanel panel,ProfileList profile) throws FileNotFoundException {
 
 		
-		profile.setProfileParameters();
+		profile.setProfileParameters(panel);
 		HBox section3 = new HBox();
 		section3.getChildren().add(this.button.setProfile(panel, profile));
 		root.addChildView(this.audioAndSetPanel(panel, profile));
