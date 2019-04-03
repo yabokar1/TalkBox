@@ -85,7 +85,6 @@ public class ProfileList implements Observer,Serializable {
 		ArrayList<String> rename = new ArrayList<String>();
 		
 		RenameSet.add(rename);
-		this.numofAudioSets++;
 	}
 
 
