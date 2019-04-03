@@ -154,7 +154,6 @@ public class TalkBoxButtons {
     	return RecordingArea;
     }
     
-
 	public MenuBar Menu(ProfileList list){
 		TopMenu menu = new TopMenu();
 		menu.getImport().setOnAction(e ->{
