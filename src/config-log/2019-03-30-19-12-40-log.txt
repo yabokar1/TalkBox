@@ -1,0 +1,48 @@
+Mar 30, 2019 7:12:40 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Mar 30, 2019 7:13:18 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed boring button
+Mar 30, 2019 7:13:26 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Bye button
+Mar 30, 2019 7:13:36 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Clap button
+Mar 30, 2019 7:13:41 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Good Bye button
+Mar 30, 2019 7:13:47 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed boring button
+Mar 30, 2019 7:13:52 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Bye button
+Mar 30, 2019 7:13:53 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed boring button
+Mar 30, 2019 7:13:54 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Clap button
+Mar 30, 2019 7:13:55 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Good Bye button
+Mar 30, 2019 7:13:59 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Mar 30, 2019 7:14:03 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed boring button
+Mar 30, 2019 7:14:04 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Bye button
+Mar 30, 2019 7:14:05 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Clap button
+Mar 30, 2019 7:14:06 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Good Bye button
+Mar 30, 2019 7:14:56 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed boring button
+Mar 30, 2019 7:15:12 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Bye button
+Mar 30, 2019 7:15:14 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Good Bye button
+Mar 30, 2019 7:15:14 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Clap button
+Mar 30, 2019 7:15:20 PM io.TalkBoxLogger logMenuPressEvent
+INFO: Pressed Return To Configurator MenuItem
+Mar 30, 2019 7:15:20 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Mar 30, 2019 7:15:22 PM io.TalkBoxLogger logMenuPressEvent
+INFO: Pressed Load Profile MenuItem
+Mar 30, 2019 7:15:39 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Mar 30, 2019 7:15:44 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log

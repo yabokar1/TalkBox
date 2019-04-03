@@ -29,9 +29,9 @@ public class ButtonPanel extends GridPane implements Observer{
 		
 		private int numOfAudioButtons = 0;
 		
-		private static final int BTN_WIDTH = 90;
+		private static final int BTN_WIDTH = 150;
 		
-		private static final int BTN_HEIGHT = 90;
+		private static final int BTN_HEIGHT = 150;
 		
 		public String newname;
 		
@@ -86,13 +86,7 @@ public class ButtonPanel extends GridPane implements Observer{
 		   this.add(button, currentCol, currentRow);
 
 		   currentCol++;
-		   
-		   if(currentCol > Names.MAX_COL) {
-			 
-			   currentCol = 0;
-			 
-			   currentRow++;
-		   }
+
 		   this.numOfAudioButtons++;
 			
 		}

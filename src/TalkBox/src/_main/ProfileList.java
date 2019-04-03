@@ -201,12 +201,7 @@ public class ProfileList implements Observer,Serializable {
 		  
 		  for(int i=0; i<=size-1; i++) {	  
 			  String name = this.profiles.get(this.row).get(i).getValue();
-			 // System.out.println(this.profiles.get(this.row));
-			  //System.out.println(name);
-			  //System.out.println(this.row);
-			  
-			  buttonpanel.addButton(name); 
-			  
+			  buttonpanel.addButton(name); 	  
 		  }
 		
 		}

@@ -1,0 +1,4 @@
+Mar 30, 2019 5:41:15 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Mar 30, 2019 5:41:36 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed cartman_bdaysong button

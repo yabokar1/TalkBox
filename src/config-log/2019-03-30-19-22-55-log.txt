@@ -1,0 +1,6 @@
+Mar 30, 2019 7:22:55 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Mar 30, 2019 7:22:58 PM io.TalkBoxLogger logMenuPressEvent
+INFO: Pressed Import Audio MenuItem
+Mar 30, 2019 7:23:02 PM io.TalkBoxLogger logMenuPressEvent
+INFO: Pressed Load Profile MenuItem

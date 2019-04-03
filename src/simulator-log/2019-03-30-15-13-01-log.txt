@@ -1,0 +1,16 @@
+Mar 30, 2019 3:13:01 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Mar 30, 2019 3:13:07 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Laugh button
+Mar 30, 2019 3:13:10 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Good Bye button
+Mar 30, 2019 3:13:14 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Bye button
+Mar 30, 2019 3:13:15 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed boring button
+Mar 30, 2019 3:13:21 PM io.TalkBoxLogger logMenuPressEvent
+INFO: Pressed Return To Configurator MenuItem
+Mar 30, 2019 3:13:21 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Mar 30, 2019 3:13:27 PM io.TalkBoxLogger logMenuPressEvent
+INFO: Pressed Load Profile MenuItem

@@ -1,0 +1,16 @@
+Apr 02, 2019 11:45:41 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 02, 2019 11:45:49 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Laugh button
+Apr 02, 2019 11:45:57 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Laugh button
+Apr 02, 2019 11:46:08 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Test button
+Apr 02, 2019 11:46:11 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 02, 2019 11:46:15 PM io.TalkBoxLogger logMenuPressEvent
+INFO: Pressed Return To Configurator MenuItem
+Apr 02, 2019 11:46:15 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 02, 2019 11:46:47 PM io.TalkBoxLogger logMenuPressEvent
+INFO: Pressed Load Profile MenuItem

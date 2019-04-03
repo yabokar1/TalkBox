@@ -1,0 +1,2 @@
+Mar 30, 2019 6:56:45 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log

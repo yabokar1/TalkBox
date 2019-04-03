@@ -160,9 +160,7 @@ public class _TalkBox extends Application {
 		   
 		   scrollpane.setContent(buttonpanel);
 		   
-		   scrollpane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER); // size of the scroll bar
-		   
-		   scrollpane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+		   scrollpane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED); // size of the scroll bar
 		   
 		   scrollpane.setMinSize(800, 300);
 		   scrollpane.setMaxSize(800, 300);

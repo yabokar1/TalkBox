@@ -7,6 +7,7 @@ import javax.sound.sampled.LineUnavailableException;
 
 import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
+import TalkBoxSim.TalkBoxSim;
 import audio_players.Sound;
 import io.TalkBoxLogger;
 import javafx.scene.control.Button;

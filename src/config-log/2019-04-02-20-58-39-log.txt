@@ -1,0 +1,34 @@
+Apr 02, 2019 8:58:39 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 02, 2019 8:58:48 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed boring button
+Apr 02, 2019 8:58:52 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed boring button
+Apr 02, 2019 8:59:00 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Nani button
+Apr 02, 2019 8:59:03 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Ah e button
+Apr 02, 2019 8:59:06 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Ah e button
+Apr 02, 2019 8:59:15 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Ah e button
+Apr 02, 2019 8:59:17 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed ok button
+Apr 02, 2019 8:59:20 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Nani button
+Apr 02, 2019 8:59:22 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Bye button
+Apr 02, 2019 8:59:32 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed boring button
+Apr 02, 2019 8:59:56 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed boring button
+Apr 02, 2019 9:00:05 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Good Bye button
+Apr 02, 2019 9:00:08 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed ok button
+Apr 02, 2019 9:00:10 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Help button
+Apr 02, 2019 9:00:14 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Help button
+Apr 02, 2019 9:00:19 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log

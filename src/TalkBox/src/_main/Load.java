@@ -34,7 +34,6 @@ public class Load {
 	for (int i = 0; i <= profile.size()- 1; i++) {
 		int column = audioname[i].length;
 		String profilename = profile.get(i);
-		//NameHolder[i] = profilename;
 		ArrayList<TreeItem<String>> profilearray = new ArrayList<TreeItem<String>>();
 		this.branch(profilename, root);
 		for (int j = 0; j <= column - 1; j++) {
