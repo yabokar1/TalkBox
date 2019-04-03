@@ -22,7 +22,7 @@ public class TalkBoxConfig implements Serializable{
 	
 	public void setNumberofAudioButtons(ButtonPanel audiobutton) {
 		
-		this.NumOfAudioButtons = audiobutton.getNumofButtonsArray();
+		this.NumOfAudioButtons = audiobutton.getNumofAudioButtons();
 		
 	}
 	

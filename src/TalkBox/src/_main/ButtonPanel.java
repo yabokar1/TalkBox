@@ -53,6 +53,16 @@ public class ButtonPanel extends GridPane implements Observer{
 			
 			this.currentCol=0;
 		}
+		
+		public int getColumn() {
+			
+			return this.currentCol;
+		}
+		
+		public int getRow() {
+			
+			return this.currentRow;
+		}
 	
 		public void setProfileList(ProfileList temp) {
 			this.list = temp;
@@ -95,7 +105,7 @@ public class ButtonPanel extends GridPane implements Observer{
 		}
 		
 
-		public int getNumofButtonsArray() {
+		public int getNumofAudioButtons() {
 			return this.numOfAudioButtons;
 		}
 		
@@ -118,9 +128,12 @@ public class ButtonPanel extends GridPane implements Observer{
 						clip.play();
 	                }
 	                else if(button==MouseButton.SECONDARY){
+	                	
 	                	int ctr = 0;
-	                	for(Node temp : b.getParent().getChildrenUnmodifiable()) {
-	                		if(b != b.getParent().getChildrenUnmodifiable().get(ctr)) {
+	                	
+	                for(Node temp : b.getParent().getChildrenUnmodifiable()) {
+	                		
+	                	if(b != b.getParent().getChildrenUnmodifiable().get(ctr)) {
 	                		ctr++;
 	                		System.out.println(ctr);
 	                		}
@@ -128,7 +141,7 @@ public class ButtonPanel extends GridPane implements Observer{
 	                	rightClick(event,b,ctr);
 	      
 	                }
-	                }
+	               }
 	        });
 		}
 
