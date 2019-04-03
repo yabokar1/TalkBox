@@ -1,13 +1,12 @@
 package Tester;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+
+import java.util.Arrays;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import _main.Serializer;
 import _main.TalkBoxConfig;
 
@@ -33,13 +32,7 @@ class TestSerialization {
 	void setup() throws Exception {
 		tbc = (TalkBoxConfig) Serializer.Load("TalkBox/TalkBoxData/TalkBoxData.tbc"); 
 	}
-	
-	//Test if serialized correct number of buttons
-	@Test
-	void AddButtons() {
-		assertEquals(5,tbc.getNumberOfAudioButtons());
-	}
-	
+
 	//Test if path to audio files is correct
 	@Test
 	void PathtoAudio() {
@@ -69,19 +62,15 @@ class TestSerialization {
 		assertEquals(3,tbc.NumOfAudioSets);
 	}
 	
-	//Test if serialized correct audio files in given profile
-	//@Test
-
 	
 	//Test if serialized correct Audio array
-	//@Test
+	@Test
 	void audioArray() {
-		String s = "TreeItem [ value: ";
-		String e = " ]";
+		System.out.println(Arrays.deepToString(tbc.getAudioFileNames()));
 		String [][] temp = new String[][]
-				{{s + "Hello" + e,s + "boring" + e,null,null,null},
-			     {s + "Clap" + e,null,null,null,null},
-			     {s + "Bye" + e,s+ "Laugh" +e,s+ "Bye" +e,s +"Laugh"+ e,s+ "Bye" +e}};
+				{{"boring","Ah e","Good Bye",null},
+			     {"Nani","Laugh","Bye","Help"},
+			     {"Laugh","Yes",null,null}};
 		Assert.assertArrayEquals(temp,tbc.getAudioFileNames());
 	}
 	

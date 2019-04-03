@@ -44,11 +44,11 @@ public class TalkBoxButtons {
 		    config.rename = profile.RenameSet;
 			config.row = profile.getRow();
 		    config.images = profile.ImageSet;
-			config.NumOfAudioSets = profile.getAudioFileNames().length;
 			config.setNumberofAudioButtons(button);
 			config.Profiles = profile.getSets();
 			config.AudioName = profile.getAudioFileNames();
-			config.getRelativePathToAudioFiles();
+			config.path = "TalkBox/Audio";
+			config.NumOfAudioSets = profile.numofAudioSets;
 				Serializer.Save(config, "TalkBox/TalkBoxData/");
 				TalkBoxSim Gui = new TalkBoxSim();
 				Gui.start(new Stage());
@@ -123,7 +123,7 @@ public class TalkBoxButtons {
     		this.filename = filename.getText();
     	});
     	Button Stop = new Button("Stop");
-    	Stop.setOnAction(e ->{ System.out.println(list); sound.stop(); this.list.loadFromDisk();});
+    	Stop.setOnAction(e ->{sound.stop();this.list.refresh();});
     	Stop.setMinSize(Names.STARTBUTTON_WIDTH, Names.STARTBUTTON_HEIGHT);
     	v.getChildren().addAll(Stop,filename);
     	return v;
@@ -160,23 +160,9 @@ public class TalkBoxButtons {
 		menu.getImport().setOnAction(e ->{
 			TalkBoxLogger.logMenuPressEvent(e);
 			menu.ImportAudioListener(menu.getImport());
+			this.list.refresh();
 		});
 		
-		menu.getrefresh().setOnAction(e->{
-			this.list.loadFromDisk();});
-		
-		menu.getLoad().setOnAction(e->{
-			TalkBoxLogger.logMenuPressEvent(e);
-			Load Load;
-			try {
-				Load = new Load();
-				list.SetProfile(Load.holder);
-				Load.Loader(list.getRoot());
-			} catch (Exception e1) {
-				
-				e1.printStackTrace();
-			}
-	});
 		return menu.getMenu();
 	}
 	
