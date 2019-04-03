@@ -36,7 +36,7 @@ class TestSerialization {
 	//Test if path to audio files is correct
 	@Test
 	void PathtoAudio() {
-		assertEquals("TalkBox/Audio/",tbc.path);
+		assertEquals("TalkBox/Audio",tbc.path);
 	}
 	
 	//Test if serialized correct number of profiles
@@ -54,7 +54,7 @@ class TestSerialization {
 	//Test if serialized correct number of total Audio files
 	@Test
 	void NumofAudioFiles() {
-		assertEquals(8,tbc.NumOfAudioSets);
+		assertEquals(9,tbc.NumOfAudioSets);
 	}
 	
 	//Test if serialized correct number of total Audio files
@@ -62,6 +62,10 @@ class TestSerialization {
 		assertEquals(3,tbc.NumOfAudioSets);
 	}
 	
+	@Test
+	void RenameCorrectly() {
+		assertEquals("Rename",tbc.rename.get(0).get(0));
+	}
 	
 	//Test if serialized correct Audio array
 	@Test

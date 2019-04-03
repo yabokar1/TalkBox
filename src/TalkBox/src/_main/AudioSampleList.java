@@ -127,7 +127,7 @@ public class AudioSampleList extends Observable {
 
 			@Override
 			public void changed(ObservableValue observable, Object oldValue, Object newValue) {
-
+				
 				notifyButtonPanel(newValue.toString());
 			}
 		});

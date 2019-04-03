@@ -66,11 +66,11 @@ public class TalkBoxButtons {
 		TextField enterProfile = new TextField("Enter Profile");
 		enterProfile.setOnMouseClicked(e -> enterProfile.clear());
 		enterProfile.setOnAction(e -> {
+			TalkBoxLogger.logTextFieldEvent(e);
 		profile.setProfileTitle(enterProfile.getText());
 			panel.getChildren().clear();
 			panel.resetColumn();
 			panel.resetRow();
-			
 
 		 });
 		return enterProfile;
@@ -81,13 +81,11 @@ public class TalkBoxButtons {
 	public Button setProfile(ButtonPanel buttonpanel,ProfileList profile) {
 		Button setProfile = new Button("Set Profile");
 		   setProfile.setOnAction(e->{
+			  TalkBoxLogger.logProfilePressEvent(e, profile);
 		   profile.setProfileParameters(buttonpanel);
 		   buttonpanel.resetRow();
 		   buttonpanel.resetColumn();
 		   profile.setProfileToPanel(buttonpanel);
-		   //System.out.println(profile.getProfile());
-		   //System.out.println(profile.getAudioSets());
-		   //System.out.println(Arrays.deepToString(profile.getProfiles()));
 	});
 		
 		return setProfile;
@@ -98,6 +96,7 @@ public class TalkBoxButtons {
 		text.setMaxSize(200, 50);
 		text.setOnMouseClicked(e -> text.clear());
 		text.setOnAction(e -> {
+			TalkBoxLogger.logTextFieldEvent(e);
 			this.newname = text.getText();
 			p.setnewName(this.newname)
 			
@@ -120,6 +119,7 @@ public class TalkBoxButtons {
     	TextField filename = new TextField("Enter Filename");
     	filename.setOnMouseClicked(e -> filename.clear());
     	filename.setOnAction(e -> {
+    		TalkBoxLogger.logTextFieldEvent(e);
     		this.filename = filename.getText();
     	});
     	Button Stop = new Button("Stop");
@@ -136,6 +136,7 @@ public class TalkBoxButtons {
     	HBox RecordingArea = new HBox();
     	Button Record = new Button();
     	Record.setOnAction(e ->{
+    		TalkBoxLogger.logButtonPressEvent(e);
     		try {
 				sound.soundFormat();
 				sound.start(this.filename);
