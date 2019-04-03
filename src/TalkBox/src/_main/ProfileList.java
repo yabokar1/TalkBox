@@ -24,8 +24,8 @@ public class ProfileList implements Observer,Serializable {
 	private ArrayList<ArrayList<TreeItem<String>>> profiles;
 	public String [] AudioProfiles;
 	private ArrayList<String> audiosets = new  ArrayList<String>();
+	private ButtonPanel buttonpanel;
 
-	private int addProfileSet = 0;
 	
 	
 
@@ -94,7 +94,7 @@ public class ProfileList implements Observer,Serializable {
 		return this.profiles;
 	}
 	
-	public ArrayList<String> getSets() { // get an array of the audio set names
+	public ArrayList<String> getSets() { 
 		
 		return this.audiosets;
 	}
@@ -113,19 +113,30 @@ public class ProfileList implements Observer,Serializable {
 
 		this.root.getChildren().get(this.row).getChildren().add(newItem);
 		
-		this.profileSet.add(newItem);
+		this.profiles.get(this.row).add(newItem);
 		
 		
 
 	}
 
-	public void setProfileParameters() {
+	public void setProfileParameters(ButtonPanel buttonpanel) {
 
 		Tree.getSelectionModel().selectedItemProperty().addListener((v, oldValue, NewValue) -> {
 			if (NewValue != null) {
+				
+				try {
 				this.row = Tree.getRow(NewValue); // row is the position of the file name
 				this.profilename = NewValue.getValue(); // Gets the profile name of the clicked profile
-			//	System.out.println(this.profilename);
+				buttonpanel.getChildren().clear();
+				buttonpanel.resetColumn();
+				buttonpanel.resetRow();
+				this.setProfileToPanel(buttonpanel);
+				}
+				
+				catch(Exception e) {
+					
+					e.getMessage();
+				}
 			}
 		});
 	}
@@ -196,7 +207,7 @@ public class ProfileList implements Observer,Serializable {
 		
 		 
 		  int size = this.profiles.get(this.row).size();
-		  //System.out.println(this.profiles.get(this.row));
+		  
 		 
 		  
 		  for(int i=0; i<=size-1; i++) {	  
@@ -212,11 +223,23 @@ public class ProfileList implements Observer,Serializable {
 	}
 	
 	
+	public void setButtonPanel(ButtonPanel buttonpanel) {
+		
+	   this.buttonpanel = buttonpanel;
+		
+	}
+	
+	
+	public ButtonPanel getButtonPanel() {
+		
+		return this.buttonpanel;
+	}
+	
 	@Override
 	public void update(Observable o, Object arg) {
 
 		String buttonName = (String) arg;
-		this.setProfileParameters();
+		this.setProfileParameters(this.getButtonPanel());
 		this.setProfileItem(buttonName);
 		
 

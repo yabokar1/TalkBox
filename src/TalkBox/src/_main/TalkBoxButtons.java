@@ -81,7 +81,7 @@ public class TalkBoxButtons {
 	public Button setProfile(ButtonPanel buttonpanel,ProfileList profile) {
 		Button setProfile = new Button("Set Profile");
 		   setProfile.setOnAction(e->{
-		   profile.setProfileParameters();
+		   profile.setProfileParameters(buttonpanel);
 		   buttonpanel.resetRow();
 		   buttonpanel.resetColumn();
 		   profile.setProfileToPanel(buttonpanel);
