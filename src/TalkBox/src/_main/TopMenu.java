@@ -15,18 +15,13 @@ public class TopMenu extends MenuBar implements Observer{
 	private MenuBar mb;
 	private Menu menu;
 	private MenuItem ImportAudio;
-	private MenuItem LoadProfile;
-	private MenuItem refresh;
-	
 	
 
 	public TopMenu() {
 		mb = new MenuBar();
 		menu = new Menu("File");
 		ImportAudio = new MenuItem("Import Audio");
-		LoadProfile = new MenuItem("Load Profile");
-		refresh = new MenuItem("refresh");
-		menu.getItems().addAll(ImportAudio,LoadProfile,refresh);
+		menu.getItems().addAll(ImportAudio);
 		mb.getMenus().addAll(menu);
 		mb.setMaxWidth(65);
 	}
@@ -38,36 +33,13 @@ public class TopMenu extends MenuBar implements Observer{
 	public MenuItem getImport() {
 		return this.ImportAudio;
 	}
-	
-	public MenuItem getLoad() {
-		return this.LoadProfile;
-	}
-	
-	public MenuItem getrefresh() {
-		return this.refresh;
-	}
-	
+
 	
 	public void ImportAudioListener(MenuItem item) {
 			ImportFiles ia = new ImportFiles();
-			ia.open("TalkBox/");	
+			ia.open("TalkBox/Audio/");	
 };
 	
-
-	public void ImportProfiles(MenuItem item, TreeItem<String> Profile) {
-		item.setOnAction(e ->{
-			try {
-				TalkBoxLogger.logMenuPressEvent(e);
-				Load Load = new Load();
-				Load.Loader(Profile);
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		});
-	}
-
-
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
 		

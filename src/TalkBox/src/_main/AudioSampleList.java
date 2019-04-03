@@ -24,6 +24,7 @@ public class AudioSampleList extends Observable {
 
 
 	public void loadFromDisk() {
+		
 
 		AudioFileIO io = new AudioFileIO();
 
@@ -32,9 +33,10 @@ public class AudioSampleList extends Observable {
 			this.list = io.getAudioNames();
 
 			for (String e : this.list) {
-
+			
 				this.privateListView.getItems().add(e);
 			}
+			
 
 			this.privateListView.setMinSize(200, 175);
 
@@ -43,6 +45,25 @@ public class AudioSampleList extends Observable {
 		//	e.printStackTrace();
 		}
 
+	}
+	
+	
+	public void refresh() {
+		AudioFileIO io = new AudioFileIO();
+		try {
+			this.list = io.getAudioNames();
+			for (String e : this.list) {
+				if(this.privateListView.getItems().contains(e)) {
+					continue;
+				}
+				this.privateListView.getItems().add(e);
+			}
+			
+				this.privateListView.setMinSize(200, 175);
+		}
+		catch(Exception e) {
+			
+		}
 	}
 	
 

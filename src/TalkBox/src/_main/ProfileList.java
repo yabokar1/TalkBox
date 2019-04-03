@@ -17,7 +17,7 @@ public class ProfileList implements Observer,Serializable {
 	private TreeItem<String> root;
 	private int row;
 	private String profilename;
-	private int numofAudioSets = 0;
+	public int numofAudioSets;
 	public ArrayList<ArrayList<String>> ImageSet;
 	public ArrayList<ArrayList<String>> RenameSet;
 	private ArrayList<TreeItem<String>> profileSet;
@@ -37,6 +37,7 @@ public class ProfileList implements Observer,Serializable {
 		ImageSet = new ArrayList<ArrayList<String>>();
 		RenameSet = new ArrayList<ArrayList<String>>();
 		profiles = new ArrayList<ArrayList<TreeItem<String>>>();
+		numofAudioSets = 0;
 	}
 	
 	
@@ -76,7 +77,6 @@ public class ProfileList implements Observer,Serializable {
 		
 		audiosets.add(newItem.getValue());
 
-		this.numofAudioSets++;
 		
 		ArrayList<String> Imglist = new ArrayList<String>();
 		
@@ -167,6 +167,7 @@ public class ProfileList implements Observer,Serializable {
 			int numofAudio = this.root.getChildren().get(i).getChildren().size();
 			for(int j = 0; j < numofAudio; j++) {
 				audioSetSize++;
+				numofAudioSets++;
 			}
 			if(audioSetSize > max) {
 				max = audioSetSize;
@@ -174,6 +175,7 @@ public class ProfileList implements Observer,Serializable {
 		}	
 		return max;
 	}
+	
 	
 
 	public String[][] getAudioFileNames() {
