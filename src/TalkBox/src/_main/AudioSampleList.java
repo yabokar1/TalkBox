@@ -1,5 +1,6 @@
 package _main;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,6 +59,21 @@ public class AudioSampleList extends Observable {
 	}
 	
 	
+	
+	public ArrayList<String> TesterListAddAudioFile() throws IOException {
+		
+		AudioFileIO io = new AudioFileIO();
+		this.Testerlist = io.getAudioNames();
+		return (ArrayList<String>) this.Testerlist;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 	public void AudioSampleSizeIncrement(String e) {   //This method is used to check if the privateListView increased by
 											  //using the ist<String> list as a test replacement
 			this.Testerlist.add(e);
@@ -97,6 +113,9 @@ public class AudioSampleList extends Observable {
 			}
 		});
 	}
+	
+	
+
 
 	public ListView<String> getList() {
 		attachListener();
