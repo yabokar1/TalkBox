@@ -24,22 +24,34 @@ public class ContextMenuClass {
 		
 	}
 	
-	public void attachImageAdder(Button b, ProfileList list,int row) {
+	public void attachImageAdder(Button b, ProfileList list,int row,int index) {
 			 b.setId("image");
 			 ImportFiles image = new ImportFiles();
              image.open("Images/");
              Image pic = new Image(image.file.toURI().toString());  
-             list.ImageSet.get(row).add(image.file.toURI().toString());
-             list.RenameSet.get(row).add(null);
+             try {
+            	 list.ImageSet.get(row).set(index,image.file.toURI().toString());
+                 list.RenameSet.get(row).set(index,null);
+             }
+             catch(Exception e) {
+            	 list.ImageSet.get(row).add(image.file.toURI().toString());
+                 list.RenameSet.get(row).add(null);
+             }
              ImageView iv = new ImageView(pic);
              iv.fitWidthProperty().bind(b.widthProperty());
              iv.fitHeightProperty().bind(b.heightProperty());
              b.setGraphic(iv);
 }
-	public void rename(Button b,String s,ProfileList list, int row) {
+	public void rename(Button b,String s,ProfileList list, int row,int index) {
 	    b.setText(s);
+	    try {
+	    	list.RenameSet.get(row).set(index,s);
+			list.ImageSet.get(row).set(index, null);
+	    }
+	    catch(Exception e) {
 		list.RenameSet.get(row).add(s);
 		list.ImageSet.get(row).add(null);
+	}
 	}
 }
 

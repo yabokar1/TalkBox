@@ -10,6 +10,7 @@ import io.ImportFiles;
 import io.TalkBoxLogger;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -35,6 +36,8 @@ public class ButtonPanel extends GridPane implements Observer{
 		public String newname;
 		
 		public ProfileList list;
+		
+		public int buttonnum = 0;
 		
 		public ButtonPanel() {
 			
@@ -118,8 +121,14 @@ public class ButtonPanel extends GridPane implements Observer{
 						clip.play();
 	                }
 	                else if(button==MouseButton.SECONDARY){
-	                	
-	                	rightClick(event,b);
+	                	int ctr = 0;
+	                	for(Node temp : b.getParent().getChildrenUnmodifiable()) {
+	                		if(b != b.getParent().getChildrenUnmodifiable().get(ctr)) {
+	                		ctr++;
+	                		System.out.println(ctr);
+	                		}
+	                	}
+	                	rightClick(event,b,ctr);
 	      
 	                }
 	                }
@@ -127,25 +136,30 @@ public class ButtonPanel extends GridPane implements Observer{
 		}
 
 		
-		public void rightClick(MouseEvent event,Button button) {
-			
+		public void rightClick(MouseEvent event,Button button,int location) {
 			
             ContextMenuClass right = new ContextMenuClass(button,list,newName(),list.getRow());
             
             right.cm.show(button, event.getScreenX(), event.getScreenY());
-            
-            right.LoadImage.setOnAction(e ->{
-       			
-            right.attachImageAdder(button, list, list.getRow());
-                
-            System.out.println(list.ImageSet);
-                
-            System.out.println(list.RenameSet);
-       		});
+            right.LoadImage.setOnAction(e ->{         
+            	if(list.ImageSet.get(list.getRow()).size() <= location) {
+            		for(int i = 0; i <= location - list.ImageSet.get(list.getRow()).size(); i++) {
+            			list.RenameSet.get(list.getRow()).add(null);
+            			list.ImageSet.get(list.getRow()).add(null);
+
+            		}
+            	}
+         right.attachImageAdder(button, list, list.getRow(),location);
+               
+       	});
             right.Rename.setOnAction(e ->{
-            right.rename(button, newName(), list, list.getRow());
-            System.out.println(list.ImageSet);
-              System.out.println(list.RenameSet);
+            	if(list.ImageSet.get(list.getRow()).size() <= location) {
+            		for(int i = 0; i <= location - list.RenameSet.get(list.getRow()).size(); i++) {
+            			list.ImageSet.get(list.getRow()).add(null);
+            			list.RenameSet.get(list.getRow()).add(null);
+            		}
+            	}
+            right.rename(button, newName(), list, list.getRow(),location);
             	});
 			
 			

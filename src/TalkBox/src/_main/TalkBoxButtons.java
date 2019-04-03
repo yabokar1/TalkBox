@@ -172,10 +172,6 @@ public class TalkBoxButtons {
 				Load = new Load();
 				list.SetProfile(Load.holder);
 				Load.Loader(list.getRoot());
-				//list.setProfileArray(Load.NameHolder);
-				System.out.println(Load.holder);
-				System.out.println(Arrays.deepToString(Load.NameHolder));
-				System.out.println(Arrays.deepToString(list.getAudioFileNames()));
 			} catch (Exception e1) {
 				
 				e1.printStackTrace();
