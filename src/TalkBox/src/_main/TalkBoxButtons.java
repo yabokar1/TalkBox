@@ -77,7 +77,7 @@ public class TalkBoxButtons {
 	
 	}
 	
-	
+	/*
 	public Button setProfile(ButtonPanel buttonpanel,ProfileList profile) {
 		Button setProfile = new Button("Set Profile");
 		   setProfile.setOnAction(e->{
@@ -90,6 +90,7 @@ public class TalkBoxButtons {
 		
 		return setProfile;
 	}
+	*/
 	
 	public TextField Rename(ButtonPanel p) {
 		TextField text = new TextField("Enter New Name");

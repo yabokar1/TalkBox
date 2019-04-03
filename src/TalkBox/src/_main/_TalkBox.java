@@ -7,7 +7,6 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import io.TalkBoxLogger;
@@ -98,13 +97,11 @@ public class _TalkBox extends Application {
 		
 	
 	public void AddProfileBox(RootView root, ButtonPanel panel,ProfileList profile) throws FileNotFoundException {
-
-		
 		profile.setProfileParameters(panel);
-		HBox section3 = new HBox();
-		section3.getChildren().add(this.button.setProfile(panel, profile));
+		//HBox section3 = new HBox();
+		//section3.getChildren().add(this.button.setProfile(panel, profile));
 		root.addChildView(this.audioAndSetPanel(panel, profile));
-		root.addChildView(section3);
+		//root.addChildView(section3);
 	}
 	
 	public VBox audioAndSetPanel( ButtonPanel panel,ProfileList profile) throws FileNotFoundException { //Right side of the Gui
