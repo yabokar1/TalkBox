@@ -16,18 +16,29 @@ public class AudioSampleList extends Observable {
 	
 	private ListView<String> privateListView;
 	public List<String> list;
+	public List<String> Testerlist;
 	
 	public AudioSampleList() {
-		privateListView = new ListView<String>();
+		//privateListView = new ListView<String>();
 		list = new ArrayList<String>();
+		Testerlist= new ArrayList<String>();
 	}
 
+	
+	/*
+	 * 
+	 * This method loads the audioFiles from their location  on the computer to the AudioPanel
+	 * The method this.AudioSampleSizeIncrement(String e) is used as a test method to actually see if the items are
+	 * being added and it seems that privateListView is adding the same amount of strings as 
+	 * AudioSampleSizeIncrement(String e) is used as a test method to actually see if the items are added.
+	 * 
+	 */
 
 	public void loadFromDisk() {
 		
 
 		AudioFileIO io = new AudioFileIO();
-
+		privateListView = new ListView<String>();
 		try {
 
 			this.list = io.getAudioNames();
@@ -35,6 +46,7 @@ public class AudioSampleList extends Observable {
 			for (String e : this.list) {
 			
 				this.privateListView.getItems().add(e);
+				this.AudioSampleSizeIncrement(e);  // Test Method
 			}
 			
 
@@ -42,12 +54,12 @@ public class AudioSampleList extends Observable {
 
 		} catch (Exception e) {
 		
-		//	e.printStackTrace();
+		
 		}
 
 	}
 	
-	
+
 	public void refresh() {
 		AudioFileIO io = new AudioFileIO();
 		try {
@@ -64,6 +76,19 @@ public class AudioSampleList extends Observable {
 		catch(Exception e) {
 			
 		}
+
+}
+	public void AudioSampleSizeIncrement(String e) {   //This method is used to check if the privateListView increased by
+											  //using the ist<String> list as a test replacement
+			this.Testerlist.add(e);
+			
+			
+		}
+		
+	public int getAudioSampleSizeIncrement() {
+		
+		
+		return this.Testerlist.size();
 	}
 	
 
