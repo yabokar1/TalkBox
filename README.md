@@ -16,7 +16,7 @@ The features that come with the configurator include
 -The ability to play audio
 -etc.
 
-![alt text](https://github.com/yabokar1/TalkBoxRefacterdVersion/tree/master/src/TalkBox/src/README1.JPG)
+![alt text](https://github.com/yabokar1/TalkBoxRefacterdVersion/blob/master/src/TalkBox/src/README1.JPG)
 
 
 # The Simulator
