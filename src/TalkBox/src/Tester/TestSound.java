@@ -18,12 +18,10 @@ class TestSound {
 
 	@Test
 	void IsSoundFormated() throws LineUnavailableException {
-		
 		try {
-		
 	    Sound sound = new Sound();
 		sound.soundFormat();
-		
+
 		}
 		
 		catch(LineUnavailableException lue) {
@@ -69,7 +67,7 @@ class TestSound {
 		Sound sound = new Sound();
 		sound.soundFormat();
 		sound.start("Null");
-		sound.stop();;
+		sound.stop();
 		targetLineTest.stop();
 		targetLineTest.close();
 	    assertEquals(sound.getTargetLine().isOpen(), targetLineTest.isOpen());	

@@ -32,8 +32,6 @@ class FileInputOutputTest {
 		
 		AudioFileIO file  =  new AudioFileIO();
 		Object[] files = file.getWavFiles("hello");
-		assertFalse(true,"Expected exception to be thrown");
-		
 		}
 		catch(IOException e) {
 			
@@ -58,7 +56,7 @@ class FileInputOutputTest {
 		
 		AudioFileIO file  =  new AudioFileIO();
 		Object[] files = file.getWavFiles("TalkBox/Audio");
-		assertEquals(11,files.length);  
+		assertEquals(15,files.length);  
 	}
 
 
@@ -67,7 +65,7 @@ class FileInputOutputTest {
 	void testGetsWavFileSuccess() {
 		
 		try {
-			FileInputStream wavFile = AudioFileIO.getWavFile("recordings/default_name.wav");
+			FileInputStream wavFile = AudioFileIO.getWavFile("TalkBox/Audio/Hello.wav");
 			assertNotNull(wavFile);
 		}
 		catch(Exception e) {
@@ -79,12 +77,9 @@ class FileInputOutputTest {
 	@Test
 	void testGetWavFileFail() {
 		try {
-		
 			FileInputStream wavFile = AudioFileIO.getWavFile("invalid_path");
-			assertFalse(true,"Expected exception to be thrown");
 		}
 		catch(Exception e) {
-			
 			assertEquals("Audio clip path does not exist",e.getMessage());
 			assertTrue(true);
 			

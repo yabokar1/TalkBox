@@ -6,7 +6,7 @@ public class Names {
 	public static  final String TITLE = "TalkBox";
 	
 	// Scene Dimensions 
-	public static final double SCENE_WIDTH = 1200;
+	public static final double SCENE_WIDTH = 1100;
 	
 	public static final double SCENE_HEIGHT = 600;
 

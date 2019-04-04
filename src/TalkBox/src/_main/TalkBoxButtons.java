@@ -13,6 +13,7 @@ import io.TalkBoxLogger;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.image.Image;
@@ -28,6 +29,7 @@ public class TalkBoxButtons {
 	private String filename;
 	private String newname;
 	public AudioSampleList list;
+	//public TextArea Area;
 	
 	public TalkBoxButtons() {
 		sound = new Sound();
@@ -77,7 +79,7 @@ public class TalkBoxButtons {
 	
 	}
 	
-	
+	/*
 	public Button setProfile(ButtonPanel buttonpanel,ProfileList profile) {
 		Button setProfile = new Button("Set Profile");
 		   setProfile.setOnAction(e->{
@@ -93,6 +95,7 @@ public class TalkBoxButtons {
 		
 		return setProfile;
 	}
+	*/
 	
 	public TextField Rename(ButtonPanel p) {
 		TextField text = new TextField("Enter New Name");
@@ -102,12 +105,20 @@ public class TalkBoxButtons {
 			TalkBoxLogger.logTextFieldEvent(e);
 			this.newname = text.getText();
 			p.setnewName(this.newname)
-			
 			;});
 		
 		return text;
 	}
 	
+	/*
+	public TextArea Errors() {
+		 Area = new TextArea();
+		Area.setMaxSize(250, 75);
+		Area.setEditable(false);
+		return Area;
+		
+	}
+	*/
 	
 	
     public Label headerLabel() {

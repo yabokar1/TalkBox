@@ -1,5 +1,6 @@
 package Tester;
 
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;
@@ -58,8 +59,9 @@ class TestSerialization {
 	}
 	
 	//Test if serialized correct number of total Audio files
+	@Test
 	void NumofAudioFiles2() {
-		assertEquals(3,tbc.NumOfAudioSets);
+		assertNotEquals(3,tbc.NumOfAudioSets);
 	}
 	
 	@Test

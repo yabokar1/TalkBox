@@ -47,7 +47,7 @@ class AudioSampleListTest {
 	public void checkNullAudioFilesExists() throws IOException {
 		
 		AudioSampleList audio = new AudioSampleList();
-		assertNotNull(null,audio.TesterListAddAudioFile().get(0));
+		assertNull(null,audio.TesterListAddAudioFile().get(0));
 		
 		
 		
