@@ -39,7 +39,6 @@ public class TalkBoxSimProfiles {
 		this.tbc=(TalkBoxConfig) Serializer.Load("TalkBoxData/TalkBoxData.tbc");
 	}
 
-	
 	/*
 	 * This method basically launches a display panel of the profile names that were used on the configurator
 	 * 
