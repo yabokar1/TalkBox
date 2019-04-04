@@ -1,2 +1,8 @@
 /bin/
+/.classpath
+/.gitignore
+/.project
+/Documentation/
 /TalkBox/
+/config-log/
+/simulator-log/
