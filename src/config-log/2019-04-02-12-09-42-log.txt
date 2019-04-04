@@ -1,0 +1,10 @@
+Apr 02, 2019 12:09:42 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 02, 2019 12:09:48 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Help button
+Apr 02, 2019 12:09:55 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed null button
+Apr 02, 2019 12:10:04 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed null button
+Apr 02, 2019 12:10:10 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Hello button

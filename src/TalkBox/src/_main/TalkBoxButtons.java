@@ -7,11 +7,13 @@ import javax.sound.sampled.LineUnavailableException;
 
 import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
+import TalkBoxSim.TalkBoxSim;
 import audio_players.Sound;
 import io.TalkBoxLogger;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.image.Image;
@@ -27,6 +29,7 @@ public class TalkBoxButtons {
 	private String filename;
 	private String newname;
 	public AudioSampleList list;
+	//public TextArea Area;
 	
 	public TalkBoxButtons() {
 		sound = new Sound();
@@ -43,11 +46,11 @@ public class TalkBoxButtons {
 		    config.rename = profile.RenameSet;
 			config.row = profile.getRow();
 		    config.images = profile.ImageSet;
-			config.Audio = profile.getAudio();
 			config.setNumberofAudioButtons(button);
-			config.Profiles = profile.getProfiles();
+			config.Profiles = profile.getSets();
 			config.AudioName = profile.getAudioFileNames();
-			config.getRelativePathToAudioFiles();
+			config.path = "TalkBox/Audio";
+			config.NumOfAudioSets = profile.numofAudioSets;
 				Serializer.Save(config, "TalkBox/TalkBoxData/");
 				TalkBoxSim Gui = new TalkBoxSim();
 				Gui.start(new Stage());
@@ -65,46 +68,57 @@ public class TalkBoxButtons {
 		TextField enterProfile = new TextField("Enter Profile");
 		enterProfile.setOnMouseClicked(e -> enterProfile.clear());
 		enterProfile.setOnAction(e -> {
+			TalkBoxLogger.logTextFieldEvent(e);
 		profile.setProfileTitle(enterProfile.getText());
 			panel.getChildren().clear();
 			panel.resetColumn();
 			panel.resetRow();
-			
 
 		 });
 		return enterProfile;
 	
 	}
 	
-	
+	/*
 	public Button setProfile(ButtonPanel buttonpanel,ProfileList profile) {
 		Button setProfile = new Button("Set Profile");
 		   setProfile.setOnAction(e->{
-		   profile.setProfileParameters();
+			  TalkBoxLogger.logProfilePressEvent(e, profile);
+		   profile.setProfileParameters(buttonpanel);
 		   buttonpanel.resetRow();
 		   buttonpanel.resetColumn();
 		   profile.setProfileToPanel(buttonpanel);
-		   System.out.println(profile.getProfile());
-		   System.out.println(profile.getAudioSets());
-		   System.out.println(Arrays.deepToString(profile.getProfiles()));
+
+		
+
 	});
 		
 		return setProfile;
 	}
+	*/
 	
 	public TextField Rename(ButtonPanel p) {
 		TextField text = new TextField("Enter New Name");
 		text.setMaxSize(200, 50);
 		text.setOnMouseClicked(e -> text.clear());
 		text.setOnAction(e -> {
+			TalkBoxLogger.logTextFieldEvent(e);
 			this.newname = text.getText();
 			p.setnewName(this.newname)
-			
 			;});
 		
 		return text;
 	}
 	
+	/*
+	public TextArea Errors() {
+		 Area = new TextArea();
+		Area.setMaxSize(250, 75);
+		Area.setEditable(false);
+		return Area;
+		
+	}
+	*/
 	
 	
     public Label headerLabel() {
@@ -119,10 +133,11 @@ public class TalkBoxButtons {
     	TextField filename = new TextField("Enter Filename");
     	filename.setOnMouseClicked(e -> filename.clear());
     	filename.setOnAction(e -> {
+    		TalkBoxLogger.logTextFieldEvent(e);
     		this.filename = filename.getText();
     	});
     	Button Stop = new Button("Stop");
-    	Stop.setOnAction(e ->{ System.out.println(list); sound.stop(); this.list.loadFromDisk();});
+    	Stop.setOnAction(e ->{sound.stop();this.list.refresh();});
     	Stop.setMinSize(Names.STARTBUTTON_WIDTH, Names.STARTBUTTON_HEIGHT);
     	v.getChildren().addAll(Stop,filename);
     	return v;
@@ -135,6 +150,7 @@ public class TalkBoxButtons {
     	HBox RecordingArea = new HBox();
     	Button Record = new Button();
     	Record.setOnAction(e ->{
+    		TalkBoxLogger.logButtonPressEvent(e);
     		try {
 				sound.soundFormat();
 				sound.start(this.filename);
@@ -154,28 +170,14 @@ public class TalkBoxButtons {
     	return RecordingArea;
     }
     
-
-	public MenuBar Menu(TreeItem<String> Profile){
+	public MenuBar Menu(ProfileList list){
 		TopMenu menu = new TopMenu();
 		menu.getImport().setOnAction(e ->{
 			TalkBoxLogger.logMenuPressEvent(e);
 			menu.ImportAudioListener(menu.getImport());
+			this.list.refresh();
 		});
 		
-		menu.getrefresh().setOnAction(e->{
-			this.list.loadFromDisk();});
-		
-		menu.getLoad().setOnAction(e->{
-			TalkBoxLogger.logMenuPressEvent(e);
-			Load Load;
-			try {
-				Load = new Load();
-				Load.Loader(Profile);
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-	});
 		return menu.getMenu();
 	}
 	

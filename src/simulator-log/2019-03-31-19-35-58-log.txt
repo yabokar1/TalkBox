@@ -1,0 +1,4 @@
+Mar 31, 2019 7:35:58 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Mar 31, 2019 7:36:13 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed null button

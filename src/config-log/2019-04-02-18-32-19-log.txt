@@ -1,0 +1,6 @@
+Apr 02, 2019 6:32:19 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 02, 2019 6:32:28 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Bye button
+Apr 02, 2019 6:32:44 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Bye button

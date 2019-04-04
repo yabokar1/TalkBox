@@ -1,0 +1,6 @@
+Mar 30, 2019 5:59:59 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Mar 30, 2019 6:00:02 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed boring button
+Mar 30, 2019 6:00:07 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed boring button

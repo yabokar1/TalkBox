@@ -9,7 +9,7 @@ import javax.sound.sampled.Clip;
 
 import io.AudioFileIO;
 
-public abstract class AudioClip {
+public  class AudioClip {
 	
 
 	private Clip clip = null;

@@ -1,5 +1,6 @@
 package _main;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,33 +17,93 @@ public class AudioSampleList extends Observable {
 	
 	private ListView<String> privateListView;
 	public List<String> list;
+	public List<String> Testerlist;
 	
 	public AudioSampleList() {
-		privateListView = new ListView<String>();
+		//privateListView = new ListView<String>();
 		list = new ArrayList<String>();
+		Testerlist= new ArrayList<String>();
 	}
 
+	
+	/*
+	 * 
+	 * This method loads the audioFiles from their location  on the computer to the AudioPanel
+	 * The method this.AudioSampleSizeIncrement(String e) is used as a test method to actually see if the items are
+	 * being added and it seems that privateListView is adding the same amount of strings as 
+	 * AudioSampleSizeIncrement(String e) is used as a test method to actually see if the items are added.
+	 * 
+	 */
 
 	public void loadFromDisk() {
+		
 
 		AudioFileIO io = new AudioFileIO();
-
+		privateListView = new ListView<String>();
 		try {
 
-			list = io.getAudioNames();
+			this.list = io.getAudioNames();
 
-			for (String e : list) {
-
-				privateListView.getItems().add(e);
+			for (String e : this.list) {
+			
+				this.privateListView.getItems().add(e);
+				this.AudioSampleSizeIncrement(e);  // Test Method
 			}
+			
 
-			privateListView.setMinSize(200, 175);
+			this.privateListView.setMinSize(200, 175);
 
 		} catch (Exception e) {
-			System.out.println("hi");
-		//	e.printStackTrace();
+		
+		
 		}
 
+	}
+	
+
+	
+	public ArrayList<String> TesterListAddAudioFile() throws IOException {
+		
+		AudioFileIO io = new AudioFileIO();
+		this.Testerlist = io.getAudioNames();
+		return (ArrayList<String>) this.Testerlist;
+		
+	}
+	
+	
+	
+
+
+	public void refresh() {
+		AudioFileIO io = new AudioFileIO();
+		try {
+			this.list = io.getAudioNames();
+			for (String e : this.list) {
+				if(this.privateListView.getItems().contains(e)) {
+					continue;
+				}
+				this.privateListView.getItems().add(e);
+			}
+			
+				this.privateListView.setMinSize(200, 175);
+		}
+		catch(Exception e) {
+			
+		}
+
+}
+
+	public void AudioSampleSizeIncrement(String e) {   //This method is used to check if the privateListView increased by
+											  //using the ist<String> list as a test replacement
+			this.Testerlist.add(e);
+			
+			
+		}
+		
+	public int getAudioSampleSizeIncrement() {
+		
+		
+		return this.Testerlist.size();
 	}
 	
 
@@ -53,6 +114,11 @@ public class AudioSampleList extends Observable {
 
 	}
 
+	
+	public int getSize() {
+		
+		return this.list.size();
+	}
 
 	
 	public void attachListener() {
@@ -61,12 +127,14 @@ public class AudioSampleList extends Observable {
 
 			@Override
 			public void changed(ObservableValue observable, Object oldValue, Object newValue) {
-
+				
 				notifyButtonPanel(newValue.toString());
-
 			}
 		});
 	}
+	
+	
+
 
 	public ListView<String> getList() {
 		attachListener();

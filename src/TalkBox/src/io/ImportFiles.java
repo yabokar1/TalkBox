@@ -24,7 +24,6 @@ public class ImportFiles {
 	private Stage stage;
 	private Path to;
 	private Path from;
-	//private String src = "sound_samples/";
 	public String name;
 	public File file;
 	

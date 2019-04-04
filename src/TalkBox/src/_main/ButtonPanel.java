@@ -9,7 +9,10 @@ import audio_players.AudioClipWav;
 import io.ImportFiles;
 import io.TalkBoxLogger;
 import javafx.event.EventHandler;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -28,13 +31,15 @@ public class ButtonPanel extends GridPane implements Observer{
 		
 		private int numOfAudioButtons = 0;
 		
-		private static final int BTN_WIDTH = 90;
+		private static final int BTN_WIDTH = 150;
 		
-		private static final int BTN_HEIGHT = 90;
+		private static final int BTN_HEIGHT = 150;
 		
 		public String newname;
 		
 		public ProfileList list;
+		
+		public int buttonnum = 0;
 		
 		public ButtonPanel() {
 			
@@ -43,22 +48,34 @@ public class ButtonPanel extends GridPane implements Observer{
 		public void resetRow() {
 			this.currentRow=0;
 		}
+		
+		public void resetColumn() {
+			
+			this.currentCol=0;
+		}
+		
+		public int getColumn() {
+			
+			return this.currentCol;
+		}
+		
+		public int getRow() {
+			
+			return this.currentRow;
+		}
 	
 		public void setProfileList(ProfileList temp) {
-			list = temp;
+			this.list = temp;
 		}
 		public void setnewName(String s) {
-			newname = s;
+			this.newname = s;
 		}
 		
 		public String newName() {
 			return this.newname;
 		}
 		
-		public void resetColumn() {
-			
-			this.currentCol=0;
-		}
+		
 
 		public void addButton(String name) {
 			
@@ -72,6 +89,7 @@ public class ButtonPanel extends GridPane implements Observer{
 		   
 		   ButtonPanel.setHgrow(button, Priority.ALWAYS);
 		   
+		   
 		   this.setVgap(20);
 		   
 		   button.setPadding(new Insets(10,10,10,10));
@@ -79,21 +97,15 @@ public class ButtonPanel extends GridPane implements Observer{
 		   attachClickListener(name, button);
 
 		   this.add(button, currentCol, currentRow);
-
-		   currentCol++;
 		   
-		   if(currentCol > Names.MAX_COL) {
-			 
-			   currentCol = 0;
-			 
-			   currentRow++;
-		   }
+		   currentCol++;
+
 		   this.numOfAudioButtons++;
 			
 		}
 		
 
-		public int getNumofButtonsArray() {
+		public int getNumofAudioButtons() {
 			return this.numOfAudioButtons;
 		}
 		
@@ -116,23 +128,52 @@ public class ButtonPanel extends GridPane implements Observer{
 						clip.play();
 	                }
 	                else if(button==MouseButton.SECONDARY){
-	                ContextMenuClass right = new ContextMenuClass(b,list,newName(),list.getRow());
-	                right.cm.show(b, event.getScreenX(), event.getScreenY());
-	                right.LoadImage.setOnAction(e ->{
-	           			right.attachImageAdder(b, list, list.getRow());
-	                    System.out.println(list.ImageSet);
-	                    System.out.println(list.RenameSet);
-	           		});
-	                	right.Rename.setOnAction(e ->{
-	                	right.rename(b, newName(), list, list.getRow());
-	                    System.out.println(list.ImageSet);
-	                    System.out.println(list.RenameSet);
-	                	});
+	                	
+	                	int ctr = 0;
+	                	
+	                for(Node temp : b.getParent().getChildrenUnmodifiable()) {
+	                		
+	                	if(b != b.getParent().getChildrenUnmodifiable().get(ctr)) {
+	                		ctr++;
+	                		System.out.println(ctr);
+	                		}
+	                	}
+	                	rightClick(event,b,ctr);
+	      
 	                }
-	                }
+	               }
 	        });
 		}
 
+		
+		public void rightClick(MouseEvent event,Button button,int location) {
+			
+            ContextMenuClass right = new ContextMenuClass(button,list,newName(),list.getRow());
+            
+            right.cm.show(button, event.getScreenX(), event.getScreenY());
+            right.LoadImage.setOnAction(e ->{   
+            	TalkBoxLogger.logMenuPressEvent(e);
+            	if(list.ImageSet.get(list.getRow()).size() <= location) {
+            		for(int i = 0; i <= location - list.ImageSet.get(list.getRow()).size(); i++) {
+            			list.RenameSet.get(list.getRow()).add(null);
+            			list.ImageSet.get(list.getRow()).add(null);
+
+            		}
+            	}
+         right.attachImageAdder(button, list, list.getRow(),location);
+               
+       	});
+            right.Rename.setOnAction(e ->{
+            	TalkBoxLogger.logMenuPressEvent(e);
+            	if(list.ImageSet.get(list.getRow()).size() <= location) {
+            		for(int i = 0; i <= location - list.RenameSet.get(list.getRow()).size(); i++) {
+            			list.ImageSet.get(list.getRow()).add(null);
+            			list.RenameSet.get(list.getRow()).add(null);
+            		}
+            	}
+            right.rename(button, newName(), list, list.getRow(),location);
+            	});
+		}
 		
 
 		@Override

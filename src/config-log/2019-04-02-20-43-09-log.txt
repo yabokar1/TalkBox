@@ -1,0 +1,6 @@
+Apr 02, 2019 8:43:09 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 02, 2019 8:43:23 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Help button
+Apr 02, 2019 8:43:28 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log

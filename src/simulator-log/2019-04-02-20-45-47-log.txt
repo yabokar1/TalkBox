@@ -1,0 +1,6 @@
+Apr 02, 2019 8:45:47 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 02, 2019 8:45:51 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Nani button
+Apr 02, 2019 8:45:52 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed cartman_bdaysong button

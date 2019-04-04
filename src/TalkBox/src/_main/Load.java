@@ -10,30 +10,39 @@ import javafx.scene.control.TreeView;
 public class Load {
 	TalkBoxConfig tbc;
 	private int size;
-	private String[] profile;
+	private ArrayList<String> profile;
 	TreeView<String> Tree;
 	private int row;
+	ArrayList<ArrayList<TreeItem<String>>> holder;
+	String[] NameHolder;
 
 	
 	Load() throws Exception{
 		tbc = (TalkBoxConfig) Serializer.Load("TalkBox/TalkBoxData/TalkBoxData.tbc");
 		profile = tbc.Profiles;
+		holder = new ArrayList<ArrayList<TreeItem<String>>>();
 	}
 	
 	public void Loader(TreeItem<String> root) throws Exception {
-	String[][] audioname = tbc.AudioName;
-	 this.Tree = new TreeView<String>(root);
-	for (int i = 0; i <= profile.length - 1; i++) {
+	
+		String[][] audioname = tbc.AudioName;
+	
+	
+	
+	this.Tree = new TreeView<String>(root);
+	
+	for (int i = 0; i <= profile.size()- 1; i++) {
 		int column = audioname[i].length;
-		String profilename = profile[i];
+		String profilename = profile.get(i);
+		ArrayList<TreeItem<String>> profilearray = new ArrayList<TreeItem<String>>();
 		this.branch(profilename, root);
 		for (int j = 0; j <= column - 1; j++) {
 			if (audioname[i][j] != null) {
-				this.branch(audioname[i][j],
-						root.getChildren().get(i));
+			profilearray.add(this.branch(audioname[i][j], root.getChildren().get(i)));
 			}
 		}
 		size = root.getChildren().size();
+		holder.add(profilearray);
 }
 	}
 	

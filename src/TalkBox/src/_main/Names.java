@@ -6,7 +6,7 @@ public class Names {
 	public static  final String TITLE = "TalkBox";
 	
 	// Scene Dimensions 
-	public static final double SCENE_WIDTH = 1200;
+	public static final double SCENE_WIDTH = 1100;
 	
 	public static final double SCENE_HEIGHT = 600;
 
@@ -26,6 +26,10 @@ public class Names {
 	public static final double RECORDBUTTON_WIDTH =  75;
 	
 	// Max Columns 
-	static final int MAX_COL = 6;
+	private static final int MAX_COL = 6;
+
+	public static int getMaxCol() {
+		return MAX_COL;
+	}
 	
 }

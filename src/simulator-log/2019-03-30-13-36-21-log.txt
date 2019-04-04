@@ -1,0 +1,4 @@
+Mar 30, 2019 1:36:21 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Mar 30, 2019 1:36:25 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed TreeItem [ value: Bye ] button

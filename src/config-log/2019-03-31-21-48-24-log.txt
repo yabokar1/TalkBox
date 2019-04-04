@@ -1,0 +1,4 @@
+Mar 31, 2019 9:48:24 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Mar 31, 2019 9:48:27 PM io.TalkBoxLogger logMenuPressEvent
+INFO: Pressed Load Profile MenuItem

@@ -1,0 +1,14 @@
+Apr 03, 2019 12:59:54 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 03, 2019 1:00:29 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Laugh button
+Apr 03, 2019 1:00:31 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 03, 2019 1:00:50 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
+Apr 03, 2019 1:00:58 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Good Bye button
+Apr 03, 2019 1:01:12 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Help button
+Apr 03, 2019 1:01:14 PM io.TalkBoxLogger setupLogger
+INFO: Start of Log
