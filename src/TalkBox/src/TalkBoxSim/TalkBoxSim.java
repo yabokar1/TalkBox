@@ -31,6 +31,7 @@ public class TalkBoxSim extends Application{
 		root.getChildren().add(main.mainVBox(HBox));
 		Scene scene = new Scene(root,800,230);
 		primaryStage.setScene(scene);
+		primaryStage.setTitle("Simulator");
 		primaryStage.show();
 	}
 	
