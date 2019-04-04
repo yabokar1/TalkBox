@@ -1,0 +1,14 @@
+Apr 04, 2019 12:13:44 AM io.TalkBoxLogger setupTBlogger
+INFO: Start of Log
+Apr 04, 2019 12:13:54 AM io.TalkBoxLogger logTextFieldEvent
+INFO: Set N Text
+Apr 04, 2019 12:14:08 AM io.TalkBoxLogger logTextFieldEvent
+INFO: Set Hi Text
+Apr 04, 2019 12:14:10 AM io.TalkBoxLogger logButtonPressEvent
+INFO: Pressed  Button
+Apr 04, 2019 12:14:19 AM io.TalkBoxLogger logTextFieldEvent
+INFO: Set  Text
+Apr 04, 2019 12:14:23 AM io.TalkBoxLogger logTextFieldEvent
+INFO: Set Hello Text
+Apr 04, 2019 12:14:24 AM io.TalkBoxLogger logButtonPressEvent
+INFO: Pressed  Button
