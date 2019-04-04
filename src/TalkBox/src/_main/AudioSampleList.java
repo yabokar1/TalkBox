@@ -3,7 +3,6 @@ package _main;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import io.AudioFileIO;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -125,6 +124,7 @@ public class AudioSampleList extends Observable {
 
 		this.privateListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Object>() {
 
+			@SuppressWarnings("rawtypes")
 			@Override
 			public void changed(ObservableValue observable, Object oldValue, Object newValue) {
 				
@@ -143,6 +143,7 @@ public class AudioSampleList extends Observable {
 
 	public VBox getView() {
 		attachListener();
+		@SuppressWarnings("unused")
 		VBox listview = new VBox(this.privateListView);
 		return new VBox(this.privateListView);
 

@@ -29,7 +29,7 @@ public class _TalkBox extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         
-    
+
     	TalkBoxLogger.setupTBlogger(TalkBoxDataPath, "config-log"); //This is for the logger
         
     	button =  new TalkBoxButtons(); // this instance is to add the buttons to the view(Gui)

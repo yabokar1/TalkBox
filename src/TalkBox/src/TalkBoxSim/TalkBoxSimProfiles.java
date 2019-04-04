@@ -18,6 +18,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
 
 public class TalkBoxSimProfiles {
@@ -27,9 +32,11 @@ public class TalkBoxSimProfiles {
 	public TreeItem<String> root;
 	int currentRow = 0;
 	int currentCol = 0;
+	AudioClipWav clip;
+	boolean collide = false;
 	
 	public TalkBoxSimProfiles() throws Exception {
-		this.tbc=(TalkBoxConfig) Serializer.Load("TalkBox/TalkBoxData/TalkBoxData.tbc");
+		this.tbc=(TalkBoxConfig) Serializer.Load("TalkBoxData/TalkBoxData.tbc");
 	}
 
 	
@@ -43,10 +50,9 @@ public class TalkBoxSimProfiles {
 		String[][] audioname = this.tbc.AudioName;
 		ArrayList<ArrayList<String>> image = this.tbc.images;
 		ArrayList<ArrayList<String>> rename = this.tbc.rename;
-		System.out.println(rename);
+	//	System.out.println(rename);
 		int ctr = 0;
 		int size = Integer.parseInt(row);
-		System.out.println(Arrays.deepToString(audioname[size]));
 		for(String temp : audioname[size]) {
 			if(temp == null) {
 				break;
@@ -61,14 +67,10 @@ public class TalkBoxSimProfiles {
 			   if(image.get(size).get(ctr) != null) {
 			   
 				Image im = new Image(image.get(size).get(ctr));
-			   
-				ImageView iv = new ImageView(im);
-               
-				iv.fitWidthProperty().bind(b.widthProperty());
-               
-				iv.fitHeightProperty().bind(b.heightProperty());
-               
-				b.setGraphic(iv);
+
+				 BackgroundImage bImage = new BackgroundImage(im, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(b.getWidth(), b.getHeight(), true, true, true, false));
+	             Background backGround = new Background(bImage);
+	             b.setBackground(backGround);
 		       }
 			   else {
 				   try {
@@ -91,24 +93,15 @@ public class TalkBoxSimProfiles {
 	
 
 	private void attachClickListener(String name, Button b) {
-		b.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			
-		private AudioClipWav clip = null;
-            @Override
-        public void handle(MouseEvent event) {
-               
-            	TalkBoxLogger.logMousePressEvent(event);
-            	
-            	MouseButton button = event.getButton();
-               
-                if(button==MouseButton.PRIMARY) {
-					
-                	clip = new AudioClipWav(name);
-					
-					clip.play();
-                }
-            }
-		});}
+		b.setOnAction(e ->{
+			if(this.collide == true) {
+				this.clip.stop();
+			}
+			clip = new AudioClipWav(name);
+			this.clip.play();
+			this.collide = true;
+		});
+	}
 	
 	
 	public TreeItem<String> getRoot() {

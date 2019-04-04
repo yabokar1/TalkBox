@@ -32,7 +32,10 @@ public  class AudioClip {
 		return this.clip.isOpen();
 	}
 	
-
+	public void stop() {
+		clip.stop();
+		clip.close();
+	}
 	
 	 
 	
@@ -69,9 +72,9 @@ public  class AudioClip {
 			}
 
 			catch(Exception e) {	
-
-				System.out.println("Can't find audio file: message = " + e.getMessage());
-				System.out.println("Path used:" + this.clipPath);
+e.printStackTrace();
+				//System.out.println("Can't find audio file: message = " + e.getMessage());
+				//System.out.println("Path used:" + this.clipPath);
 			}
 
 		}

@@ -26,7 +26,7 @@ public class TalkBoxSimMenu {
 
 	
 	public TalkBoxSimMenu(GridPane p) throws Exception {
-		tbc=(TalkBoxConfig) Serializer.Load("TalkBox/TalkBoxData/TalkBoxData.tbc");
+		tbc=(TalkBoxConfig) Serializer.Load("TalkBoxData/TalkBoxData.tbc");
 		mb = new MenuBar();
 		menu = new Menu("Configurator");
 		Profiles = new Menu("Profiles");

@@ -3,12 +3,9 @@ package _main;
 import java.util.Observable;
 import java.util.Observer;
 import io.ImportFiles;
-import io.TalkBoxLogger;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.TreeItem;
-import javafx.scene.layout.GridPane;
 
 public class TopMenu extends MenuBar implements Observer{
 
@@ -37,7 +34,7 @@ public class TopMenu extends MenuBar implements Observer{
 	
 	public void ImportAudioListener(MenuItem item) {
 			ImportFiles ia = new ImportFiles();
-			ia.open("TalkBox/Audio/");	
+			ia.open("TalkBoxConfiguration/Audio/");	
 };
 	
 	public void update(Observable o, Object arg) {

@@ -9,7 +9,6 @@ import javafx.scene.control.TreeView;
 
 public class Load {
 	TalkBoxConfig tbc;
-	private int size;
 	private ArrayList<String> profile;
 	TreeView<String> Tree;
 	private int row;
@@ -18,7 +17,7 @@ public class Load {
 
 	
 	Load() throws Exception{
-		tbc = (TalkBoxConfig) Serializer.Load("TalkBox/TalkBoxData/TalkBoxData.tbc");
+		tbc = (TalkBoxConfig) Serializer.Load("TalkBoxData/TalkBoxData.tbc");
 		profile = tbc.Profiles;
 		holder = new ArrayList<ArrayList<TreeItem<String>>>();
 	}
@@ -41,7 +40,7 @@ public class Load {
 			profilearray.add(this.branch(audioname[i][j], root.getChildren().get(i)));
 			}
 		}
-		size = root.getChildren().size();
+		root.getChildren().size();
 		holder.add(profilearray);
 }
 	}

@@ -1,24 +1,16 @@
 package _main;
 
 import java.io.FileNotFoundException;
-import java.util.Arrays;
-
 import javax.sound.sampled.LineUnavailableException;
-
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
-
 import TalkBoxSim.TalkBoxSim;
 import audio_players.Sound;
 import io.TalkBoxLogger;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TreeItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -49,9 +41,9 @@ public class TalkBoxButtons {
 			config.setNumberofAudioButtons(button);
 			config.Profiles = profile.getSets();
 			config.AudioName = profile.getAudioFileNames();
-			config.path = "TalkBox/Audio";
+			config.path = "/Audio/";
 			config.NumOfAudioSets = profile.numofAudioSets;
-				Serializer.Save(config, "TalkBox/TalkBoxData/");
+				Serializer.Save(config, "TalkBoxData/");
 				TalkBoxSim Gui = new TalkBoxSim();
 				Gui.start(new Stage());
 			} catch (Exception e1) {

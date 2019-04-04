@@ -13,14 +13,11 @@ public class AudioFileIO {
 
 	
 	
-	public static final  String WAV_FILE_PATH = "TalkBox/Audio/";
+	public static final  String WAV_FILE_PATH = "TalkBoxConfiguration/Audio/";
 	
 	ArrayList<String> audioNames;
 	
-	
-	
-	
-	
+
 	public AudioFileIO() {
 		this.audioNames = new ArrayList<String>();
 	}
@@ -91,7 +88,7 @@ public class AudioFileIO {
 			return files;
 		}
 		catch(NullPointerException e) {
-			System.out.println("hi");
+			//System.out.println("hi");
 			return new File[0];
 		}
 	}

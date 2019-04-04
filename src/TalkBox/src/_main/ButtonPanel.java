@@ -1,22 +1,13 @@
 package _main;
 
-import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.logging.Level;
-
 import audio_players.AudioClipWav;
-import io.ImportFiles;
 import io.TalkBoxLogger;
 import javafx.event.EventHandler;
-import javafx.geometry.HPos;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -135,11 +126,10 @@ public class ButtonPanel extends GridPane implements Observer{
 	                		
 	                	if(b != b.getParent().getChildrenUnmodifiable().get(ctr)) {
 	                		ctr++;
-	                		System.out.println(ctr);
+	                		//System.out.println(ctr);
 	                		}
 	                	}
 	                	rightClick(event,b,ctr);
-	      
 	                }
 	               }
 	        });
