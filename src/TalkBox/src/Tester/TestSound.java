@@ -18,12 +18,10 @@ class TestSound {
 
 	@Test
 	void IsSoundFormated() throws LineUnavailableException {
-		
 		try {
-		
 	    Sound sound = new Sound();
-		sound.soundFormat(null);
-		
+		sound.soundFormat();
+
 		}
 		
 		catch(LineUnavailableException lue) {
@@ -37,8 +35,8 @@ class TestSound {
 		 
 		 Sound sound = new Sound();
 		 String file= "Morning";
-		 sound.soundFormat(null);
-		 sound.start(file,null);
+		 sound.soundFormat();
+		 sound.start(file);
 		 assertEquals(file, sound.getFileName());
 		 
 		 
@@ -48,8 +46,8 @@ class TestSound {
 		
 		try {
 		Sound sound = new Sound();
-		sound.soundFormat(null);
-		sound.start("Hello",null);
+		sound.soundFormat();
+		sound.start("Hello");
 		}
 		
 		catch(Exception ioe) {
@@ -67,9 +65,9 @@ class TestSound {
 		targetLineTest = (TargetDataLine) AudioSystem.getLine(info);
 		targetLineTest.open();
 		Sound sound = new Sound();
-		sound.soundFormat(null);
-		sound.start("Null",null);
-		sound.stop(null);
+		sound.soundFormat();
+		sound.start("Null");
+		sound.stop();
 		targetLineTest.stop();
 		targetLineTest.close();
 	    assertEquals(sound.getTargetLine().isOpen(), targetLineTest.isOpen());	

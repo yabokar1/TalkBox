@@ -132,7 +132,7 @@ public class _TalkBox extends Application {
 	public void LaunchButton(ProfileList profile,ButtonPanel buttonp,RootView root) {
 		
 		
-		this.getButtonPanel().getChildren().addAll(button.addLaunchButton(buttonp,profile), this.button.Rename(buttonp),this.button.Errors());
+		this.getButtonPanel().getChildren().addAll(button.addLaunchButton(buttonp,profile), this.button.Rename(buttonp));
 	
 		
 	}

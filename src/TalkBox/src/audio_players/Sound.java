@@ -28,7 +28,7 @@ public class Sound {
 	}
 	
 
-	public void soundFormat(TextArea area) throws LineUnavailableException {
+	public void soundFormat() throws LineUnavailableException {
 		
 		
 		try {
@@ -47,7 +47,7 @@ public class Sound {
 		this.targetLine = (TargetDataLine) AudioSystem.getLine(info);
 		this.targetLine.open();
 		
-		area.appendText("Started Recording\n");
+		//area.appendText("Started Recording\n");
 		targetLine.start();
 		
 		}
@@ -61,7 +61,7 @@ public class Sound {
 	}
 
 	
-	public void start(String name, TextArea area) throws InterruptedException {
+	public void start(String name) throws InterruptedException {
 		
 		try {
 
@@ -78,11 +78,11 @@ public class Sound {
 				
 				File audioFile = new File("TalkBox/Audio/" + fileName);
 				
-				area.appendText("The Recording is being saved as: ");
-				area.appendText(filename);
-				//System.out.println("The recording is being saved as:");
+				//area.appendText("The Recording is being saved as: ");
+				//area.appendText(filename);
+				System.out.println("The recording is being saved as:");
 				
-			//	System.out.println(fileName);
+			    System.out.println(fileName);
 				try {
 					
 					AudioSystem.write(audioStream, AudioFileFormat.Type.WAVE, audioFile);
@@ -92,8 +92,8 @@ public class Sound {
 					
 					ioe.printStackTrace();
 				}
-				area.appendText("\nStopped Recording");
-				//System.out.println("Stopped Recording");
+				//area.appendText("\nStopped Recording");
+				System.out.println("Stopped Recording");
 				
 				
 			}
@@ -103,7 +103,7 @@ public class Sound {
 		
 		this.filename=name;
 		thread.start();
-		area.appendText("\nRecording");
+		//SSarea.appendText("\nRecording");
 		}
 		catch(Exception ie) {
 			
@@ -112,7 +112,7 @@ public class Sound {
 		
 	}
 	
-	public void stop(TextArea area) {	
+	public void stop() {	
 		this.targetLine.stop();
 		this.targetLine.close();
 	}

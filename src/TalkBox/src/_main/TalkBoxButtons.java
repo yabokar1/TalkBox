@@ -29,7 +29,7 @@ public class TalkBoxButtons {
 	private String filename;
 	private String newname;
 	public AudioSampleList list;
-	public TextArea Area;
+	//public TextArea Area;
 	
 	public TalkBoxButtons() {
 		sound = new Sound();
@@ -107,6 +107,7 @@ public class TalkBoxButtons {
 		return text;
 	}
 	
+	/*
 	public TextArea Errors() {
 		 Area = new TextArea();
 		Area.setMaxSize(250, 75);
@@ -114,7 +115,7 @@ public class TalkBoxButtons {
 		return Area;
 		
 	}
-	
+	*/
 	
 	
     public Label headerLabel() {
@@ -133,7 +134,7 @@ public class TalkBoxButtons {
     		this.filename = filename.getText();
     	});
     	Button Stop = new Button("Stop");
-    	Stop.setOnAction(e ->{sound.stop(this.Area);this.list.refresh();});
+    	Stop.setOnAction(e ->{sound.stop();this.list.refresh();});
     	Stop.setMinSize(Names.STARTBUTTON_WIDTH, Names.STARTBUTTON_HEIGHT);
     	v.getChildren().addAll(Stop,filename);
     	return v;
@@ -148,8 +149,8 @@ public class TalkBoxButtons {
     	Record.setOnAction(e ->{
     		TalkBoxLogger.logButtonPressEvent(e);
     		try {
-				sound.soundFormat(this.Area);
-				sound.start(this.filename,this.Area);
+				sound.soundFormat();
+				sound.start(this.filename);
 			} catch (LineUnavailableException | InterruptedException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
