@@ -30,7 +30,8 @@ public class ContextMenuClass {
 	}
 	
 	public void attachImageAdder(Button b, ProfileList list,int row,int index) {
-			 b.setId("image");
+			 
+			b.setId("image");
 			 ImportFiles image = new ImportFiles();
              image.open("Images/");
              Image pic = new Image(image.file.toURI().toString());  
