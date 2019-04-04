@@ -71,23 +71,6 @@ public class TalkBoxButtons {
 	
 	}
 	
-	/*
-	public Button setProfile(ButtonPanel buttonpanel,ProfileList profile) {
-		Button setProfile = new Button("Set Profile");
-		   setProfile.setOnAction(e->{
-			  TalkBoxLogger.logProfilePressEvent(e, profile);
-		   profile.setProfileParameters(buttonpanel);
-		   buttonpanel.resetRow();
-		   buttonpanel.resetColumn();
-		   profile.setProfileToPanel(buttonpanel);
-
-		
-
-	});
-		
-		return setProfile;
-	}
-	*/
 	
 	public TextField Rename(ButtonPanel p) {
 		TextField text = new TextField("Enter New Name");
@@ -102,17 +85,7 @@ public class TalkBoxButtons {
 		return text;
 	}
 	
-	/*
-	public TextArea Errors() {
-		 Area = new TextArea();
-		Area.setMaxSize(250, 75);
-		Area.setEditable(false);
-		return Area;
-		
-	}
-	*/
-	
-	
+
     public Label headerLabel() {
     	Label talkBoxLabel = new Label(Names.TITLE);
     	talkBoxLabel.setStyle("-fx-font-family: TRON; -fx-font-size: 20;");

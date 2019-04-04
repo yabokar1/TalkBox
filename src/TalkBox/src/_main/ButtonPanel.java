@@ -32,6 +32,8 @@ public class ButtonPanel extends GridPane implements Observer{
 		
 		public int buttonnum = 0;
 		
+	
+		
 		public ButtonPanel() {
 			
 		}
@@ -102,17 +104,21 @@ public class ButtonPanel extends GridPane implements Observer{
 		
 
 		private void attachClickListener(String name, Button b) {
+	
 			b.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				
 			private AudioClipWav clip = null;
 	            @Override
 	        public void handle(MouseEvent event) {
-	               
+	            	
+	         
 	            	TalkBoxLogger.logMousePressEvent(event);
 	            	
 	            	MouseButton button = event.getButton();
 	               
 	                if(button==MouseButton.PRIMARY) {
+	                	
+	                	
 						
 	                	clip = new AudioClipWav(name);
 						

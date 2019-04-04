@@ -72,9 +72,9 @@ public  class AudioClip {
 			}
 
 			catch(Exception e) {	
-e.printStackTrace();
-				//System.out.println("Can't find audio file: message = " + e.getMessage());
-				//System.out.println("Path used:" + this.clipPath);
+
+				System.out.println("Can't find audio file: message = " + e.getMessage());
+				System.out.println("Path used:" + this.clipPath);
 			}
 
 		}

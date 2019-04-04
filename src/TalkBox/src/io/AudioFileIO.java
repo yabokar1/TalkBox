@@ -13,7 +13,7 @@ public class AudioFileIO {
 
 	
 	
-	public static final  String WAV_FILE_PATH = "TalkBoxConfiguration/Audio/";
+	public static final  String WAV_FILE_PATH = "TalkBox/src/Audio/";
 	
 	ArrayList<String> audioNames;
 	

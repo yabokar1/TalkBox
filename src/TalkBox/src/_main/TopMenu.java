@@ -34,7 +34,7 @@ public class TopMenu extends MenuBar implements Observer{
 	
 	public void ImportAudioListener(MenuItem item) {
 			ImportFiles ia = new ImportFiles();
-			ia.open("TalkBoxConfiguration/Audio/");	
+			ia.open("TalkBox/src/Audio/");	
 };
 	
 	public void update(Observable o, Object arg) {
