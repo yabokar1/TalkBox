@@ -8,8 +8,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 import _main.ProfileList;
+import javafx.beans.value.ChangeListener;
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 public class TalkBoxLogger {
@@ -44,12 +47,27 @@ public class TalkBoxLogger {
 		}
 	}
 	
+	public static void logTextFieldEvent(javafx.event.ActionEvent e) {
+		if (e.getSource() instanceof TextField) {
+			TextField t = (TextField) e.getSource();
+			TBlogger.log(Level.INFO, "Set {0} Text", new Object[] {t.getText()});
+		}
+	}
+	
 	public static void logMenuPressEvent(javafx.event.ActionEvent e) {
 		if (e.getSource() instanceof MenuItem) {
 			MenuItem btn = (MenuItem) e.getSource();
 			TBlogger.log(Level.INFO, "Pressed {0} MenuItem", new Object[] { btn.getText()});
 		}
 	}
+	
+	public static void logButtonPressEvent(ActionEvent e) {
+		if(e.getSource() instanceof Button) {
+			Button btn = (Button) e.getSource();
+			TBlogger.log(Level.INFO, "Pressed {0} Button", new Object[] {btn.getText()});
+		}
+	}
+	
 	public static void logMousePressEvent(MouseEvent e) {
 		if (e.getSource() instanceof Button) {
 			Button btn = (Button) e.getSource();

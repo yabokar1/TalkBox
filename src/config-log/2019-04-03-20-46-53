@@ -1,0 +1,14 @@
+Apr 03, 2019 8:46:53 PM io.TalkBoxLogger setupTBlogger
+INFO: Start of Log
+Apr 03, 2019 8:46:57 PM io.TalkBoxLogger logTextFieldEvent
+INFO: Set Hello Text
+Apr 03, 2019 8:47:02 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed cartman_bdaysong button
+Apr 03, 2019 8:47:04 PM io.TalkBoxLogger logMenuPressEvent
+INFO: Pressed Rename MenuItem
+Apr 03, 2019 8:47:04 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed null button
+Apr 03, 2019 8:47:05 PM io.TalkBoxLogger logMousePressEvent
+INFO: Pressed Laugh button
+Apr 03, 2019 8:47:06 PM io.TalkBoxLogger logMenuPressEvent
+INFO: Pressed Load Image MenuItem

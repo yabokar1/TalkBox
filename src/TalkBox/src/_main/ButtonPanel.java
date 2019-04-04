@@ -151,7 +151,8 @@ public class ButtonPanel extends GridPane implements Observer{
             ContextMenuClass right = new ContextMenuClass(button,list,newName(),list.getRow());
             
             right.cm.show(button, event.getScreenX(), event.getScreenY());
-            right.LoadImage.setOnAction(e ->{         
+            right.LoadImage.setOnAction(e ->{   
+            	TalkBoxLogger.logMenuPressEvent(e);
             	if(list.ImageSet.get(list.getRow()).size() <= location) {
             		for(int i = 0; i <= location - list.ImageSet.get(list.getRow()).size(); i++) {
             			list.RenameSet.get(list.getRow()).add(null);
@@ -163,6 +164,7 @@ public class ButtonPanel extends GridPane implements Observer{
                
        	});
             right.Rename.setOnAction(e ->{
+            	TalkBoxLogger.logMenuPressEvent(e);
             	if(list.ImageSet.get(list.getRow()).size() <= location) {
             		for(int i = 0; i <= location - list.RenameSet.get(list.getRow()).size(); i++) {
             			list.ImageSet.get(list.getRow()).add(null);
