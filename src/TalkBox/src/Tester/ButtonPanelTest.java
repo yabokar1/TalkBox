@@ -27,7 +27,7 @@ class ButtonPanelTest {
 		assertEquals(buttonpanel.getRow(),0);
 	}
 	
-	
+	@Test
 	void initialAudioButtonCountOnPanel() {
 		
 		ButtonPanel buttonpanel = new ButtonPanel();

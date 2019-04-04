@@ -22,7 +22,7 @@ class TestSound {
 		try {
 		
 	    Sound sound = new Sound();
-		sound.soundFormat();
+		sound.soundFormat(null);
 		
 		}
 		
@@ -37,8 +37,8 @@ class TestSound {
 		 
 		 Sound sound = new Sound();
 		 String file= "Morning";
-		 sound.soundFormat();
-		 sound.start(file);
+		 sound.soundFormat(null);
+		 sound.start(file,null);
 		 assertEquals(file, sound.getFileName());
 		 
 		 
@@ -48,8 +48,8 @@ class TestSound {
 		
 		try {
 		Sound sound = new Sound();
-		sound.soundFormat();
-		sound.start("Hello");
+		sound.soundFormat(null);
+		sound.start("Hello",null);
 		}
 		
 		catch(Exception ioe) {
@@ -67,9 +67,9 @@ class TestSound {
 		targetLineTest = (TargetDataLine) AudioSystem.getLine(info);
 		targetLineTest.open();
 		Sound sound = new Sound();
-		sound.soundFormat();
-		sound.start("Null");
-		sound.stop();;
+		sound.soundFormat(null);
+		sound.start("Null",null);
+		sound.stop(null);
 		targetLineTest.stop();
 		targetLineTest.close();
 	    assertEquals(sound.getTargetLine().isOpen(), targetLineTest.isOpen());	

@@ -7,6 +7,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import io.TalkBoxLogger;
@@ -98,13 +99,10 @@ public class _TalkBox extends Application {
 	
 	public void AddProfileBox(RootView root, ButtonPanel panel,ProfileList profile) throws FileNotFoundException {
 		profile.setProfileParameters(panel);
-		//HBox section3 = new HBox();
-		//section3.getChildren().add(this.button.setProfile(panel, profile));
 		root.addChildView(this.audioAndSetPanel(panel, profile));
-		//root.addChildView(section3);
 	}
 	
-	public VBox audioAndSetPanel( ButtonPanel panel,ProfileList profile) throws FileNotFoundException { //Right side of the Gui
+	public VBox audioAndSetPanel(ButtonPanel panel,ProfileList profile) throws FileNotFoundException { //Right side of the Gui
 		VBox section2 = new VBox();
 		section2.getChildren().add(new Label("Profiles"));
 		section2.getChildren().add(profile.getTree());
@@ -131,11 +129,10 @@ public class _TalkBox extends Application {
 		return this.buttonPanel;
 	}
 	
-	
 	public void LaunchButton(ProfileList profile,ButtonPanel buttonp,RootView root) {
 		
 		
-		this.getButtonPanel().getChildren().addAll(button.addLaunchButton(buttonp,profile),button.Rename(buttonp));
+		this.getButtonPanel().getChildren().addAll(button.addLaunchButton(buttonp,profile), this.button.Rename(buttonp),this.button.Errors());
 	
 		
 	}

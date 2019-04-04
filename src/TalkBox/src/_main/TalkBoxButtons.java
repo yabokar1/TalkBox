@@ -13,6 +13,7 @@ import io.TalkBoxLogger;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.image.Image;
@@ -28,6 +29,7 @@ public class TalkBoxButtons {
 	private String filename;
 	private String newname;
 	public AudioSampleList list;
+	public TextArea Area;
 	
 	public TalkBoxButtons() {
 		sound = new Sound();
@@ -100,10 +102,17 @@ public class TalkBoxButtons {
 			TalkBoxLogger.logTextFieldEvent(e);
 			this.newname = text.getText();
 			p.setnewName(this.newname)
-			
 			;});
 		
 		return text;
+	}
+	
+	public TextArea Errors() {
+		 Area = new TextArea();
+		Area.setMaxSize(250, 75);
+		Area.setEditable(false);
+		return Area;
+		
 	}
 	
 	
@@ -124,7 +133,7 @@ public class TalkBoxButtons {
     		this.filename = filename.getText();
     	});
     	Button Stop = new Button("Stop");
-    	Stop.setOnAction(e ->{sound.stop();this.list.refresh();});
+    	Stop.setOnAction(e ->{sound.stop(this.Area);this.list.refresh();});
     	Stop.setMinSize(Names.STARTBUTTON_WIDTH, Names.STARTBUTTON_HEIGHT);
     	v.getChildren().addAll(Stop,filename);
     	return v;
@@ -139,8 +148,8 @@ public class TalkBoxButtons {
     	Record.setOnAction(e ->{
     		TalkBoxLogger.logButtonPressEvent(e);
     		try {
-				sound.soundFormat();
-				sound.start(this.filename);
+				sound.soundFormat(this.Area);
+				sound.start(this.filename,this.Area);
 			} catch (LineUnavailableException | InterruptedException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
