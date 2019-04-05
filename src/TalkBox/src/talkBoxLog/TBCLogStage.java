@@ -61,11 +61,11 @@ public class TBCLogStage {
 	        String line;
 	        while ((line = reader.readLine()) != null) {
 	        text.appendText(line + "\n");	
-	        }
-	    } catch (IOException e) {
+	        }   
+	    } 
+		catch (IOException e) {
 	        e.printStackTrace();
 	    }
 	}		
 
-	
 }
